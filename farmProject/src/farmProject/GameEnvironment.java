@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 
 //whaaaat
-//hellooo
+//helloooooooo
 public class GameEnvironment {
     
     private int days;
