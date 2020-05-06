@@ -2,6 +2,8 @@ package farmProject;
 import java.util.Scanner;
 
 
+
+//hello
 public class GameEnvironment {
     
     private int days;
