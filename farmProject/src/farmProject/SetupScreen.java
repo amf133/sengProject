@@ -21,10 +21,11 @@ public class SetupScreen {
 	private JTextField txtFarmer;
 	private JTextField txtFarm;
 	private JTextField txtBonus;
+	private WindowManager manager;
 
 	/**
 	 * Launch the application.
-	 */
+	 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -37,12 +38,15 @@ public class SetupScreen {
 			}
 		});
 	}
+	*/
 
 	/**
 	 * Create the application.
 	 */
-	public SetupScreen() {
+	public SetupScreen(WindowManager incomingManager) {
+		manager = incomingManager;
 		initialize();
+		frmFarmSetup.setVisible(true);
 	}
 
 	/**
