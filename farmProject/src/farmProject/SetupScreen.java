@@ -126,5 +126,9 @@ public class SetupScreen {
 		JButton btnBEGIN = new JButton("BEGIN");
 		btnBEGIN.setBounds(228, 208, 163, 34);
 		frmFarmSetup.getContentPane().add(btnBEGIN);
+		
+		JButton btnYOZA = new JButton("YOZA");
+		btnYOZA.setBounds(308, 53, 89, 23);
+		frmFarmSetup.getContentPane().add(btnYOZA);
 	}
 }
