@@ -1,5 +1,7 @@
 package farmProject;
 
+import static javax.swing.JOptionPane.showMessageDialog;
+
 public class WindowManager {
 	private Farm farmObject;
 	private Farmer farmerObject;
@@ -21,6 +23,7 @@ public class WindowManager {
 		days = incomingDays;
 		setupWindow.closeWindow();
 		TownMap map = new TownMap(this);
+		showMessageDialog(null, "\nStarting game with " + this.farmerObject.getName() +  "'s " + this.farmObject.getType() + " farm: " + this.farmObject.getName());
 	}
 	
 	

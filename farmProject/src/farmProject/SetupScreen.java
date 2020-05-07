@@ -1,7 +1,7 @@
 package farmProject;
 
 import java.awt.EventQueue;
-
+import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.JFrame;
 import java.awt.FlowLayout;
 import javax.swing.JLabel;
@@ -62,13 +62,13 @@ public class SetupScreen {
 	}
 	
 	
-	private boolean isValid(String farmName, String farmerName) { //need to add correct popups here
+	private boolean isValid(String farmName, String farmerName) {
 		boolean valid = false;
 		if ( farmerName.length() < 3 || farmerName.length() > 15 ) {
-        	System.out.println("Farmer name must be between 3 and 15 characters long.");
+			showMessageDialog(null, "Farmer name must be between 3 and 15 characters long.");
         }
 		else if ( farmName.length() < 3 || farmName.length() > 15 ) {
-			System.out.println("Farm name must be between 3 and 15 characters long.");
+			showMessageDialog(null, "Farm name must be between 3 and 15 characters long.");
 		}
 		else {
 			valid = true;
@@ -78,7 +78,7 @@ public class SetupScreen {
 	
 	
 	
-	private void finishedWindow() { //need to add code here to check if fiends have been entered correctly
+	private void finishedWindow() {
 		Farmer farmerObject;
 		String farmerName = txtFarmer.getText();
 		
@@ -91,11 +91,11 @@ public class SetupScreen {
 		if ( isValid(farmName, farmerName) ) {
 			farmerObject = new Farmer(farmerName);
 			farmType = Integer.parseInt(btnGroup.getSelection().getActionCommand()); //currently selected radio button as a number
-			farmObject = new Farm(farmName, farmType); //need to get selected button here
+			farmObject = new Farm(farmName, farmType);
 			manager.closeSetupScreen(this, farmObject, farmerObject, days);
 		}
 		else {
-			System.out.println("Error! Could not begin farm");
+			showMessageDialog(null, "Error! Could not begin game");
 		}
 	}
 	
@@ -172,12 +172,12 @@ public class SetupScreen {
 		JRadioButton rdbtnStarter = new JRadioButton("Starter");
 		rdbtnStarter.setBounds(109, 186, 66, 23);
 		frmFarmSetup.getContentPane().add(rdbtnStarter);
-		rdbtnStarter.setActionCommand("2");
+		rdbtnStarter.setActionCommand("3");
 		
 		JRadioButton rdbtnAnimal = new JRadioButton("Animal");
 		rdbtnAnimal.setBounds(182, 186, 66, 23);
 		frmFarmSetup.getContentPane().add(rdbtnAnimal);
-		rdbtnAnimal.setActionCommand("3");
+		rdbtnAnimal.setActionCommand("2");
 		
 		JRadioButton rdbtnLarge = new JRadioButton("Large");
 		rdbtnLarge.setBounds(250, 186, 66, 23);
