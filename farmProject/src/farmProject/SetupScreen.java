@@ -14,6 +14,8 @@ import javax.swing.JSlider;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class SetupScreen {
 
@@ -48,6 +50,18 @@ public class SetupScreen {
 		initialize();
 		frmFarmSetup.setVisible(true);
 	}
+	
+	
+	
+	public void closeWindow() {
+		frmFarmSetup.dispose();
+	}
+	
+	
+	private void finishedWindow() { //need to add code here to check if fiends have been entered correctly
+		manager.closeSetupScreen(this);
+	}
+	
 
 	/**
 	 * Initialize the contents of the frame.
@@ -128,6 +142,12 @@ public class SetupScreen {
 		txtBonus.setColumns(10);
 		
 		JButton btnBEGIN = new JButton("BEGIN");
+		btnBEGIN.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				finishedWindow();
+			}
+		});
 		btnBEGIN.setBounds(228, 208, 163, 34);
 		frmFarmSetup.getContentPane().add(btnBEGIN);
 	}
