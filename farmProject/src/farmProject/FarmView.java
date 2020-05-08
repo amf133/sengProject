@@ -1,5 +1,7 @@
 package farmProject;
 
+import static javax.swing.JOptionPane.showMessageDialog;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -45,6 +47,18 @@ public class FarmView {
 	}
 	
 	
+	private void viewAnimals() {
+		String animalString = manager.stringAnimals();
+		showMessageDialog(null, animalString);
+	}
+	
+	
+	private void viewCrops() {
+		String cropString = manager.stringCrops();
+		showMessageDialog(null, cropString);
+	}
+	
+	
 	private void finishedWindow() {
 		manager.toTownMap(this);
 	}
@@ -76,7 +90,7 @@ public class FarmView {
 		btnCrops.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				manager.farmObject.viewCrops();
+				viewCrops();
 			}
 		});
 		btnCrops.setBounds(298, 141, 89, 23);
@@ -86,7 +100,7 @@ public class FarmView {
 		btnAnimals.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				manager.farmObject.viewAnimals();
+				viewAnimals();
 			}
 		});
 		btnAnimals.setBounds(10, 104, 110, 23);

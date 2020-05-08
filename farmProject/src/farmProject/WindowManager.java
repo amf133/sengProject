@@ -2,6 +2,8 @@ package farmProject;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
+import java.util.ArrayList;
+
 public class WindowManager {
 	Farm farmObject; //need to be public
 	Farmer farmerObject;
@@ -52,6 +54,46 @@ public class WindowManager {
         }
         
     }
+	
+	
+	public String stringAnimals() {
+		String result = "";
+		
+		ArrayList<Animal> animals = farmObject.getAnimals();
+		
+		if (animals.isEmpty()){
+            result = "\nNo animals in farm";
+        }
+        else{
+            Double bonus = 0.0;
+            result += ("\n" + farmObject.getName() + " has capacity for " + (farmObject.maxAnimals - animals.size()) + " more animals");
+            for (Animal a : animals){
+                result += ("\nAnimal: " + a.getType() + " Happiness: " + a.getHappy() + " Health: " + a.getHealth());
+                bonus += a.getDailyBonus();
+            }
+            result += ("\nCurrent Daily income: $" + bonus);
+        }
+		return result;
+	}
+	
+	
+	
+	public String stringCrops() {
+		String result = "";
+		
+		ArrayList<Crop> crops = farmObject.getCrops();
+		
+		if (crops.isEmpty()){
+            result += "\nNo crops in farm";
+        }
+        else{
+            result += ("\n" + farmObject.getName() + " has capacity for " + (farmObject.maxCrops - farmObject.numberCrops() + " more crops"));
+            for (Crop c : crops){
+            result += ("\nCrop: " + c.getType() + " x " + c.getQuantity() + " Growth: " + c.getGrowth() + " Total worth: " + c.getWorth());
+            }
+        }
+		return result;
+	}
 	
 	
 	
