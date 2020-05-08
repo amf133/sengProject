@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class TownMap {
 
@@ -38,6 +40,15 @@ public class TownMap {
 		initialize();
 		frmTownMap.setVisible(true);
 	}
+	
+	
+	public void closeWindow() {
+		frmTownMap.dispose();
+	}
+	
+	private void finishedWindow() {
+		manager.toFarm(this);
+	}
 
 	/**
 	 * Initialize the contents of the frame.
@@ -49,11 +60,17 @@ public class TownMap {
 		frmTownMap.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmTownMap.getContentPane().setLayout(null);
 		
-		JLabel lblBal = new JLabel("Balance: $0");
+		JLabel lblBal = new JLabel("Balance: $" + manager.farmObject.getBal());
 		lblBal.setBounds(10, 11, 144, 14);
 		frmTownMap.getContentPane().add(lblBal);
 		
 		JButton btnFarm = new JButton("Farm");
+		btnFarm.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				finishedWindow();
+			}
+		});
 		btnFarm.setBounds(37, 184, 89, 23);
 		frmTownMap.getContentPane().add(btnFarm);
 		
