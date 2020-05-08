@@ -25,10 +25,17 @@ public class WindowManager {
 		TownMap map = new TownMap(this);
 		showMessageDialog(null, "\nStarting game with " + this.farmerObject.getName() +  "'s " + this.farmObject.getType() + " farm: " + this.farmObject.getName());
 	}
-	
+	public void viewAnimalStore() {
+		W_AnimalStore aStore = new W_AnimalStore(farmObject);
+		
+		
+	}
 	
 	public static void main(String[] args) {
 		WindowManager manager = new WindowManager();
 		manager.launchSetupScreen();
 	}
+
+
+
 }
