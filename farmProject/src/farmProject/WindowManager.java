@@ -119,9 +119,14 @@ public class WindowManager {
 	}
 	public void viewAnimalStore() {
 		W_AnimalStore aStore = new W_AnimalStore(farmObject);
-		
-		
-		
+	}
+	
+	public void viewCropStore() {
+		W_CropStore cStore = new W_CropStore(farmObject);
+	}
+	
+	public void viewItemStore() {
+		W_ItemStore iStore = new W_ItemStore(farmObject);
 	}
 	
 	public static void main(String[] args) {

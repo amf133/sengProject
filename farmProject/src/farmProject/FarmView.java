@@ -12,7 +12,7 @@ import java.awt.event.MouseEvent;
 
 public class FarmView {
 
-	private JFrame frame;
+	private JFrame frmFarm;
 	private JButton btnAnimals;
 	private WindowManager manager;
 
@@ -39,11 +39,11 @@ public class FarmView {
 	public FarmView(WindowManager incomingManager) {
 		manager = incomingManager;
 		initialize();
-		frame.setVisible(true);
+		frmFarm.setVisible(true);
 	}
 	
 	public void closeWindow() {
-		frame.dispose();
+		frmFarm.dispose();
 	}
 	
 	
@@ -67,14 +67,15 @@ public class FarmView {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmFarm = new JFrame();
+		frmFarm.setTitle("Farm");
+		frmFarm.setBounds(100, 100, 450, 300);
+		frmFarm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmFarm.getContentPane().setLayout(null);
 		
 		JLabel lblBal = new JLabel("Balance: $" + manager.farmObject.getBal());
 		lblBal.setBounds(23, 11, 120, 14);
-		frame.getContentPane().add(lblBal);
+		frmFarm.getContentPane().add(lblBal);
 		
 		JButton btnTownMap = new JButton("Town Map");
 		btnTownMap.addMouseListener(new MouseAdapter() {
@@ -84,7 +85,7 @@ public class FarmView {
 			}
 		});
 		btnTownMap.setBounds(298, 39, 89, 23);
-		frame.getContentPane().add(btnTownMap);
+		frmFarm.getContentPane().add(btnTownMap);
 		
 		JButton btnCrops = new JButton("View Crops");
 		btnCrops.addMouseListener(new MouseAdapter() {
@@ -94,7 +95,7 @@ public class FarmView {
 			}
 		});
 		btnCrops.setBounds(298, 141, 89, 23);
-		frame.getContentPane().add(btnCrops);
+		frmFarm.getContentPane().add(btnCrops);
 		
 		btnAnimals = new JButton("View Animals");
 		btnAnimals.addMouseListener(new MouseAdapter() {
@@ -104,7 +105,7 @@ public class FarmView {
 			}
 		});
 		btnAnimals.setBounds(10, 104, 110, 23);
-		frame.getContentPane().add(btnAnimals);
+		frmFarm.getContentPane().add(btnAnimals);
 		
 		JButton btnNewDay = new JButton("Next Day");
 		btnNewDay.addMouseListener(new MouseAdapter() {
@@ -114,10 +115,10 @@ public class FarmView {
 			}
 		});
 		btnNewDay.setBounds(23, 212, 89, 23);
-		frame.getContentPane().add(btnNewDay);
+		frmFarm.getContentPane().add(btnNewDay);
 		
 		JButton btnActions = new JButton("Actions");
 		btnActions.setBounds(161, 120, 89, 23);
-		frame.getContentPane().add(btnActions);
+		frmFarm.getContentPane().add(btnActions);
 	}
 }

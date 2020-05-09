@@ -51,6 +51,14 @@ public class TownMap {
 	public void storeAnimal() {
 		manager.viewAnimalStore();
 	}
+	
+	public void storeCrop() {
+		manager.viewCropStore();
+	}
+	
+	public void storeItem() {
+		manager.viewItemStore();
+	}
 		
 //=======
 	
@@ -86,11 +94,7 @@ public class TownMap {
 		});
 		btnFarm.setBounds(37, 184, 89, 23);
 		frmTownMap.getContentPane().add(btnFarm);
-		
-		JButton btnStoreItem = new JButton("Item store");
-		btnStoreItem.setBounds(37, 85, 89, 23);
-		frmTownMap.getContentPane().add(btnStoreItem);
-		
+			
 		JButton btnStoreAnimal = new JButton("Animal store");
 		btnStoreAnimal.addMouseListener(new MouseAdapter() {
 			@Override
@@ -102,7 +106,23 @@ public class TownMap {
 		frmTownMap.getContentPane().add(btnStoreAnimal);
 		
 		JButton btnStoreCrop = new JButton("Crop store");
+		btnStoreCrop.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				storeCrop();
+			}
+		});
 		btnStoreCrop.setBounds(294, 102, 104, 23);
 		frmTownMap.getContentPane().add(btnStoreCrop);
+		
+		JButton btnStoreItem = new JButton("Item store");
+		btnStoreItem.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				storeItem();
+			}
+		});
+		btnStoreItem.setBounds(37, 85, 89, 23);
+		frmTownMap.getContentPane().add(btnStoreItem);
 	}
 }

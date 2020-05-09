@@ -20,6 +20,7 @@ import javax.swing.JButton;
 import javax.swing.JTextPane;
 import javax.swing.text.BadLocationException;
 import javax.swing.JTextArea;
+import java.awt.Color;
 
 public class W_AnimalStore {
 
@@ -62,6 +63,7 @@ public class W_AnimalStore {
 		frmAnimalStore.getContentPane().setLayout(null);
 		
 		JTextArea txtView = new JTextArea();
+		txtView.setBackground(Color.WHITE);
 		
 		/**
 		JScrollPane scroll = new JScrollPane (txtView, 
@@ -86,19 +88,20 @@ public class W_AnimalStore {
 		lblMoney.setText("Current Balance: $" + farmObject.getBal());
 		frmAnimalStore.getContentPane().add(lblMoney);
 		
-		JButton btnReturn = new JButton("Back to map");
+		JButton btnReturn = new JButton("Return");
+		btnReturn.setBackground(Color.RED);
 		btnReturn.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				frmAnimalStore.setVisible(false);
-				
 			}
 		});
-		btnReturn.setBounds(24, 214, 91, 36);
+		btnReturn.setBounds(49, 214, 91, 36);
 		frmAnimalStore.getContentPane().add(btnReturn);
 		
 		// Button to buy cow
 		JButton btnBuyCow = new JButton("Cow $120");
+		btnBuyCow.setBackground(Color.CYAN);
 		double cow_cost = 120.0;
 		btnBuyCow.addMouseListener(new MouseAdapter(){
 			@Override
@@ -120,6 +123,7 @@ public class W_AnimalStore {
 		
 		// Button to buy pig
 		JButton btnBuyPig = new JButton("Pig $150");
+		btnBuyPig.setBackground(Color.PINK);
 		double pig_cost = 150.0;
 		btnBuyPig.addMouseListener(new MouseAdapter(){
 			@Override
@@ -142,6 +146,7 @@ public class W_AnimalStore {
 		
 		// Button to buy sheep
 		JButton btnBuySheep = new JButton("Sheep $100");
+		btnBuySheep.setBackground(Color.WHITE);
 		btnBuySheep.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
