@@ -11,6 +11,8 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+
 import static javax.swing.JOptionPane.showMessageDialog;
 
 import java.awt.Font;
@@ -60,13 +62,21 @@ public class W_AnimalStore {
 		frmAnimalStore.getContentPane().setLayout(null);
 		
 		JTextArea txtView = new JTextArea();
+		
+		/**
+		JScrollPane scroll = new JScrollPane (txtView, 
+				   JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+				frmAnimalStore.add(scroll);
+		*/
+		
 		txtView.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		ArrayList<Animal> animals = farmObject.getAnimals();
 		txtView.setText("Your Animals:");
 		for (Animal a : animals) {
 			txtView.append("\n" + a.getType() + ": Happiness: " + a.getHappy() + " Health: " + a.getHealth());
 			}
-		txtView.setBounds(168, 46, 203, 112);
+		
+		txtView.setBounds(206, 19, 203, 216);
 		txtView.setEditable(false);
 		frmAnimalStore.getContentPane().add(txtView);
 		
@@ -81,13 +91,14 @@ public class W_AnimalStore {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				frmAnimalStore.setVisible(false);
+				
 			}
 		});
-		btnReturn.setBounds(198, 169, 130, 64);
+		btnReturn.setBounds(24, 214, 91, 36);
 		frmAnimalStore.getContentPane().add(btnReturn);
 		
 		// Button to buy cow
-		JButton btnBuyCow = new JButton("Cow $20");
+		JButton btnBuyCow = new JButton("Cow $120");
 		double cow_cost = 120.0;
 		btnBuyCow.addMouseListener(new MouseAdapter(){
 			@Override
@@ -96,7 +107,7 @@ public class W_AnimalStore {
 					showMessageDialog(null, "You do not have enough money!");
 				}
 				else {
-					Animal a = new Animal("Cow", 120.0);
+					Animal a = new Animal("Cow", cow_cost);
 					farmObject.addAnimal(a);
 					farmObject.updateBal(-cow_cost);
 					lblMoney.setText(("Current Balance: $" + farmObject.getBal()));
@@ -104,11 +115,11 @@ public class W_AnimalStore {
 				}
 			}
 		});
-		btnBuyCow.setBounds(25, 58, 89, 23);
+		btnBuyCow.setBounds(24, 92, 130, 36);
 		frmAnimalStore.getContentPane().add(btnBuyCow);
 		
 		// Button to buy pig
-		JButton btnBuyPig = new JButton("Pig $25");
+		JButton btnBuyPig = new JButton("Pig $150");
 		double pig_cost = 150.0;
 		btnBuyPig.addMouseListener(new MouseAdapter(){
 			@Override
@@ -117,7 +128,7 @@ public class W_AnimalStore {
 					showMessageDialog(null, "You do not have enough money!");
 				}
 				else {
-					Animal a = new Animal("Pig", 150.0);
+					Animal a = new Animal("Pig", pig_cost);
 					farmObject.addAnimal(a);
 					farmObject.updateBal(-pig_cost);
 					lblMoney.setText(("Current Balance: $" + farmObject.getBal()));
@@ -126,12 +137,16 @@ public class W_AnimalStore {
 				}
 			}
 		});
-		btnBuyPig.setBounds(25, 126, 89, 23);
+		btnBuyPig.setBounds(24, 139, 130, 36);
 		frmAnimalStore.getContentPane().add(btnBuyPig);
 		
 		// Button to buy sheep
 		JButton btnBuySheep = new JButton("Sheep $100");
-		double sheep_cost = 150.0;
+		btnBuySheep.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		double sheep_cost = 100.0;
 		btnBuySheep.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -139,7 +154,7 @@ public class W_AnimalStore {
 					showMessageDialog(null, "You do not have enough money!");
 				}
 				else {
-					Animal a = new Animal("Sheep", 120.0);
+					Animal a = new Animal("Sheep", sheep_cost);
 					farmObject.addAnimal(a);
 					farmObject.updateBal(-sheep_cost);
 					lblMoney.setText(("Current Balance: $" + farmObject.getBal()));
@@ -147,7 +162,7 @@ public class W_AnimalStore {
 				}
 			}
 		});
-		btnBuySheep.setBounds(24, 92, 89, 23);
+		btnBuySheep.setBounds(24, 46, 130, 36);
 		frmAnimalStore.getContentPane().add(btnBuySheep);
 		
 		
