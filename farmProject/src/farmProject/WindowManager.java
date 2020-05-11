@@ -10,16 +10,22 @@ public class WindowManager {
     private int days;
     private int turns = 2;
     private Double EVENTCHANCE = 5.0;
+    private SetupScreen setupScreen = new SetupScreen(this);
+    private TownMap map = new TownMap(this);
+    private FarmView farmView = new FarmView(this);
+    private W_Actions actionWindow = new W_Actions(this);
 	
 	
 	
 
 	public void launchSetupScreen() {
-		SetupScreen setupScreen = new SetupScreen(this);
+		setupScreen.show();
 	}
 	
 	
-	
+	public void openActions() {
+		actionWindow.show();
+	}
 	
 	public void newDay(){
         turns = 2;
@@ -48,9 +54,6 @@ public class WindowManager {
                     farmObject.brokenFence();
                 }
             }
-            farmObject.viewAnimals();
-            farmObject.viewCrops();
-            farmObject.viewBal();
         }
         
     }
@@ -97,26 +100,27 @@ public class WindowManager {
 	
 	
 	
-	public void toFarm(TownMap window) {
-		window.closeWindow();
-		FarmView farmView = new FarmView(this);
+	public void toFarm() {
+		map.closeWindow();
+		farmView.show();
 	}
 	
 	
-	public void toTownMap(FarmView window) {
-		window.closeWindow();
-		TownMap townMap = new TownMap(this);
+	public void toTownMap() {
+		farmView.closeWindow();
+		map.show();
 	}
 	
 	
-	public void closeSetupScreen(SetupScreen setupWindow, Farm incomingFarm, Farmer incomingFarmer, int incomingDays) {
+	public void closeSetupScreen(Farm incomingFarm, Farmer incomingFarmer, int incomingDays) {
 		farmerObject = incomingFarmer;
 		farmObject = incomingFarm;
 		days = incomingDays;
-		setupWindow.closeWindow();
-		TownMap map = new TownMap(this);
+		setupScreen.closeWindow();
+		map.show();
 		showMessageDialog(null, "\nStarting game with " + this.farmerObject.getName() +  "'s " + this.farmObject.getType() + " farm: " + this.farmObject.getName());
 	}
+	
 	public void viewAnimalStore() {
 		W_AnimalStore aStore = new W_AnimalStore(farmObject);
 	}

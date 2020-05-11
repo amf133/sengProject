@@ -21,27 +21,8 @@ import javax.swing.JPanel;
 public class TownMap {
 
 	private JFrame frmTownMap;
-	
+	private JLabel lblBal;
 	private WindowManager manager;
-
-	/**
-	 * Launch the application.
-	 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TownMap window = new TownMapGUI();
-					window.frmTownMap.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	*/
-	
-	
 
 	/**
 	 * Create the application.
@@ -49,7 +30,6 @@ public class TownMap {
 	public TownMap(WindowManager incomingManager) {
 		manager = incomingManager;
 		initialize();
-		frmTownMap.setVisible(true);
 	}
 	
 //<<<<<<< HEAD
@@ -64,15 +44,24 @@ public class TownMap {
 	public void storeItem() {
 		manager.viewItemStore();
 	}
+	
+	public void show() {
+		frmTownMap.setVisible(true);
+		updateBal();
+	}
+	
+	private void updateBal() {
+		lblBal.setText("Balance: $" + manager.farmObject.getBal());
+	}
 		
 //=======
 	
 	public void closeWindow() {
-		frmTownMap.dispose();
+		frmTownMap.setVisible(false);
 	}
 	
 	private void finishedWindow() {
-		manager.toFarm(this);
+		manager.toFarm();
 //>>>>>>> branch 'master' of https://github.com/amf133/sengProject.git
 	}
 
@@ -94,7 +83,7 @@ public class TownMap {
 			}
 		});
 		
-		JLabel lblBal = new JLabel("Balance: $" + manager.farmObject.getBal());
+		lblBal = new JLabel("Balance: $0");
 		lblBal.setBounds(21, 11, 243, 22);
 		frmTownMap.getContentPane().add(lblBal);
 		lblBal.setFont(new Font("Tahoma", Font.BOLD, 18));

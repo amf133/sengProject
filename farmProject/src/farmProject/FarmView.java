@@ -19,35 +19,24 @@ public class FarmView {
 	private JFrame frmFarm;
 	private JButton btnAnimals;
 	private WindowManager manager;
+	private JLabel lblBal;
 
-	/**
-	 * Launch the application.
-	 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					FarmView window = new FarmView();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	*/
-
+	
 	/**
 	 * Create the application.
 	 */
 	public FarmView(WindowManager incomingManager) {
 		manager = incomingManager;
 		initialize();
-		frmFarm.setVisible(true);
 	}
 	
 	public void closeWindow() {
-		frmFarm.dispose();
+		frmFarm.setVisible(false);
+	}
+	
+	public void show() {
+		frmFarm.setVisible(true);
+		updateBal();
 	}
 	
 	
@@ -62,11 +51,16 @@ public class FarmView {
 		showMessageDialog(null, cropString);
 	}
 	
+	public void updateBal() {
+		lblBal.setText("Balance: $" + manager.farmObject.getBal());
+	}
+	
 	
 	private void finishedWindow() {
-		manager.toTownMap(this);
+		manager.toTownMap();
 	}
 
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -77,7 +71,7 @@ public class FarmView {
 		frmFarm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmFarm.getContentPane().setLayout(null);
 		
-		JLabel lblBal = new JLabel("Balance: $" + manager.farmObject.getBal());
+		lblBal = new JLabel("Balance: $0");
 		lblBal.setForeground(Color.WHITE);
 		lblBal.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblBal.setBounds(23, 11, 197, 14);
@@ -123,13 +117,19 @@ public class FarmView {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				manager.newDay();
-				lblBal.setText("Balance: $" + manager.farmObject.getBal());
+				updateBal();
 			}
 		});
 		btnNewDay.setBounds(339, 194, 89, 23);
 		frmFarm.getContentPane().add(btnNewDay);
 		
 		JButton btnActions = new JButton("Actions");
+		btnActions.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				manager.openActions();
+			}
+		});
 		btnActions.setBounds(369, 337, 89, 23);
 		frmFarm.getContentPane().add(btnActions);
 		

@@ -460,7 +460,6 @@ public class Farm {
         Double bonus = 0.0;
         bonus += ((getAnimals().size() * 40.0) + (numberCrops() * 4.0));
         updateBal(bonus);
-        System.out.println("You were awarded $" + bonus + "!");
     }
     
 }
