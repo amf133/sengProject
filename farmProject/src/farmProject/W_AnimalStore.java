@@ -31,6 +31,8 @@ public class W_AnimalStore {
 
 	private JFrame frmAnimalStore;
 	private WindowManager manager;
+	private JTextArea txtView;
+	private JLabel lblMoney;
 
 	/**
 	 * Create the application
@@ -38,6 +40,11 @@ public class W_AnimalStore {
 	public W_AnimalStore(WindowManager incomingManager, Farm farmObject) {
 		manager = incomingManager;
 		initialize(farmObject);
+	}
+	
+	private void updateWindow(Animal a) {
+		
+		
 	}
 
 	public void closeWindow() {
@@ -118,8 +125,10 @@ public class W_AnimalStore {
 					Animal a = new Animal("Cow", cow_cost);
 					farmObject.addAnimal(a);
 					farmObject.updateBal(-cow_cost);
-					lblMoney.setText(("Current Balance: $" + farmObject.getBal()));
 					txtView.append("\n" + a.getType() + ": Happiness: " + a.getHappy() + " Health: " + a.getHealth());
+					lblMoney.setText(("Current Balance: $" + manager.farmObject.getBal()));
+					
+					
 				}
 			}
 		});

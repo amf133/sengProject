@@ -198,7 +198,7 @@ public class GameEnvironment {
         String[] itemTypes = new String[]{"Medicine", "Grub", "Seeds", "Fertilizer", "Sunlight", "Instant grow"};
         String[] itemDescriptions = new String[]{"Max health on all animals", "Increase all animals health by 50% of its max", "Increase all animals health by 20% of its max",
                                                  "Decrease time till grown by (25%)", "Decreases time till grown by (50%)", "Crops grow instantly overnight!"};
-        Double[] itemCosts = new Double[]{20.0, 50.0, 30.0, 10.0, 50.0, 150.0}; // value of crops?
+        Double[] itemCosts = new Double[]{50.0, 20.0, 30.0, 10.0, 50.0, 150.0}; // value of crops?
         String input = "0";
         
         do{
