@@ -5,7 +5,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 import java.util.ArrayList;
 
 public class WindowManager {
-	Farm farmObject; //need to be public
+	public Farm farmObject; //need to be public
 	Farmer farmerObject;
     private int days;
     private int turns = 2;
@@ -13,33 +13,34 @@ public class WindowManager {
     private SetupScreen setupScreen = new SetupScreen(this);
     private TownMap map = new TownMap(this);
     private FarmView farmView = new FarmView(this);
+    
     private W_Actions actionWindow = new W_Actions(this);
     
-    private W_AnimalStore aStore = new W_AnimalStore(this);
-    private W_CropStore cStore = new W_CropStore(this);
-    private W_ItemStore iStore = new W_ItemStore(this);
-	
-	
-	
+
 
 	public void launchSetupScreen() {
 		setupScreen.show();
 	}
-	
 	
 	public void openActions() {
 		actionWindow.show();
 	}
 	
 	public void viewAnimalStore() {
+		W_AnimalStore aStore = new W_AnimalStore(this, farmObject);
+		map.closeWindow();
 		aStore.show();
 	}
 	
 	public void viewCropStore() {
+		W_CropStore cStore = new W_CropStore(this, farmObject);
+		map.closeWindow();
 		cStore.show();
 	}
 	
 	public void viewItemStore() {
+		W_ItemStore iStore = new W_ItemStore(this, farmObject);
+		map.closeWindow();
 		iStore.show();
 	}
 	

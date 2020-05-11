@@ -32,15 +32,14 @@ public class W_AnimalStore {
 	private JFrame frmAnimalStore;
 	private WindowManager manager;
 
-	
 	/**
 	 * Create the application
 	 */
-	public W_AnimalStore(WindowManager incomingManager) {
+	public W_AnimalStore(WindowManager incomingManager, Farm farmObject) {
 		manager = incomingManager;
-		initialize();
+		initialize(farmObject);
 	}
-	
+
 	public void closeWindow() {
 		frmAnimalStore.setVisible(false);
 	}
@@ -50,6 +49,7 @@ public class W_AnimalStore {
 	}
 	
 	private void finishedWindow() {
+		closeWindow();
 		manager.toTownMap();
 	}
 	/**
@@ -60,9 +60,8 @@ public class W_AnimalStore {
 	
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(Farm farmObject) {
 		
-		Farm farmObject = manager.farmObject;
 		
 		frmAnimalStore = new JFrame();
 		frmAnimalStore.setTitle("Animal Store");
@@ -139,8 +138,8 @@ public class W_AnimalStore {
 				}
 				else {
 					Animal a = new Animal("Pig", pig_cost);
-					farmObject.addAnimal(a);
-					farmObject.updateBal(-pig_cost);
+					manager.farmObject.addAnimal(a);
+					manager.farmObject.updateBal(-pig_cost);
 					lblMoney.setText(("Current Balance: $" + farmObject.getBal()));
 					txtView.append("\n" + a.getType() + ": Happiness: " + a.getHappy() + " Health: " + a.getHealth());
 

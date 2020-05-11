@@ -33,9 +33,9 @@ public class W_CropStore {
 	/**
 	 * Create the application.
 	 */
-	public W_CropStore(WindowManager incomingManager) {
+	public W_CropStore(WindowManager incomingManager, Farm farmObject)  {
 		manager = incomingManager;
-		initialize();
+		initialize(farmObject);
 	}
 	public void closeWindow() {
 		frmCropStore.setVisible(false);
@@ -46,14 +46,14 @@ public class W_CropStore {
 	}
 	
 	private void finishedWindow() {
+		closeWindow();
 		manager.toTownMap();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
-		Farm farmObject = manager.farmObject;
+	private void initialize(Farm farmObject) {
 		frmCropStore = new JFrame();
 		frmCropStore.setBounds(100, 100, 450, 300);
 		frmCropStore.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

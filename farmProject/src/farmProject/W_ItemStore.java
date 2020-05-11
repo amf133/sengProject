@@ -21,6 +21,7 @@ public class W_ItemStore {
 
 	private JFrame frmItemStore;
 	private WindowManager manager;
+	private Farm farm;
 
 	/**
 	 * Launch the application.
@@ -42,8 +43,9 @@ public class W_ItemStore {
 	/**
 	 * Create the application.
 	 */
-	public W_ItemStore(WindowManager incomingManager) {
+	public W_ItemStore(WindowManager incomingManager, Farm farmObject)  {
 		manager = incomingManager;
+		farm = farmObject;
 		initialize();
 	}
 	public void closeWindow() {
@@ -55,6 +57,7 @@ public class W_ItemStore {
 	}
 	
 	private void finishedWindow() {
+		closeWindow();
 		manager.toTownMap();
 	}
 
@@ -62,7 +65,6 @@ public class W_ItemStore {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		Farm farmObject = manager.farmObject;
 		
 		frmItemStore = new JFrame();
 		frmItemStore.setTitle("Item Store");
@@ -73,7 +75,7 @@ public class W_ItemStore {
 		JLabel lblBal = new JLabel("Balance:");
 		lblBal.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblBal.setBounds(10, 11, 80, 14);
-		lblBal.setText("Current Balance: $" + farmObject.getBal());
+		lblBal.setText("Current Balance: $" + farm.getBal());
 		frmItemStore.getContentPane().add(lblBal);
 		
 		
