@@ -420,7 +420,7 @@ public class Farm {
     * @param max highest val for random number
     * @return x random number generated
     */
-    public static Double getRandomDoubleBetweenRange(double min, double max){
+    public static double getRandomDoubleBetweenRange(double min, double max){
         double x = (int)(Math.random()*((max-min)+1))+min;
         return x; 
     }
@@ -429,15 +429,12 @@ public class Farm {
     * Random event, remove random animal from farm and decrease happiness of other animals
     */
     public void brokenFence(){
-        Double x = getRandomDoubleBetweenRange(1,3);
-        double i = 0.0;
+        double x = getRandomDoubleBetweenRange(1,3);
         
-        for (Animal a : animals){
-            a.editHappiness(-0.4);
-            if (i < x){
-                animals.remove(a);
+        for (int i=0 ; i < x ; i++){
+            if (animals.size() > 0){
+            	animals.remove(0);
             }
-            i += 1;
         }
     }
     
@@ -445,7 +442,7 @@ public class Farm {
     * Random event, destroy half crops at random
     */
     public void drought(){ //random number of crops will be halfed in quantity
-        Double x = getRandomDoubleBetweenRange(1, crops.size()); //how many different crops will be halved
+        double x = getRandomDoubleBetweenRange(1, crops.size()); //how many different crops will be halved
         double i = 0.0;
         
         for (Crop c : crops){

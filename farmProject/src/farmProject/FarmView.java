@@ -123,6 +123,7 @@ public class FarmView {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				manager.newDay();
+				lblBal.setText("Balance: $" + manager.farmObject.getBal());
 			}
 		});
 		btnNewDay.setBounds(339, 194, 89, 23);
