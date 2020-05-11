@@ -20,6 +20,7 @@ import javax.swing.JTextPane;
 public class W_ItemStore {
 
 	private JFrame frmItemStore;
+	private WindowManager manager;
 
 	/**
 	 * Launch the application.
@@ -41,26 +42,47 @@ public class W_ItemStore {
 	/**
 	 * Create the application.
 	 */
-	public W_ItemStore(Farm farmObject) {
-		initialize(farmObject);
+	public W_ItemStore(WindowManager incomingManager) {
+		manager = incomingManager;
+		initialize();
+	}
+	public void closeWindow() {
+		frmItemStore.setVisible(false);
+	}
+	
+	public void show() {
 		frmItemStore.setVisible(true);
+	}
+	
+	private void finishedWindow() {
+		manager.toTownMap();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(Farm farmObejct) {
+	private void initialize() {
+		Farm farmObject = manager.farmObject;
+		
 		frmItemStore = new JFrame();
 		frmItemStore.setTitle("Item Store");
 		frmItemStore.setBounds(100, 100, 535, 440);
 		frmItemStore.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmItemStore.getContentPane().setLayout(null);
 		
+		JLabel lblBal = new JLabel("Balance:");
+		lblBal.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblBal.setBounds(10, 11, 80, 14);
+		lblBal.setText("Current Balance: $" + farmObject.getBal());
+		frmItemStore.getContentPane().add(lblBal);
+		
+		
 		JButton btnReturn = new JButton("Return");
+		btnReturn.setBackground(Color.RED);
 		btnReturn.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				frmItemStore.setVisible(false);
+				finishedWindow();
 			}
 		});
 		btnReturn.setBounds(386, 329, 117, 39);
@@ -125,12 +147,7 @@ public class W_ItemStore {
 		txtCItem.setBackground(Color.WHITE);
 		txtCItem.setBounds(386, 212, 117, 89);
 		frmItemStore.getContentPane().add(txtCItem);
-		
-		JLabel lblBal = new JLabel("Balance:");
-		lblBal.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblBal.setBounds(10, 11, 80, 14);
-		frmItemStore.getContentPane().add(lblBal);
-		
+
 		JLabel lblGrowthIncreae = new JLabel("Growth Increase %");
 		lblGrowthIncreae.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblGrowthIncreae.setBounds(264, 185, 123, 23);

@@ -30,20 +30,40 @@ import java.awt.SystemColor;
 public class W_AnimalStore {
 
 	private JFrame frmAnimalStore;
+	private WindowManager manager;
 
 	
 	/**
 	 * Create the application
 	 */
-	public W_AnimalStore(Farm farmObject) {
-		initialize(farmObject);
+	public W_AnimalStore(WindowManager incomingManager) {
+		manager = incomingManager;
+		initialize();
+	}
+	
+	public void closeWindow() {
+		frmAnimalStore.setVisible(false);
+	}
+	
+	public void show() {
 		frmAnimalStore.setVisible(true);
 	}
 	
+	private void finishedWindow() {
+		manager.toTownMap();
+	}
 	/**
+	 * 
+	public void updateBal() {
+		lblMoney.setText("Current Balance: $" + manager.farmObject.getBal());
+	}
+	
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(Farm farmObject) {
+	private void initialize() {
+		
+		Farm farmObject = manager.farmObject;
+		
 		frmAnimalStore = new JFrame();
 		frmAnimalStore.setTitle("Animal Store");
 		frmAnimalStore.setBounds(100, 100, 450, 300);
@@ -63,7 +83,7 @@ public class W_AnimalStore {
 		txtView.setBounds(206, 19, 203, 216);
 		txtView.setEditable(false);
 		frmAnimalStore.getContentPane().add(txtView);
-		txtView.setOpaque(false);
+
 		
 		
 		JLabel lblMoney = new JLabel();
@@ -79,7 +99,7 @@ public class W_AnimalStore {
 		btnReturn.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				frmAnimalStore.setVisible(false);
+				finishedWindow();
 			}
 		});
 		btnReturn.setBounds(49, 214, 91, 36);

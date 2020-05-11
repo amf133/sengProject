@@ -14,6 +14,10 @@ public class WindowManager {
     private TownMap map = new TownMap(this);
     private FarmView farmView = new FarmView(this);
     private W_Actions actionWindow = new W_Actions(this);
+    
+    private W_AnimalStore aStore = new W_AnimalStore(this);
+    private W_CropStore cStore = new W_CropStore(this);
+    private W_ItemStore iStore = new W_ItemStore(this);
 	
 	
 	
@@ -25,6 +29,18 @@ public class WindowManager {
 	
 	public void openActions() {
 		actionWindow.show();
+	}
+	
+	public void viewAnimalStore() {
+		aStore.show();
+	}
+	
+	public void viewCropStore() {
+		cStore.show();
+	}
+	
+	public void viewItemStore() {
+		iStore.show();
 	}
 	
 	
@@ -122,18 +138,7 @@ public class WindowManager {
 		showMessageDialog(null, "\nStarting game with " + this.farmerObject.getName() +  "'s " + this.farmObject.getType() + " farm: " + this.farmObject.getName());
 	}
 	
-	public void viewAnimalStore() {
-		W_AnimalStore aStore = new W_AnimalStore(farmObject);
-	}
-	
-	public void viewCropStore() {
-		W_CropStore cStore = new W_CropStore(farmObject);
-	}
-	
-	public void viewItemStore() {
-		W_ItemStore iStore = new W_ItemStore(farmObject);
-	}
-	
+
 	public static void main(String[] args) {
 		WindowManager manager = new WindowManager();
 		manager.launchSetupScreen();
