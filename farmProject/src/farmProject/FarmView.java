@@ -9,6 +9,10 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+import java.awt.Color;
+import java.awt.Font;
 
 public class FarmView {
 
@@ -69,13 +73,20 @@ public class FarmView {
 	private void initialize() {
 		frmFarm = new JFrame();
 		frmFarm.setTitle("Farm");
-		frmFarm.setBounds(100, 100, 450, 300);
+		frmFarm.setBounds(100, 100, 818, 490);
 		frmFarm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmFarm.getContentPane().setLayout(null);
 		
 		JLabel lblBal = new JLabel("Balance: $" + manager.farmObject.getBal());
-		lblBal.setBounds(23, 11, 120, 14);
+		lblBal.setForeground(Color.WHITE);
+		lblBal.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblBal.setBounds(23, 11, 197, 14);
 		frmFarm.getContentPane().add(lblBal);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.GRAY);
+		panel.setBounds(0, 0, 259, 43);
+		frmFarm.getContentPane().add(panel);
 		
 		JButton btnTownMap = new JButton("Town Map");
 		btnTownMap.addMouseListener(new MouseAdapter() {
@@ -84,7 +95,7 @@ public class FarmView {
 				finishedWindow();
 			}
 		});
-		btnTownMap.setBounds(298, 39, 89, 23);
+		btnTownMap.setBounds(635, 225, 120, 23);
 		frmFarm.getContentPane().add(btnTownMap);
 		
 		JButton btnCrops = new JButton("View Crops");
@@ -94,7 +105,7 @@ public class FarmView {
 				viewCrops();
 			}
 		});
-		btnCrops.setBounds(298, 141, 89, 23);
+		btnCrops.setBounds(623, 356, 120, 23);
 		frmFarm.getContentPane().add(btnCrops);
 		
 		btnAnimals = new JButton("View Animals");
@@ -104,7 +115,7 @@ public class FarmView {
 				viewAnimals();
 			}
 		});
-		btnAnimals.setBounds(10, 104, 110, 23);
+		btnAnimals.setBounds(55, 308, 139, 23);
 		frmFarm.getContentPane().add(btnAnimals);
 		
 		JButton btnNewDay = new JButton("Next Day");
@@ -114,11 +125,16 @@ public class FarmView {
 				manager.newDay();
 			}
 		});
-		btnNewDay.setBounds(23, 212, 89, 23);
+		btnNewDay.setBounds(339, 194, 89, 23);
 		frmFarm.getContentPane().add(btnNewDay);
 		
 		JButton btnActions = new JButton("Actions");
-		btnActions.setBounds(161, 120, 89, 23);
+		btnActions.setBounds(369, 337, 89, 23);
 		frmFarm.getContentPane().add(btnActions);
+		
+		JLabel lblBackground = new JLabel("");
+		lblBackground.setIcon(new ImageIcon(FarmView.class.getResource("/Images/farm.jpg")));
+		lblBackground.setBounds(0, 0, 802, 451);
+		frmFarm.getContentPane().add(lblBackground);
 	}
 }
