@@ -26,32 +26,16 @@ public class W_AnimalStore {
 
 	private JFrame frmAnimalStore;
 
-	/**
-	 * Launch the application.
-	 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					W_AnimalStore window = new W_AnimalStore();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	*/
 	
 	/**
-	 * Create the application.
+	 * Create the application
 	 */
 	public W_AnimalStore(Farm farmObject) {
 		initialize(farmObject);
 		frmAnimalStore.setVisible(true);
 	}
-
-
+	
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */

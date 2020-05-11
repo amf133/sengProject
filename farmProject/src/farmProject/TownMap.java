@@ -12,31 +12,17 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import javax.swing.JPanel;
 
 public class TownMap {
 
 	private JFrame frmTownMap;
-	
+	private JLabel lblBal;
 	private WindowManager manager;
-
-	/**
-	 * Launch the application.
-	 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TownMap window = new TownMapGUI();
-					window.frmTownMap.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	*/
-	
-	
 
 	/**
 	 * Create the application.
@@ -44,7 +30,6 @@ public class TownMap {
 	public TownMap(WindowManager incomingManager) {
 		manager = incomingManager;
 		initialize();
-		frmTownMap.setVisible(true);
 	}
 	
 //<<<<<<< HEAD
@@ -59,15 +44,24 @@ public class TownMap {
 	public void storeItem() {
 		manager.viewItemStore();
 	}
+	
+	public void show() {
+		frmTownMap.setVisible(true);
+		updateBal();
+	}
+	
+	private void updateBal() {
+		lblBal.setText("Balance: $" + manager.farmObject.getBal());
+	}
 		
 //=======
 	
 	public void closeWindow() {
-		frmTownMap.dispose();
+		frmTownMap.setVisible(false);
 	}
 	
 	private void finishedWindow() {
-		manager.toFarm(this);
+		manager.toFarm();
 //>>>>>>> branch 'master' of https://github.com/amf133/sengProject.git
 	}
 
@@ -77,13 +71,9 @@ public class TownMap {
 	private void initialize() {
 		frmTownMap = new JFrame();
 		frmTownMap.setTitle("Town Map");
-		frmTownMap.setBounds(100, 100, 450, 300);
+		frmTownMap.setBounds(100, 100, 906, 483);
 		frmTownMap.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmTownMap.getContentPane().setLayout(null);
-		
-		JLabel lblBal = new JLabel("Balance: $" + manager.farmObject.getBal());
-		lblBal.setBounds(10, 11, 144, 14);
-		frmTownMap.getContentPane().add(lblBal);
 		
 		JButton btnFarm = new JButton("Farm");
 		btnFarm.addMouseListener(new MouseAdapter() {
@@ -92,7 +82,13 @@ public class TownMap {
 				finishedWindow();
 			}
 		});
-		btnFarm.setBounds(37, 184, 89, 23);
+		
+		lblBal = new JLabel("Balance: $0");
+		lblBal.setBounds(21, 11, 243, 22);
+		frmTownMap.getContentPane().add(lblBal);
+		lblBal.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblBal.setForeground(Color.WHITE);
+		btnFarm.setBounds(50, 143, 130, 23);
 		frmTownMap.getContentPane().add(btnFarm);
 			
 		JButton btnStoreAnimal = new JButton("Animal store");
@@ -102,7 +98,7 @@ public class TownMap {
 				storeAnimal();
 			}
 		});
-		btnStoreAnimal.setBounds(294, 184, 104, 23);
+		btnStoreAnimal.setBounds(689, 345, 130, 23);
 		frmTownMap.getContentPane().add(btnStoreAnimal);
 		
 		JButton btnStoreCrop = new JButton("Crop store");
@@ -112,7 +108,7 @@ public class TownMap {
 				storeCrop();
 			}
 		});
-		btnStoreCrop.setBounds(294, 102, 104, 23);
+		btnStoreCrop.setBounds(489, 131, 130, 23);
 		frmTownMap.getContentPane().add(btnStoreCrop);
 		
 		JButton btnStoreItem = new JButton("Item store");
@@ -122,7 +118,18 @@ public class TownMap {
 				storeItem();
 			}
 		});
-		btnStoreItem.setBounds(37, 85, 89, 23);
+		btnStoreItem.setBounds(61, 318, 130, 23);
 		frmTownMap.getContentPane().add(btnStoreItem);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.GRAY);
+		panel.setBounds(0, 0, 259, 43);
+		frmTownMap.getContentPane().add(panel);
+		
+		JLabel lblBackground = new JLabel("");
+		lblBackground.setVerticalAlignment(SwingConstants.TOP);
+		lblBackground.setIcon(new ImageIcon(TownMap.class.getResource("/Images/map.jpg")));
+		lblBackground.setBounds(0, 0, 890, 444);
+		frmTownMap.getContentPane().add(lblBackground);
 	}
 }

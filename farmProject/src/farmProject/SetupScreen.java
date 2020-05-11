@@ -30,35 +30,21 @@ public class SetupScreen {
 	private ButtonGroup btnGroup;
 
 	/**
-	 * Launch the application.
-	 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					SetupScreen window = new SetupScreen();
-					window.frmFarmSetup.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	*/
-
-	/**
 	 * Create the application.
 	 */
 	public SetupScreen(WindowManager incomingManager) {
 		manager = incomingManager;
 		initialize();
-		frmFarmSetup.setVisible(true);
 	}
 	
 	
 	
 	public void closeWindow() {
 		frmFarmSetup.dispose();
+	}
+	
+	public void show(){
+		frmFarmSetup.setVisible(true);
 	}
 	
 	
@@ -92,7 +78,7 @@ public class SetupScreen {
 			farmerObject = new Farmer(farmerName);
 			farmType = Integer.parseInt(btnGroup.getSelection().getActionCommand()); //currently selected radio button as a number
 			farmObject = new Farm(farmName, farmType);
-			manager.closeSetupScreen(this, farmObject, farmerObject, days);
+			manager.closeSetupScreen(farmObject, farmerObject, days);
 		}
 		else {
 			showMessageDialog(null, "Error! Could not begin game");
