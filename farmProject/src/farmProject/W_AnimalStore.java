@@ -1,7 +1,8 @@
 package farmProject;
 
 
-
+import java.math.BigDecimal;
+import java.math.MathContext;
 import java.awt.EventQueue;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -16,11 +17,15 @@ import javax.swing.JScrollPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 
 import java.awt.Font;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextPane;
+import javax.swing.SwingConstants;
 import javax.swing.text.BadLocationException;
 import javax.swing.JTextArea;
 import java.awt.Color;
+import java.awt.SystemColor;
 
 public class W_AnimalStore {
 
@@ -35,7 +40,6 @@ public class W_AnimalStore {
 		frmAnimalStore.setVisible(true);
 	}
 	
-	
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -47,13 +51,7 @@ public class W_AnimalStore {
 		frmAnimalStore.getContentPane().setLayout(null);
 		
 		JTextArea txtView = new JTextArea();
-		txtView.setBackground(Color.WHITE);
-		
-		/**
-		JScrollPane scroll = new JScrollPane (txtView, 
-				   JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-				frmAnimalStore.add(scroll);
-		*/
+		txtView.setBackground(SystemColor.menu);
 		
 		txtView.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		ArrayList<Animal> animals = farmObject.getAnimals();
@@ -65,8 +63,12 @@ public class W_AnimalStore {
 		txtView.setBounds(206, 19, 203, 216);
 		txtView.setEditable(false);
 		frmAnimalStore.getContentPane().add(txtView);
+		txtView.setOpaque(false);
 		
-		JLabel lblMoney = new JLabel("");
+		
+		JLabel lblMoney = new JLabel();
+		//BigDecimal Bal = new BigDecimal(farmObject.getBal());
+		//Bal = Bal.round(new MathContext(2));
 		lblMoney.setBounds(24, 21, 187, 14);
 		lblMoney.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblMoney.setText("Current Balance: $" + farmObject.getBal());
@@ -131,10 +133,6 @@ public class W_AnimalStore {
 		// Button to buy sheep
 		JButton btnBuySheep = new JButton("Sheep $100");
 		btnBuySheep.setBackground(Color.WHITE);
-		btnBuySheep.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		double sheep_cost = 100.0;
 		btnBuySheep.addMouseListener(new MouseAdapter(){
 			@Override
@@ -155,6 +153,23 @@ public class W_AnimalStore {
 		frmAnimalStore.getContentPane().add(btnBuySheep);
 		
 		
+		// Testing transparent buttons
+		/**
+		btnBuyCow.setOpaque(false);
+		btnBuyCow.setContentAreaFilled(false);
+		btnBuySheep.setOpaque(false);
+		btnBuySheep.setContentAreaFilled(false);
+		btnBuyPig.setOpaque(false);
+		btnBuyPig.setContentAreaFilled(false);
+		
+		
+		
+		JLabel lblBackground = new JLabel("");
+		lblBackground.setVerticalAlignment(SwingConstants.TOP);
+		lblBackground.setIcon(new ImageIcon(TownMap.class.getResource("/Images/download.png")));
+		lblBackground.setBounds(0, 0, 890, 444);
+		frmAnimalStore.getContentPane().add(lblBackground);
+		*/
 
 	}
 }
