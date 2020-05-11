@@ -364,7 +364,7 @@ public class Farm {
     public void playTime(){
         for (Animal a : animals){        
             a.editHappiness(1.0);
-            System.out.println("PLayed with " + a.getType() + ". New happiness = " + a.getHappy());  
+            //System.out.println("PLayed with " + a.getType() + ". New happiness = " + a.getHappy());  
         }
     }
     
@@ -376,8 +376,8 @@ public class Farm {
         maxCrops += 20;
         crops.ensureCapacity(maxCrops);
         animals.ensureCapacity(maxAnimals);
-        System.out.println("Animal capacity increased by 2, " + name + " has room for " + (maxAnimals - animals.size())  + " more animals!");
-        System.out.println("Crop capacity increased by 20, " + name + " has room for " + (maxCrops - numberCrops())  + " more crops!");
+        //System.out.println("Animal capacity increased by 2, " + name + " has room for " + (maxAnimals - animals.size())  + " more animals!");
+        //System.out.println("Crop capacity increased by 20, " + name + " has room for " + (maxCrops - numberCrops())  + " more crops!");
     }
     
     

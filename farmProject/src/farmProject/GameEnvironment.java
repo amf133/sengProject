@@ -35,6 +35,7 @@ public class GameEnvironment {
         turns += i;
     }
     
+    
     /**
      * Gets farmer object after collecting user input
      * @return  farmerObject users farmer

@@ -13,7 +13,6 @@ public class WindowManager {
     private SetupScreen setupScreen = new SetupScreen(this);
     private TownMap map = new TownMap(this);
     private FarmView farmView = new FarmView(this);
-    
     private W_Actions actionWindow = new W_Actions(this);
     
 
@@ -25,6 +24,14 @@ public class WindowManager {
 	public void openActions() {
 		actionWindow.show();
 	}
+	
+	public void editTurns(int incomingNum) {
+		turns += incomingNum;
+	}
+	
+	public int getTurns() {
+    	return turns;
+    }
 	
 	public void viewAnimalStore() {
 		W_AnimalStore aStore = new W_AnimalStore(this, farmObject);
@@ -42,6 +49,26 @@ public class WindowManager {
 		W_ItemStore iStore = new W_ItemStore(this, farmObject);
 		map.closeWindow();
 		iStore.show();
+	}
+	
+	public void harvestCrops() {
+		boolean harvest = false;
+        
+        for (Crop c : farmObject.getCrops()){ //if at least one crop is ready to harvest
+            if (c.getGrowth() >= 1){
+                harvest = true;
+                break;
+            }
+        }
+        
+        if (harvest){
+            farmObject.harvest();
+            turns -= 1;
+            showMessageDialog(null, "New farm balance: " + farmObject.getBal());
+        }
+        else{
+        	showMessageDialog(null, "\nNo crops to harvest!");
+        }
 	}
 	
 	
