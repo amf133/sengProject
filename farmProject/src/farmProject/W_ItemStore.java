@@ -77,23 +77,33 @@ public class W_ItemStore {
 		frmItemStore.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmItemStore.getContentPane().setLayout(null);
 		
-		ArrayList<Item> Items = farmObject.getItems();
 		
+		
+		ArrayList<FoodItem> foodItems = new ArrayList<FoodItem>();
 		JTextArea txtAItem = new JTextArea();
+		txtAItem.setText("Your Animal items:");
+		for (FoodItem f : foodItems) {
+			txtAItem.append("\n" + f.getType());
+		}
 		txtAItem.setBounds(386, 52, 117, 97);
 		frmItemStore.getContentPane().add(txtAItem);
 		
+		ArrayList<CropItem> cropItems = farmObject.getCropItems();
 		JTextArea txtCItem = new JTextArea();
-		txtCItem.setBackground(Color.WHITE);
+		txtCItem.setText("Your Crop items:");
+		for (CropItem c : cropItems) {
+			txtCItem.append("\n" + c.getType());
+		}
 		txtCItem.setBounds(386, 212, 117, 89);
 		frmItemStore.getContentPane().add(txtCItem);
-
+		
 		JLabel lblBal = new JLabel("Balance:");
 		lblBal.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblBal.setBounds(10, 11, 158, 14);
 		lblBal.setText("Current Balance: $" + farmObject.getBal());
 		frmItemStore.getContentPane().add(lblBal);
-		
+
+
 		// BUTTONS ---------------------------------------------------------------------------------------------------------
 		
 		// Button to return to town map
@@ -129,6 +139,8 @@ public class W_ItemStore {
 					Item i = new FoodItem("Grub", description , 0.2);
 					farmObject.addItem(i);
 					farmObject.updateBal(-grub_cost);
+					txtAItem.append("\n" + i.getType());
+					lblBal.setText("Current Balance: $" + farmObject.getBal());
 				}
 			}
 		});
@@ -158,6 +170,7 @@ public class W_ItemStore {
 		
 		// LABELS ---------------------------------------------------------------------------------------------------------
 		
+
 		JLabel lblAItems = new JLabel("Animal Items:");
 		lblAItems.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblAItems.setBounds(10, 53, 112, 20);

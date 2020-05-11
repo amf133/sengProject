@@ -79,6 +79,35 @@ public class Farm {
         return animals;
     }
     
+    /**
+     * Gets a list of all the food items currently owned
+     * @return foodItems list of food items
+     */
+    public ArrayList<FoodItem> getFoodItems() {
+    	ArrayList<FoodItem> foodItems = new ArrayList<FoodItem>();
+    	for (Item i : items) {
+    		if (i instanceof FoodItem) {
+    			FoodItem r = (FoodItem) i;
+    			foodItems.add(r);
+    		}
+    	}
+    	return foodItems;
+    }
+    
+    /**
+     * Gets a list of all the crop items currently owned
+     * @return cropItem list of crop items
+     */
+    public ArrayList<CropItem> getCropItems(){
+    	ArrayList<CropItem> cropItems = new ArrayList<CropItem>();
+    	for (Item i : items) {
+    		if (i instanceof CropItem) {
+    			CropItem c = (CropItem) i;
+    			cropItems.add(c);
+    		}
+    	}
+    	return cropItems;
+    }
     /** 
     * Feeds all the animals currently stored in the farm. User selects item from their items owned
     * loops through animal list and applies benefit of item to each animals happiness. Removes item
@@ -86,9 +115,15 @@ public class Farm {
     * @param game removes 1 from action remaining
     */
     public void feedAnimal(GameEnvironment game){
-        ArrayList<FoodItem> foodItems = new ArrayList<FoodItem>();
+    	ArrayList<FoodItem> foodItems = getFoodItems();
         int iter = 0;
+        for (FoodItem r : foodItems) {
+        	iter += 1;
+        	System.out.println("Food item: " + iter);
+        	r.printDetails();
+        }
         
+        /**
         for (Item i : items){ //creating a list of food items
             if (i instanceof FoodItem){
                 FoodItem r = (FoodItem) i;
@@ -98,6 +133,7 @@ public class Farm {
                 r.printDetails();
             }
         }
+        */
         
         String input = "0";
         FoodItem choice;
@@ -270,9 +306,14 @@ public class Farm {
         // if pick go to for loop and choose item
         
         System.out.println("You have choosen to tend " + crop.getQuantity() + " " + crop.getType());
-        ArrayList<CropItem> cropItems = new ArrayList<CropItem>();
-        int j = 0;
-        
+        ArrayList<CropItem> cropItems = getCropItems();
+        int iter = 0;
+        for (CropItem c : cropItems) {
+        	iter += 1;
+        	System.out.println("Crop item: " + iter);
+        	c.printDetails();
+        }
+        /**
         for (Item i : items){ // PRINTS CROP ITEMS AND DESCRIPTIONS
             if (i instanceof CropItem){
                 CropItem c = (CropItem) i;
@@ -282,6 +323,7 @@ public class Farm {
                 c.printDetails();
             }
         }
+        */
         
         String input = "0";
         CropItem choice;
