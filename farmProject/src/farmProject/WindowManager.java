@@ -21,6 +21,7 @@ public class WindowManager {
 	
 	
 	
+	
 	public void newDay(){
         turns = 2;
         days -= 1;
