@@ -100,7 +100,7 @@ public class W_ItemStore {
 		
 		ArrayList<CropItem> cropItems = farmObject.getCropItems();
 		JTextArea txtCItem = new JTextArea();
-		JScrollPane sp2 = new JScrollPane(txtAItem, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		JScrollPane sp2 = new JScrollPane(txtCItem, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		txtCItem.setText("Your Crop items:");
 		for (CropItem c : cropItems) {
 			txtCItem.append("\n" + c.getType());
@@ -109,7 +109,7 @@ public class W_ItemStore {
 		txtCItem.setEditable(false);
 		sp2.setBounds(373, 212, 153, 107);
 		sp2.getViewport().setBackground(Color.WHITE);
-		sp2.setViewportView(txtAItem);
+		sp2.setViewportView(txtCItem);
 		frmItemStore.getContentPane().add(sp2);
 
 		
@@ -189,7 +189,7 @@ public class W_ItemStore {
 		JButton btnSeeds = new JButton("Seeds $30");
 		double seed_cost = 20.0;
 		String Sdesc= "Restore 0.5 health";
-		btnGrub.addActionListener(new ActionListener() {
+		btnSeeds.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (farmObject.getBal() < seed_cost) {
 					showMessageDialog(null, "You do not have enough money!");
@@ -203,7 +203,7 @@ public class W_ItemStore {
 				}
 			}
 		});
-		btnGrub.setBackground(Color.CYAN);
+		btnSeeds.setBackground(Color.CYAN);
 		btnSeeds.setHorizontalAlignment(SwingConstants.LEFT);
 		btnSeeds.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnSeeds.setBounds(109, 87, 112, 23);

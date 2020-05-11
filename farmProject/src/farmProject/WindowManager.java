@@ -82,7 +82,7 @@ public class WindowManager {
         else{
         	showMessageDialog(null, "New day, days left: " + (days-1));
             farmObject.newDay();
-            double x = Farm.getRandomDoubleBetweenRange(1.0, EVENTCHANCE); //1 in EVENTCHANCE chance of an event occuring
+            double x = Farm.getRandomDoubleBetweenRange(1.0, EVENTCHANCE); //1 in EVENTCHANCE chance of an event occurring
             if (x == 1.0){
                 double y = Farm.getRandomDoubleBetweenRange(1.0, 3.0); //randomly selecting which event to occur
                 if (y == 1.0){
@@ -103,6 +103,20 @@ public class WindowManager {
         
     }
 	
+	public String stringItems() {
+		String result = "";
+		ArrayList<Item> items = farmObject.getItems();
+		
+		if (items.isEmpty()){
+			result = "\nNo items in farm";
+		}
+		else {
+			for (Item i : items) {
+				result += ("\nItem: " + i.getType() + " Description: " + i.getDescription());
+			}
+		}
+		return result;
+	}
 	
 	public String stringAnimals() {
 		String result = "";
@@ -137,7 +151,7 @@ public class WindowManager {
         else{
             result += ("\n" + farmObject.getName() + " has capacity for " + (farmObject.maxCrops - farmObject.numberCrops() + " more crops"));
             for (Crop c : crops){
-            result += ("\nCrop: " + c.getType() + " x " + c.getQuantity() + " Growth: " + c.getGrowth() + " Total worth: " + c.getWorth());
+            	result += ("\nCrop: " + c.getType() + " x " + c.getQuantity() + " Growth: " + c.getGrowth() + " Total worth: " + c.getWorth());
             }
         }
 		return result;

@@ -39,6 +39,10 @@ public class FarmView {
 		updateBal();
 	}
 	
+	private void viewItems() {
+		String itemString = manager.stringItems();
+		showMessageDialog(null, itemString);
+	}
 	
 	private void viewAnimals() {
 		String animalString = manager.stringAnimals();
@@ -101,6 +105,17 @@ public class FarmView {
 		});
 		btnCrops.setBounds(623, 356, 120, 23);
 		frmFarm.getContentPane().add(btnCrops);
+		
+		JButton btnItems = new JButton("View Item");
+		btnItems.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				viewItems();
+			}
+		});
+		btnItems.setBounds(608, 341, 105, 23);
+		frmFarm.getContentPane().add(btnItems);
+		
 		
 		btnAnimals = new JButton("View Animals");
 		btnAnimals.addMouseListener(new MouseAdapter() {
