@@ -210,16 +210,70 @@ public class W_ItemStore {
 		frmItemStore.getContentPane().add(btnSeeds);
 		
 		JButton btnFertilizer = new JButton("Fertilizer  $25");
+		double fert_cost = 20.0;
+		String Fdesc= "Increase growth rate by 20%";
+		btnFertilizer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (farmObject.getBal() < fert_cost) {
+					showMessageDialog(null, "You do not have enough money!");
+				}
+				else {
+					Item i = new FoodItem("Fertilizer" , Fdesc , 0.2);
+					farmObject.addItem(i);
+					farmObject.updateBal(-fert_cost);
+					txtCItem.append("\n" + i.getType());
+					lblBal.setText("Current Balance: $" + farmObject.getBal());
+				}
+			}
+		});
 		btnFertilizer.setHorizontalAlignment(SwingConstants.LEFT);
 		btnFertilizer.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnFertilizer.setBounds(109, 213, 112, 23);
 		frmItemStore.getContentPane().add(btnFertilizer);
 		
 		JButton btnSunlight = new JButton("Sunlight $50");
+		double sun_cost = 50.0;
+		String SuDesc = "Increase growth rate by 50%";
+		btnSunlight.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (farmObject.getBal() < sun_cost) {
+					showMessageDialog(null, "You do not have enough money!");
+				}
+				else {
+					Item i = new FoodItem("Sunlight63" , SuDesc , 0.5);
+					farmObject.addItem(i);
+					farmObject.updateBal(-sun_cost);
+					txtCItem.append("\n" + i.getType());
+					lblBal.setText("Current Balance: $" + farmObject.getBal());
+				}
+			}
+		});
 		btnSunlight.setHorizontalAlignment(SwingConstants.LEFT);
 		btnSunlight.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnSunlight.setBounds(108, 247, 112, 23);
 		frmItemStore.getContentPane().add(btnSunlight);
+		
+		JButton btnInstant = new JButton("Instant $100");
+		double inst_cost = 100.0;
+		String Idesc= "Instantly grow crops";
+		btnInstant.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (farmObject.getBal() < inst_cost) {
+					showMessageDialog(null, "You do not have enough money!");
+				}
+				else {
+					Item i = new FoodItem("Instant" , Idesc , 1.0);
+					farmObject.addItem(i);
+					farmObject.updateBal(-inst_cost);
+					txtCItem.append("\n" + i.getType());
+					lblBal.setText("Current Balance: $" + farmObject.getBal());
+				}
+			}
+		});
+		btnInstant.setHorizontalAlignment(SwingConstants.LEFT);
+		btnInstant.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnInstant.setBounds(108, 279, 112, 23);
+		frmItemStore.getContentPane().add(btnInstant);
 		
 		
 		// LABELS ---------------------------------------------------------------------------------------------------------
@@ -234,12 +288,6 @@ public class W_ItemStore {
 		lblCItems.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblCItems.setBounds(10, 213, 112, 23);
 		frmItemStore.getContentPane().add(lblCItems);
-		
-		JButton btnInstant = new JButton("Instant $100");
-		btnInstant.setHorizontalAlignment(SwingConstants.LEFT);
-		btnInstant.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnInstant.setBounds(108, 279, 112, 23);
-		frmItemStore.getContentPane().add(btnInstant);
 		
 		JLabel lblHealth = new JLabel("Health Given:");
 		lblHealth.setFont(new Font("Tahoma", Font.PLAIN, 14));
