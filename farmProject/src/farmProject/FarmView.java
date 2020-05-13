@@ -20,6 +20,7 @@ public class FarmView {
 	private JButton btnAnimals;
 	private WindowManager manager;
 	private JLabel lblBal;
+	private JButton btnNewDay;
 
 	
 	/**
@@ -34,9 +35,13 @@ public class FarmView {
 		frmFarm.setVisible(false);
 	}
 	
+	public void endWindow() {
+		frmFarm.dispose();
+	}
+	
 	public void show() {
 		frmFarm.setVisible(true);
-		updateBal();
+		updateLabels();
 	}
 	
 	private void viewItems() {
@@ -55,8 +60,10 @@ public class FarmView {
 		showMessageDialog(null, cropString);
 	}
 	
-	public void updateBal() {
+	public void updateLabels() {
 		lblBal.setText("Balance: $" + manager.farmObject.getBal());
+		if (manager.getDays() <= 1)
+			btnNewDay.setText("Finish game");
 	}
 	
 	
@@ -113,7 +120,7 @@ public class FarmView {
 				viewItems();
 			}
 		});
-		btnItems.setBounds(608, 341, 105, 23);
+		btnItems.setBounds(487, 254, 105, 23);
 		frmFarm.getContentPane().add(btnItems);
 		
 		
@@ -127,15 +134,15 @@ public class FarmView {
 		btnAnimals.setBounds(55, 308, 139, 23);
 		frmFarm.getContentPane().add(btnAnimals);
 		
-		JButton btnNewDay = new JButton("Next Day");
+		btnNewDay = new JButton("Next Day");
 		btnNewDay.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				manager.newDay();
-				updateBal();
+				updateLabels();
 			}
 		});
-		btnNewDay.setBounds(339, 194, 89, 23);
+		btnNewDay.setBounds(330, 194, 113, 23);
 		frmFarm.getContentPane().add(btnNewDay);
 		
 		JButton btnActions = new JButton("Actions");

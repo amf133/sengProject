@@ -63,6 +63,24 @@ public class Farm {
         return name;
     }
     
+    
+    public double getScore() {
+    	double finalScore = bal;
+    	
+    	for (Animal a : animals) {
+    		finalScore += a.getWorth();
+    	}
+    	
+    	for (Crop c : crops) {
+    		finalScore += c.getWorth();
+    	}
+    	
+    	finalScore *= GROWRATE;
+    	finalScore *= 1-HAPPYDECLINE;
+    	
+    	return finalScore;
+    }
+    
     /** 
     * Gets the type of farm, the starting bonus the user selected
     * @return type 

@@ -33,6 +33,14 @@ public class WindowManager {
     	return turns;
     }
 	
+	public int getDays() {
+		return days;
+	}
+	
+	public double getScore() {
+		return farmObject.getScore();
+	}
+	
 	public void viewAnimalStore() {
 		W_AnimalStore aStore = new W_AnimalStore(this, farmObject);
 		map.closeWindow();
@@ -77,7 +85,11 @@ public class WindowManager {
         days -= 1;
         
         if (days <= 0){
-            //if game ends must display some sort of score eg profit made + num animals display game duration, num crops/animals, money earner
+            map.endWindow();
+            farmView.endWindow();
+            actionWindow.endWindow();
+            W_FinalScore finalFrame = new W_FinalScore(farmObject.getName() ,farmerObject.getName(), String.valueOf(getScore()));
+            
         }
         else{
         	showMessageDialog(null, "New day, days left: " + (days-1));
@@ -175,9 +187,15 @@ public class WindowManager {
 		farmerObject = incomingFarmer;
 		farmObject = incomingFarm;
 		days = incomingDays;
-		setupScreen.closeWindow();
+		setupScreen.endWindow();
 		map.show();
 		showMessageDialog(null, "\nStarting game with " + this.farmerObject.getName() +  "'s " + this.farmObject.getType() + " farm: " + this.farmObject.getName());
+	}
+	
+	
+	public void launch() {
+		WindowManager manager = new WindowManager();
+		manager.launchSetupScreen();
 	}
 	
 

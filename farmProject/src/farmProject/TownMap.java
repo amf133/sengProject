@@ -41,6 +41,11 @@ public class TownMap {
 		manager.viewCropStore();
 	}
 	
+	
+	public void endWindow() {
+		frmTownMap.dispose();
+	}
+	
 	public void storeItem() {
 		manager.viewItemStore();
 	}

@@ -41,6 +41,10 @@ public class W_Actions {
 	private void updateTurns() {
 		lblTurns.setText("Turns left: " + manager.getTurns());
 	}
+	
+	public void endWindow() {
+		frame.dispose();
+	}
 
 
 	/**

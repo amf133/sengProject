@@ -39,7 +39,7 @@ public class SetupScreen {
 	
 	
 	
-	public void closeWindow() {
+	public void endWindow() {
 		frmFarmSetup.dispose();
 	}
 	
