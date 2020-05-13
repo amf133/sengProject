@@ -73,6 +73,7 @@ public class WindowManager {
             farmObject.harvest();
             turns -= 1;
             showMessageDialog(null, "New farm balance: " + farmObject.getBal());
+            farmView.updateLabels();
         }
         else{
         	showMessageDialog(null, "\nNo crops to harvest!");
