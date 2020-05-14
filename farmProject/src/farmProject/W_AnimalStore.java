@@ -126,7 +126,7 @@ public class W_AnimalStore {
 					farmObject.addAnimal(a);
 					farmObject.updateBal(-cow_cost);
 					txtView.append("\n" + a.getType() + ": Happiness: " + a.getHappy() + " Health: " + a.getHealth());
-					lblMoney.setText(("Current Balance: $" + manager.farmObject.getBal()));
+					lblMoney.setText(("Current Balance: $" + farmObject.getBal()));
 					
 					
 				}
