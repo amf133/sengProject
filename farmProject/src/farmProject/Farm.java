@@ -34,7 +34,7 @@ public class Farm {
                 type = "Animal";
             }
             else if (typee == 3){ //starter
-                bal += 500;
+                bal += 250;
                 type = "Starter";
             }
             else if (typee == 4){ //large
