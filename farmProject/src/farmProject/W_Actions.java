@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.awt.Font;
 
 public class W_Actions {
@@ -100,6 +101,30 @@ public class W_Actions {
 		frame.getContentPane().add(btnPlayAnimals);
 		
 		JButton btnFeedAnimals = new JButton("Feed animals");
+		btnFeedAnimals.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ArrayList<FoodItem> foodItems = new ArrayList<FoodItem>();
+				for (Item i : manager.farmObject.getItems()) {
+					if (i instanceof FoodItem) {
+						FoodItem j = (FoodItem) i;
+						foodItems.add(j);
+					}
+				}
+				
+				if ( foodItems.size() > 0 ) {
+					if (manager.farmObject.getAnimals().size() > 0) {
+						W_FeedAnimals window = new W_FeedAnimals(foodItems);
+					}
+					else {
+						showMessageDialog(null, "No animals to feed.");
+					}
+				}
+				else {
+					showMessageDialog(null, "No food items avaliable.");
+				}
+			}
+		});
 		btnFeedAnimals.setBounds(367, 325, 149, 23);
 		frame.getContentPane().add(btnFeedAnimals);
 		
