@@ -104,13 +104,17 @@ public class W_Actions {
 		btnFeedAnimals.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ArrayList<FoodItem> foodItems = new ArrayList<FoodItem>();
+				
+				// created method to get particular items
+				ArrayList<FoodItem> foodItems = manager.farmObject.getFoodItems();
+				/*
 				for (Item i : manager.farmObject.getItems()) {
 					if (i instanceof FoodItem) {
 						FoodItem j = (FoodItem) i;
 						foodItems.add(j);
 					}
 				}
+				*/
 				
 				if ( foodItems.size() > 0 ) {
 					if (manager.farmObject.getAnimals().size() > 0) {
@@ -132,6 +136,20 @@ public class W_Actions {
 		btnTendToCrops.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				ArrayList<Crop> crops = manager.farmObject.getCrops();
+				ArrayList<CropItem> cropItems = manager.farmObject.getCropItems();
+				
+				if ( cropItems.size() > 0) {
+					if (crops.size() > 0) {
+						W_TendCrops window = new W_TendCrops(crops, cropItems);
+					}
+					else {
+						showMessageDialog(null, "No crops to tend to.");
+					}
+				}
+				else {
+					showMessageDialog(null, "No crop items avaliable penis.");
+				}
 			}
 		});
 		btnTendToCrops.setBounds(556, 72, 149, 23);

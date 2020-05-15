@@ -153,4 +153,10 @@ public class Crop {
     public void halfQuantity(){
         quantity *= 0.5;
     } 
+    
+    @Override
+    public String toString() {
+    	String string = quantity + " " + type + " " + growthRate;
+    	return string;
+    }
 }

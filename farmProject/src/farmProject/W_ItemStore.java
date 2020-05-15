@@ -218,7 +218,7 @@ public class W_ItemStore {
 					showMessageDialog(null, "You do not have enough money!");
 				}
 				else {
-					Item i = new FoodItem("Fertilizer" , Fdesc , 0.2);
+					Item i = new CropItem("Fertilizer" , Fdesc , 0.2);
 					farmObject.addItem(i);
 					farmObject.updateBal(-fert_cost);
 					txtCItem.append("\n" + i.getType());
@@ -240,7 +240,7 @@ public class W_ItemStore {
 					showMessageDialog(null, "You do not have enough money!");
 				}
 				else {
-					Item i = new FoodItem("Sunlight63" , SuDesc , 0.5);
+					Item i = new CropItem("Sunlight" , SuDesc , 0.5);
 					farmObject.addItem(i);
 					farmObject.updateBal(-sun_cost);
 					txtCItem.append("\n" + i.getType());
@@ -262,7 +262,7 @@ public class W_ItemStore {
 					showMessageDialog(null, "You do not have enough money!");
 				}
 				else {
-					Item i = new FoodItem("Instant" , Idesc , 1.0);
+					Item i = new CropItem("Instant" , Idesc , 1.0);
 					farmObject.addItem(i);
 					farmObject.updateBal(-inst_cost);
 					txtCItem.append("\n" + i.getType());

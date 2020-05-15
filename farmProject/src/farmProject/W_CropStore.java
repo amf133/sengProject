@@ -74,24 +74,6 @@ public class W_CropStore {
 		cropTypes.put("Beetroot", 2.0);
 		return cropTypes;
 	}	
-	/** 
-	public void confirmPurchase(Farm farmObject, String crop, double cost, int quantity) {
-		if (quantity <= 0 || quantity > 100) {
-			showMessageDialog(null, "Please select quantity between 1 - 100");
-		}
-		double totalPrice = cost * quantity;
-		if (totalPrice > farmObject.getBal()) {
-			showMessageDialog(null, "You do not have enough moeny");
-		}
-		else {
-			Crop c = new Crop(crop, cost, quantity);
-			farmObject.addCrop(c);
-			farmObject.updateBal(-totalPrice);
-			txtCrops.append("\n" + c.getQuantity() + " " + c.getType());
-			lblBal.setText("Balance: " + farmObject.getBal());	
-		}		
-	}
-	*/
 
 	/**
 	 * Initialize the contents of the frame.
@@ -132,6 +114,7 @@ public class W_CropStore {
 			comboBox.addItem(crop + " $" + cropType.get(crop) + "ea");
 		}
 		comboBox.setBounds(96, 52, 120, 22);
+		comboBox.setEditable(false);
 		frmCropStore.getContentPane().add(comboBox);
 
 		
@@ -180,7 +163,11 @@ public class W_CropStore {
 		
 		txtCrops = new JTextArea();
 		txtCrops.setText("Your Crops:");
+		for (Crop c : farmObject.getCrops()) {
+			txtCrops.append("\n" + c.getQuantity() + " " + c.getType());
+		}
 		txtCrops.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		txtCrops.setEditable(false);
 		txtCrops.setBounds(226, 51, 179, 139);
 		frmCropStore.getContentPane().add(txtCrops);
 		
