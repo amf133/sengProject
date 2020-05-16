@@ -93,7 +93,7 @@ public class TownMap {
 		frmTownMap.getContentPane().add(lblBal);
 		lblBal.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblBal.setForeground(Color.WHITE);
-		btnFarm.setBounds(50, 143, 130, 23);
+		btnFarm.setBounds(159, 233, 130, 23);
 		frmTownMap.getContentPane().add(btnFarm);
 			
 		JButton btnStoreAnimal = new JButton("Animal store");
@@ -103,7 +103,7 @@ public class TownMap {
 				storeAnimal();
 			}
 		});
-		btnStoreAnimal.setBounds(544, 347, 130, 23);
+		btnStoreAnimal.setBounds(497, 233, 130, 23);
 		frmTownMap.getContentPane().add(btnStoreAnimal);
 		
 		JButton btnStoreCrop = new JButton("Crop store");
@@ -113,7 +113,7 @@ public class TownMap {
 				storeCrop();
 			}
 		});
-		btnStoreCrop.setBounds(489, 131, 130, 23);
+		btnStoreCrop.setBounds(474, 98, 130, 23);
 		frmTownMap.getContentPane().add(btnStoreCrop);
 		
 		JButton btnStoreItem = new JButton("Item store");
@@ -123,7 +123,7 @@ public class TownMap {
 				storeItem();
 			}
 		});
-		btnStoreItem.setBounds(61, 318, 130, 23);
+		btnStoreItem.setBounds(284, 351, 130, 23);
 		frmTownMap.getContentPane().add(btnStoreItem);
 		
 		JPanel panel = new JPanel();
