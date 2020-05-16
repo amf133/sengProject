@@ -363,7 +363,8 @@ public class GameEnvironment {
             
             else if (input.equals("3")){
                 if (farmObject.getAnimals().size() >= 1){
-                    playAnimals();
+                	farmObject.playTime();
+                    System.out.println("\nAll animals at max happiness!"); 
                     turns -= 1;
                 } 
                 else{
@@ -479,20 +480,15 @@ public class GameEnvironment {
         }
         while (!(input.equals("6")));
     }
-    
-    /**
-     * Implements play with animal actions. Animals happiness is increased
-     */
-    private void playAnimals(){
-        farmObject.playTime();
-    }
             
     
     /**
      * Implements tend to farm actions. Adds extra space to farm and slows down animal happiness decline rate
      */
-    private void tendFarm(){ //adds extra space to farm and slows down animal heppiness decline rate
+    private void tendFarm(){ //adds extra space to farm and slows down animal happiness decline rate
         System.out.println("\nAnimals feel more comfortable, now their happiness drains slower.");
+        System.out.println("Animal capacity increased by 2, " + farmObject.getName() + " has room for " + (farmObject.maxAnimals - farmObject.getAnimals().size())  + " more animals!");
+        System.out.println("Crop capacity increased by 20, " + farmObject.getName() + " has room for " + (farmObject.maxCrops - farmObject.numberCrops())  + " more crops!");
         farmObject.editHappiness();
         farmObject.addSpace();
     }
@@ -500,7 +496,7 @@ public class GameEnvironment {
     
     
     public static void main(String[] args) {
-        GameEnvironment game = new GameEnvironment(); //initializes game enviroment
+        GameEnvironment game = new GameEnvironment(); //initializes game environment
         
         System.out.println("\nStarting game with " + game.farmerObject.getName() +  "'s " + game.farmObject.getType() + " farm: " + game.farmObject.getName());
         
