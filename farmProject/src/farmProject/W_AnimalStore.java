@@ -81,7 +81,7 @@ public class W_AnimalStore {
 		frmAnimalStore.getContentPane().setLayout(null);
 		
 		JTextArea txtView = new JTextArea();
-		txtView.setBackground(SystemColor.menu);
+		txtView.setBackground(Color.WHITE);
 		
 		txtView.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		ArrayList<Animal> animals = farmObject.getAnimals();
@@ -90,7 +90,7 @@ public class W_AnimalStore {
 			txtView.append("\n" + a.getType() + ": Happiness: " + a.getHappy() + " Health: " + a.getHealth());
 			}
 		
-		txtView.setBounds(206, 19, 203, 216);
+		txtView.setBounds(206, 19, 203, 199);
 		txtView.setEditable(false);
 		frmAnimalStore.getContentPane().add(txtView);
 
