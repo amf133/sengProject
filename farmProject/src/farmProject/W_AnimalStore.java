@@ -97,7 +97,7 @@ public class W_AnimalStore {
 		JLabel lblMoney = new JLabel();
 		lblMoney.setBounds(24, 21, 187, 14);
 		lblMoney.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblMoney.setText("Current Balance: $" + farmObject.getBal());
+		lblMoney.setText("Balance: $" + farmObject.getBal());
 		frmAnimalStore.getContentPane().add(lblMoney);
 		
 		JButton btnReturn = new JButton("Return");

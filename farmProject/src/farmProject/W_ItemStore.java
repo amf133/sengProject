@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
@@ -26,6 +28,7 @@ import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.border.BevelBorder;
+import javax.swing.JComboBox;
 
 public class W_ItemStore {
 
@@ -50,6 +53,22 @@ public class W_ItemStore {
 	private void finishedWindow() {
 		closeWindow();
 		manager.toTownMap();
+	}
+	
+	public Map<String, Double> getAItems(){
+		Map<String, Double> aItems = new HashMap<>();
+		aItems.put("Grub", 20.0);
+		aItems.put("Seeds", 30.0);
+		aItems.put("Medicine", 40.0);
+		return aItems;
+	}
+	
+	public Map<String, Double> getCItems(){
+		Map<String, Double> aCtems = new HashMap<>();
+		aCtems.put("Fertilizer", 20.0);
+		aCtems.put("Sunglight", 50.0);
+		aCtems.put("Instant Growth", 100.0);
+		return aCtems;
 	}
 
 	/**
@@ -94,10 +113,6 @@ public class W_ItemStore {
 		sp2.setViewportView(txtCItem);
 		frmItemStore.getContentPane().add(sp2);
 
-		
-		
-		
-		
 		JLabel lblBal = new JLabel("Balance:");
 		lblBal.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblBal.setBounds(10, 11, 158, 14);
@@ -118,144 +133,44 @@ public class W_ItemStore {
 		});
 		btnReturn.setBounds(386, 329, 117, 39);
 		frmItemStore.getContentPane().add(btnReturn);
+			
+		JComboBox<String> animalBox = new JComboBox<>();
+		Map<String, Double> animalItems = getAItems();
+		for (String i : animalItems.keySet()) {
+			animalBox.addItem(i + " $" + animalItems.get(i) + " ea");
+		}
+		animalBox.setBounds(10, 89, 89, 22);
+		frmItemStore.getContentPane().add(animalBox);
 		
-		// Button to buy medicine
-		JButton btnMedicine = new JButton("Medicine $50");
-		double med_cost = 20.0;
-		String Mdesc = "Restore all health";
-		btnMedicine.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (farmObject.getBal() < med_cost) {
-					showMessageDialog(null, "You do not have enough money!");
+		JComboBox<String> cropBox = new JComboBox<>();
+		Map<String, Double> cropItemss = getAItems();
+		for (String i : cropItemss.keySet()) {
+			cropBox.addItem(i + " $" + cropItemss.get(i) + " ea");
+		}
+		cropBox.setBounds(10, 249, 88, 22);
+		frmItemStore.getContentPane().add(cropBox);
+		
+		JButton btnConfirmA = new JButton("Confirm Food");
+		btnConfirmA.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String arr[] = ((String) animalBox.getSelectedItem()).split(" ");
+				String type = arr[0];
+				Double cost = (Double) cropItemss.get(type);
+				
+				if(farmObject.getBal() < cost) {
+					showMessageDialog(null, "You do not have enough money");
 				}
 				else {
-					Item i = new FoodItem("Medicine", Mdesc , 1.0);
-					farmObject.addItem(i);
-					farmObject.updateBal(-med_cost);
-					txtAItem.append("\n" + i.getType());
-					lblBal.setText("Current Balance: $" + farmObject.getBal());
+					Item f = new FoodItem(type, cost);
+					farmObject.addItem(f);
 				}
-			}
-		});
-		btnMedicine.setBackground(Color.CYAN);
-		btnMedicine.setHorizontalAlignment(SwingConstants.LEFT);
-		btnMedicine.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnMedicine.setBounds(109, 121, 121, 23);
-		frmItemStore.getContentPane().add(btnMedicine);
+		btnConfirmA.setBounds(113, 89, 112, 23);
+		frmItemStore.getContentPane().add(btnConfirmA);
 		
-		// Button to buy grub
-		JButton btnGrub = new JButton("Grub $20");
-		double grub_cost = 20.0;
-		String Gdesc= "Restore 0.2 health";
-		btnGrub.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (farmObject.getBal() < grub_cost) {
-					showMessageDialog(null, "You do not have enough money!");
-				}
-				else {
-					Item i = new FoodItem("Grub", Gdesc , 0.2);
-					farmObject.addItem(i);
-					farmObject.updateBal(-grub_cost);
-					txtAItem.append("\n" + i.getType());
-					lblBal.setText("Current Balance: $" + farmObject.getBal());
-				}
-			}
-		});
-		btnGrub.setBackground(Color.CYAN);
-		btnGrub.setHorizontalAlignment(SwingConstants.LEFT);
-		btnGrub.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnGrub.setBounds(109, 52, 121, 23);
-		frmItemStore.getContentPane().add(btnGrub);
-		
-		// Button to buy grub
-		JButton btnSeeds = new JButton("Seeds $30");
-		double seed_cost = 20.0;
-		String Sdesc= "Restore 0.5 health";
-		btnSeeds.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (farmObject.getBal() < seed_cost) {
-					showMessageDialog(null, "You do not have enough money!");
-				}
-				else {
-					Item i = new FoodItem("Seed", Sdesc , 0.2);
-					farmObject.addItem(i);
-					farmObject.updateBal(-seed_cost);
-					txtAItem.append("\n" + i.getType());
-					lblBal.setText("Current Balance: $" + farmObject.getBal());
-				}
-			}
-		});
-		btnSeeds.setBackground(Color.CYAN);
-		btnSeeds.setHorizontalAlignment(SwingConstants.LEFT);
-		btnSeeds.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnSeeds.setBounds(109, 87, 121, 23);
-		frmItemStore.getContentPane().add(btnSeeds);
-		
-		JButton btnFertilizer = new JButton("Fertilizer  $25");
-		double fert_cost = 20.0;
-		String Fdesc= "Increase growth rate by 20%";
-		btnFertilizer.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (farmObject.getBal() < fert_cost) {
-					showMessageDialog(null, "You do not have enough money!");
-				}
-				else {
-					Item i = new CropItem("Fertilizer" , Fdesc , 0.2);
-					farmObject.addItem(i);
-					farmObject.updateBal(-fert_cost);
-					txtCItem.append("\n" + i.getType());
-					lblBal.setText("Current Balance: $" + farmObject.getBal());
-				}
-			}
-		});
-		btnFertilizer.setHorizontalAlignment(SwingConstants.LEFT);
-		btnFertilizer.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnFertilizer.setBounds(109, 213, 121, 23);
-		frmItemStore.getContentPane().add(btnFertilizer);
-		
-		JButton btnSunlight = new JButton("Sunlight $50");
-		double sun_cost = 50.0;
-		String SuDesc = "Increase growth rate by 50%";
-		btnSunlight.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (farmObject.getBal() < sun_cost) {
-					showMessageDialog(null, "You do not have enough money!");
-				}
-				else {
-					Item i = new CropItem("Sunlight" , SuDesc , 0.5);
-					farmObject.addItem(i);
-					farmObject.updateBal(-sun_cost);
-					txtCItem.append("\n" + i.getType());
-					lblBal.setText("Current Balance: $" + farmObject.getBal());
-				}
-			}
-		});
-		btnSunlight.setHorizontalAlignment(SwingConstants.LEFT);
-		btnSunlight.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnSunlight.setBounds(108, 247, 122, 23);
-		frmItemStore.getContentPane().add(btnSunlight);
-		
-		JButton btnInstant = new JButton("Instant $100");
-		double inst_cost = 100.0;
-		String Idesc= "Instantly grow crops";
-		btnInstant.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (farmObject.getBal() < inst_cost) {
-					showMessageDialog(null, "You do not have enough money!");
-				}
-				else {
-					Item i = new CropItem("Instant" , Idesc , 1.0);
-					farmObject.addItem(i);
-					farmObject.updateBal(-inst_cost);
-					txtCItem.append("\n" + i.getType());
-					lblBal.setText("Current Balance: $" + farmObject.getBal());
-				}
-			}
-		});
-		btnInstant.setHorizontalAlignment(SwingConstants.LEFT);
-		btnInstant.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnInstant.setBounds(108, 279, 122, 23);
-		frmItemStore.getContentPane().add(btnInstant);
+		JButton btnConfirmC = new JButton("Confirm Crop");
+		btnConfirmC.setBounds(108, 249, 112, 23);
+		frmItemStore.getContentPane().add(btnConfirmC);
 		
 		
 		// LABELS ---------------------------------------------------------------------------------------------------------
@@ -310,7 +225,6 @@ public class W_ItemStore {
 		lblHMed.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblHMed.setBounds(278, 127, 46, 14);
 		frmItemStore.getContentPane().add(lblHMed);
-		
 
 	}
 }
