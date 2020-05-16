@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -65,12 +66,12 @@ public class W_CropStore {
      */
 	public Map<String, Double> getCropTypes(){
 		Map<String, Double> cropTypes = new HashMap<>();
-		cropTypes.put("Carrot", 5.0);
-		cropTypes.put("Wheat", 3.0);
-		cropTypes.put("Potatoes", 2.0);
-		cropTypes.put("Pumpkins", 10.0);
-		cropTypes.put("Melon", 8.0);
-		cropTypes.put("Beetroot", 2.0);
+		cropTypes.put("Carrot", 5.00);
+		cropTypes.put("Wheat", 3.00);
+		cropTypes.put("Potatoes", 2.00);
+		cropTypes.put("Pumpkins", 10.00);
+		cropTypes.put("Melon", 8.00);
+		cropTypes.put("Beetroot", 2.00);
 		return cropTypes;
 	}	
 
@@ -84,7 +85,7 @@ public class W_CropStore {
 		frmCropStore.getContentPane().setLayout(null);
 		
 		JLabel lblBal = new JLabel("Balance:");
-		lblBal.setText("Balance: " + farmObject.getBal());
+		lblBal.setText("Balance: " + new DecimalFormat("0.00").format(farmObject.getBal()));
 		lblBal.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblBal.setBounds(10, 11, 110, 22);
 		frmCropStore.getContentPane().add(lblBal);
@@ -148,7 +149,7 @@ public class W_CropStore {
 						farmObject.addCrop(c);
 						farmObject.updateBal(-totalPrice);
 						txtCrops.append("\n" + c.getQuantity() + " " + c.getType());
-						lblBal.setText("Balance: " + farmObject.getBal());	
+						lblBal.setText("Balance: " + new DecimalFormat("0.00").format(farmObject.getBal()));	
 					}
 					else {
 						showMessageDialog(null, "You do not have enough money");	

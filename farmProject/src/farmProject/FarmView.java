@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.text.DecimalFormat;
+
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -87,7 +89,7 @@ public class FarmView {
      * Updates the labels in the window
      */
 	public void updateLabels() {
-		lblBal.setText("Balance: $" + manager.farmObject.getBal());
+		lblBal.setText("Balance: $" + new DecimalFormat("0.00").format(manager.farmObject.getBal()));
 		if (manager.getDays() <= 1)
 			btnNewDay.setText("Finish game");
 	}

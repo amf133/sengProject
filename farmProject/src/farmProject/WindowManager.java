@@ -2,6 +2,7 @@ package farmProject;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class WindowManager {
@@ -169,10 +170,10 @@ public class WindowManager {
             Double bonus = 0.0;
             result += ("\n" + farmObject.getName() + " has capacity for " + (farmObject.maxAnimals - animals.size()) + " more animals");
             for (Animal a : animals){
-                result += ("\nAnimal: " + a.getType() + " Happiness: " + a.getHappy() + " Health: " + a.getHealth());
+                result += ("\nAnimal: " + a.getType() + " Happiness: " + new DecimalFormat("0.00").format(a.getHappy()) + " Health: " + new DecimalFormat("0.00").format(a.getHealth()));
                 bonus += a.getDailyBonus();
             }
-            result += ("\nCurrent Daily income: $" + bonus);
+            result += ("\nCurrent Daily income: $" + new DecimalFormat("0.00").format(bonus));
         }
 		return result;
 	}
@@ -192,7 +193,7 @@ public class WindowManager {
         else{
             result += ("\n" + farmObject.getName() + " has capacity for " + (farmObject.maxCrops - farmObject.numberCrops() + " more crops"));
             for (Crop c : crops){
-            	result += ("\nCrop: " + c.getType() + " x " + c.getQuantity() + " Growth: " + c.getGrowth() + " Total worth: " + c.getWorth());
+            	result += ("\nCrop: " + c.getType() + " x " + c.getQuantity() + " Growth: " + new DecimalFormat("0.00").format(c.getGrowth()) + " Total worth: " + new DecimalFormat("0.00").format(c.getWorth()));
             }
         }
 		return result;

@@ -3,6 +3,7 @@ package farmProject;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.text.DecimalFormat;
 import java.awt.EventQueue;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -44,10 +45,6 @@ public class W_AnimalStore {
 		manager = incomingManager;
 		initialize(farmObject);
 	}
-	
-	private void updateWindow(Animal a) {
-		;
-	}
 
 	
 	/**
@@ -80,9 +77,9 @@ public class W_AnimalStore {
      */
 	public Map<String, Double> getAnimals(){
 		Map<String, Double> animals = new HashMap<>();
-		animals.put("Cow", 120.0);
-		animals.put("Pig", 150.0);
-		animals.put("Sheep", 100.0);
+		animals.put("Cow", 120.00);
+		animals.put("Pig", 150.00);
+		animals.put("Sheep", 100.00);
 		return animals;
 	}
 	
@@ -114,7 +111,7 @@ public class W_AnimalStore {
 		JLabel lblMoney = new JLabel();
 		lblMoney.setBounds(24, 21, 187, 14);
 		lblMoney.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblMoney.setText("Balance: $" + farmObject.getBal());
+		lblMoney.setText("Balance: $" + new DecimalFormat("0.00").format(farmObject.getBal()));
 		frmAnimalStore.getContentPane().add(lblMoney);
 		
 		JButton btnReturn = new JButton("Return");
@@ -157,7 +154,7 @@ public class W_AnimalStore {
 					farmObject.addAnimal(a);
 					farmObject.updateBal(-cost);
 					txtView.append("\n" + a.getType());
-					lblMoney.setText("Balance: " + farmObject.getBal());
+					lblMoney.setText("Balance: " + new DecimalFormat("0.00").format(farmObject.getBal()));
 				}
 				
 			}

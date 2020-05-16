@@ -30,27 +30,60 @@ public class W_Actions {
 		initialize();
 	}
 	
+	
+	/**
+	 * Hides the current window
+	 */
 	private void closeWindow() {
 		frame.setVisible(false);
 	}
 	
+	
+	/**
+	 * Shows the current window
+	 */
 	public void show() {
 		frame.setVisible(true);
 		updateTurns();
 	}
 	
+	
+	/**
+	 * Updates the labels in the window
+	 */
 	public void updateTurns() {
 		lblTurns.setText("Turns left: " + manager.getTurns());
 	}
 	
+	
+	/**
+	 * Closes the window
+	 */
 	public void endWindow() {
 		frame.dispose();
 	}
 	
+	
+	/**
+	 * Opens a window to tend to crops
+	 */
 	private void tendCrops(ArrayList<Crop> crops, ArrayList<CropItem> cropItems) {
 		W_TendCrops window = new W_TendCrops(crops, cropItems, this);
 	}
+	
+	
+	/**
+	 * Opens a window to feed animals
+	 */
+	private void feedAnimals(ArrayList<Animal> animals, ArrayList<FoodItem> foodItems) {
+		W_FeedAnimals window = new W_FeedAnimals(animals, foodItems, this);
+	}
 
+	
+	/**
+	 * Returns if there is any turns left
+	 * @return boolean
+	 */
 	private boolean anyActionsLeft() {
 		return ( manager.getTurns() > 0);
 	}
@@ -142,18 +175,19 @@ public class W_Actions {
 				if ( anyActionsLeft() ) {
 					// created method to get particular items
 					ArrayList<FoodItem> foodItems = manager.farmObject.getFoodItems();
-					/*
+					ArrayList<Animal> animals = manager.farmObject.getAnimals();
+					
 					for (Item i : manager.farmObject.getItems()) {
 						if (i instanceof FoodItem) {
 							FoodItem j = (FoodItem) i;
 							foodItems.add(j);
 						}
 					}
-					*/
+					
 					
 					if ( foodItems.size() > 0 ) {
-						if (manager.farmObject.getAnimals().size() > 0) {
-							W_FeedAnimals window = new W_FeedAnimals(foodItems);
+						if (animals.size() > 0) {
+							feedAnimals(animals, foodItems);
 						}
 						else {
 							showMessageDialog(null, "No animals to feed.");

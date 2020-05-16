@@ -21,7 +21,6 @@ import javax.swing.JButton;
 public class W_TendCrops {
 
 	private JFrame frame;
-
 	private ArrayList<Crop> crops;
 	private ArrayList<CropItem> cropItems;
 	private W_Actions parent;
@@ -103,7 +102,6 @@ public class W_TendCrops {
 					else {
 						crop.increaseRate(item.getBenefit());
 					}
-					crop.increaseRate(item.getBenefit());
 					cropItems.remove(item);
 					parent.manager.farmObject.removeItem(item);
 					cbItem.removeItem(item);
@@ -132,7 +130,7 @@ public class W_TendCrops {
 		frame.getContentPane().add(btnReturn);
 		
 		JLabel lblDesc = new JLabel("QUANTITY - TYPE - GROWTH RATE");
-		lblDesc.setBounds(20, 98, 177, 14);
+		lblDesc.setBounds(10, 98, 197, 14);
 		frame.getContentPane().add(lblDesc);
 	}
 }

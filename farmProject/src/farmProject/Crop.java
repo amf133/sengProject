@@ -13,8 +13,6 @@ public class Crop {
     
     public Crop(String typee, Double cost, int quantityy) //init method, throws error if incorrect values
     {    
-        
-        
         if (typee.equals("Carrot")){
             worth = cost;
             growthRate = 0.2; //5 days to grow

@@ -3,6 +3,7 @@ package farmProject;
 import java.awt.EventQueue;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -60,9 +61,9 @@ public class W_ItemStore {
 	public Map<String, String[]> getAItems(){
 		Map<String, String[]> aItems = new HashMap<>();
 		
-		String[] grub = new String[] {"20.0", "Increase health 20%", "0.2"};
-		String[] seed = new String[] {"30.0", "Increase health 50%", "0.5"};
-		String[] med = new String[] {"50.0", "Max Health", "1.0"};
+		String[] grub = new String[] {"20.00", "Increase health 20%", "0.2"};
+		String[] seed = new String[] {"30.00", "Increase health 50%", "0.5"};
+		String[] med = new String[] {"50.00", "Max Health", "1.0"};
 		aItems.put("Grub", grub);
 		aItems.put("Seeds", seed);
 		aItems.put("Medicine", med);
@@ -72,9 +73,9 @@ public class W_ItemStore {
 	public Map<String, String[]> getCItems(){
 		Map<String, String[]> aCtems = new HashMap<>();
 		
-		String[] fert = new String[] {"20.0", "Increase growth rate 20%", "0.2"};
-		String[] sun = new String[] {"50.0", "Increase growth rate 50%", "0.5"};
-		String[] inst = new String[] {"100.0", "Instantly grows crops", "1.0"};
+		String[] fert = new String[] {"20.00", "Increase growth rate 20%", "0.2"};
+		String[] sun = new String[] {"50.00", "Increase growth rate 50%", "0.5"};
+		String[] inst = new String[] {"100.00", "Instantly grows crops", "1.0"};
 		aCtems.put("Fertilizer", fert);
 		aCtems.put("Sunglight", sun);
 		aCtems.put("Instant", inst);
@@ -124,7 +125,7 @@ public class W_ItemStore {
 		JLabel lblBal = new JLabel("Balance:");
 		lblBal.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblBal.setBounds(10, 11, 158, 14);
-		lblBal.setText("Balance: " + farmObject.getBal());
+		lblBal.setText("Balance: " + new DecimalFormat("0.00").format(farmObject.getBal()));
 		frmItemStore.getContentPane().add(lblBal);
 
 
@@ -178,7 +179,7 @@ public class W_ItemStore {
 					farmObject.addItem(i);
 					farmObject.updateBal(-cost);
 					txtAItem.append("\n" + i.getType());
-					lblBal.setText("Balance: " + farmObject.getBal());
+					lblBal.setText("Balance: " + new DecimalFormat("0.00").format(farmObject.getBal()));
 				}
 			}
 		});
@@ -204,7 +205,7 @@ public class W_ItemStore {
 					farmObject.addItem(i);
 					farmObject.updateBal(-cost);
 					txtCItem.append("\n" + i.getType());
-					lblBal.setText("Balance: " + farmObject.getBal());
+					lblBal.setText("Balance: " + new DecimalFormat("0.00").format(farmObject.getBal()));
 				}
 			}
 		});

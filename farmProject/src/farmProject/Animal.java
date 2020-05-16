@@ -18,6 +18,7 @@ public class Animal {
 
     }
     
+    
     /** 
     * Gets the type of animal eg. Sheep, Cow, Pig
     * @return type of animal
@@ -26,11 +27,11 @@ public class Animal {
         return type;
     }
     
+    
     /** 
     * Edits the happiness of the animal
     * @param hap the amount the happiness of animal is changed by
     */
-    
     public void editHappiness(Double hap){
         if (happiness + hap > 1){
             happiness = 1.0;
@@ -42,6 +43,26 @@ public class Animal {
             happiness += hap;
         }
     }
+    
+    
+    
+    /** 
+     * Edits the happiness of the animal
+     * @param hap the amount the health of animal is changed by
+     */
+     public void editHealth(Double incomingHealth){
+         if (health + incomingHealth > 1){
+             health = 1.0;
+         }
+         else if (health + incomingHealth < 0){
+             health = 0.0;
+         }
+         else{
+             health += incomingHealth;
+         }
+     }
+    
+    
     
     /** 
     * Gets how much the animal is worth
