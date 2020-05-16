@@ -9,8 +9,8 @@ import java.util.Scanner;
 
 public class Farm {
     private String name;
-    int maxAnimals = 10;
-    int maxCrops = 100;
+    int maxAnimals = 5;
+    int maxCrops = 50;
     private ArrayList<Crop> crops = new ArrayList<>(maxCrops); //setting max size?
     private ArrayList<Animal> animals = new ArrayList<>(maxAnimals);
     private ArrayList<Item> items = new ArrayList<>();
@@ -496,6 +496,10 @@ public class Farm {
             	animals.remove(0);
             }
         }
+    }
+    
+    public void removeItem(Item i) {
+    	items.remove(i);
     }
     
     /**

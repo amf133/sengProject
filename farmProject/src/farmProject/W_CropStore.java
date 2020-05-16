@@ -113,7 +113,7 @@ public class W_CropStore {
 		for (String crop  : cropType.keySet()) {
 			comboBox.addItem(crop + " $" + cropType.get(crop) + "ea");
 		}
-		comboBox.setBounds(96, 52, 120, 22);
+		comboBox.setBounds(96, 52, 133, 22);
 		comboBox.setEditable(false);
 		frmCropStore.getContentPane().add(comboBox);
 
@@ -168,7 +168,7 @@ public class W_CropStore {
 		}
 		txtCrops.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		txtCrops.setEditable(false);
-		txtCrops.setBounds(226, 51, 179, 139);
+		txtCrops.setBounds(248, 51, 157, 139);
 		frmCropStore.getContentPane().add(txtCrops);
 		
 

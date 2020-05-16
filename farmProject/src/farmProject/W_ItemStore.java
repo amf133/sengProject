@@ -32,24 +32,6 @@ public class W_ItemStore {
 	private JFrame frmItemStore;
 	private WindowManager manager;
 
-
-	/**
-	 * Launch the application.
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					W_ItemStore window = new W_ItemStore();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	*/
-	
 	/**
 	 * Create the application.
 	 */
@@ -158,7 +140,7 @@ public class W_ItemStore {
 		btnMedicine.setBackground(Color.CYAN);
 		btnMedicine.setHorizontalAlignment(SwingConstants.LEFT);
 		btnMedicine.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnMedicine.setBounds(109, 121, 112, 23);
+		btnMedicine.setBounds(109, 121, 121, 23);
 		frmItemStore.getContentPane().add(btnMedicine);
 		
 		// Button to buy grub
@@ -182,7 +164,7 @@ public class W_ItemStore {
 		btnGrub.setBackground(Color.CYAN);
 		btnGrub.setHorizontalAlignment(SwingConstants.LEFT);
 		btnGrub.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnGrub.setBounds(109, 52, 112, 23);
+		btnGrub.setBounds(109, 52, 121, 23);
 		frmItemStore.getContentPane().add(btnGrub);
 		
 		// Button to buy grub
@@ -206,7 +188,7 @@ public class W_ItemStore {
 		btnSeeds.setBackground(Color.CYAN);
 		btnSeeds.setHorizontalAlignment(SwingConstants.LEFT);
 		btnSeeds.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnSeeds.setBounds(109, 87, 112, 23);
+		btnSeeds.setBounds(109, 87, 121, 23);
 		frmItemStore.getContentPane().add(btnSeeds);
 		
 		JButton btnFertilizer = new JButton("Fertilizer  $25");
@@ -228,7 +210,7 @@ public class W_ItemStore {
 		});
 		btnFertilizer.setHorizontalAlignment(SwingConstants.LEFT);
 		btnFertilizer.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnFertilizer.setBounds(109, 213, 112, 23);
+		btnFertilizer.setBounds(109, 213, 121, 23);
 		frmItemStore.getContentPane().add(btnFertilizer);
 		
 		JButton btnSunlight = new JButton("Sunlight $50");
@@ -250,7 +232,7 @@ public class W_ItemStore {
 		});
 		btnSunlight.setHorizontalAlignment(SwingConstants.LEFT);
 		btnSunlight.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnSunlight.setBounds(108, 247, 112, 23);
+		btnSunlight.setBounds(108, 247, 122, 23);
 		frmItemStore.getContentPane().add(btnSunlight);
 		
 		JButton btnInstant = new JButton("Instant $100");
@@ -272,7 +254,7 @@ public class W_ItemStore {
 		});
 		btnInstant.setHorizontalAlignment(SwingConstants.LEFT);
 		btnInstant.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnInstant.setBounds(108, 279, 112, 23);
+		btnInstant.setBounds(108, 279, 122, 23);
 		frmItemStore.getContentPane().add(btnInstant);
 		
 		
@@ -291,42 +273,42 @@ public class W_ItemStore {
 		
 		JLabel lblHealth = new JLabel("Health Given:");
 		lblHealth.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblHealth.setBounds(251, 22, 103, 20);
+		lblHealth.setBounds(260, 22, 103, 20);
 		frmItemStore.getContentPane().add(lblHealth);
 		
 		JLabel lblGrowthIncreae = new JLabel("Growth Increase %");
 		lblGrowthIncreae.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblGrowthIncreae.setBounds(231, 185, 123, 23);
+		lblGrowthIncreae.setBounds(240, 185, 123, 23);
 		frmItemStore.getContentPane().add(lblGrowthIncreae);
 		
 		JLabel lblGFert = new JLabel("0.25");
 		lblGFert.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblGFert.setBounds(269, 213, 46, 14);
+		lblGFert.setBounds(278, 213, 46, 14);
 		frmItemStore.getContentPane().add(lblGFert);
 		
 		JLabel lblGSun = new JLabel("0.5");
 		lblGSun.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblGSun.setBounds(269, 247, 46, 14);
+		lblGSun.setBounds(278, 247, 46, 14);
 		frmItemStore.getContentPane().add(lblGSun);
 		
 		JLabel lblGIns = new JLabel("1");
 		lblGIns.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblGIns.setBounds(269, 285, 46, 14);
+		lblGIns.setBounds(278, 285, 46, 14);
 		frmItemStore.getContentPane().add(lblGIns);
 		
 		JLabel lblHGrub = new JLabel("0.2\r\n\r\n");
 		lblHGrub.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblHGrub.setBounds(269, 58, 25, 14);
+		lblHGrub.setBounds(278, 58, 25, 14);
 		frmItemStore.getContentPane().add(lblHGrub);
 		
 		JLabel lblHSeed = new JLabel("0.5");
 		lblHSeed.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblHSeed.setBounds(269, 93, 46, 14);
+		lblHSeed.setBounds(278, 93, 46, 14);
 		frmItemStore.getContentPane().add(lblHSeed);
 		
 		JLabel lblHMed = new JLabel("1");
 		lblHMed.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblHMed.setBounds(269, 127, 46, 14);
+		lblHMed.setBounds(278, 127, 46, 14);
 		frmItemStore.getContentPane().add(lblHMed);
 		
 

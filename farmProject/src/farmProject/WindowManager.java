@@ -60,24 +60,10 @@ public class WindowManager {
 	}
 	
 	public void harvestCrops() {
-		boolean harvest = false;
-        
-        for (Crop c : farmObject.getCrops()){ //if at least one crop is ready to harvest
-            if (c.getGrowth() >= 1){
-                harvest = true;
-                break;
-            }
-        }
-        
-        if (harvest){
-            farmObject.harvest();
-            turns -= 1;
-            showMessageDialog(null, "New farm balance: " + farmObject.getBal());
-            farmView.updateLabels();
-        }
-        else{
-        	showMessageDialog(null, "\nNo crops to harvest!");
-        }
+		farmObject.harvest();
+        turns -= 1;
+        showMessageDialog(null, "New farm balance: " + farmObject.getBal());
+        farmView.updateLabels();
 	}
 	
 	

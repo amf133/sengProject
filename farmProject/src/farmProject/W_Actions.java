@@ -18,7 +18,7 @@ import java.awt.Font;
 public class W_Actions {
 
 	private JFrame frame;
-	private WindowManager manager;
+	WindowManager manager;
 	private JLabel lblTurns;
 
 	
@@ -39,14 +39,22 @@ public class W_Actions {
 		updateTurns();
 	}
 	
-	private void updateTurns() {
+	public void updateTurns() {
 		lblTurns.setText("Turns left: " + manager.getTurns());
 	}
 	
 	public void endWindow() {
 		frame.dispose();
 	}
+	
+	private void tendCrops(ArrayList<Crop> crops, ArrayList<CropItem> cropItems) {
+		W_TendCrops window = new W_TendCrops(crops, cropItems, this);
+	}
 
+	private boolean anyActionsLeft() {
+		return ( manager.getTurns() > 0);
+	}
+	
 
 	/**
 	 * Initialize the contents of the frame.
@@ -76,7 +84,28 @@ public class W_Actions {
 		btnHarvestCrops.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				manager.harvestCrops();
+				if ( anyActionsLeft() ) {
+					boolean harvest = false;
+			        
+			        for (Crop c : manager.farmObject.getCrops()){ //if at least one crop is ready to harvest
+			            if (c.getGrowth() >= 1){
+			                harvest = true;
+			                break;
+			            }
+			        }
+			        
+			        if (harvest){
+			            manager.harvestCrops();
+						updateTurns();
+			        }
+			        else{
+			        	showMessageDialog(null, "\nNo crops to harvest!");
+			        }
+				}
+				else {
+					showMessageDialog(null, "No actions left!");
+				}
+				
 			}
 		});
 		btnHarvestCrops.setBounds(24, 161, 149, 23);
@@ -86,15 +115,21 @@ public class W_Actions {
 		btnPlayAnimals.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if (manager.farmObject.getAnimals().size() >= 1){
-                    manager.farmObject.playTime();
-                    manager.editTurns(-1);
-                    showMessageDialog(null, "All animals are now at their happiest!");
-                    updateTurns();
-                } 
-                else{
-                	showMessageDialog(null, "No animals to play with :(");
-                }
+				if ( anyActionsLeft() ) {
+					if (manager.farmObject.getAnimals().size() >= 1){
+	                    manager.farmObject.playTime();
+	                    manager.editTurns(-1);
+	                    showMessageDialog(null, "All animals are now at their happiest!");
+	                    updateTurns();
+	                } 
+	                else{
+	                	showMessageDialog(null, "No animals to play with :(");
+	                }
+				}
+				else {
+					showMessageDialog(null, "No actions left!");
+				}
+				
 			}
 		});
 		btnPlayAnimals.setBounds(93, 348, 149, 23);
@@ -104,28 +139,32 @@ public class W_Actions {
 		btnFeedAnimals.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				// created method to get particular items
-				ArrayList<FoodItem> foodItems = manager.farmObject.getFoodItems();
-				/*
-				for (Item i : manager.farmObject.getItems()) {
-					if (i instanceof FoodItem) {
-						FoodItem j = (FoodItem) i;
-						foodItems.add(j);
+				if ( anyActionsLeft() ) {
+					// created method to get particular items
+					ArrayList<FoodItem> foodItems = manager.farmObject.getFoodItems();
+					/*
+					for (Item i : manager.farmObject.getItems()) {
+						if (i instanceof FoodItem) {
+							FoodItem j = (FoodItem) i;
+							foodItems.add(j);
+						}
 					}
-				}
-				*/
-				
-				if ( foodItems.size() > 0 ) {
-					if (manager.farmObject.getAnimals().size() > 0) {
-						W_FeedAnimals window = new W_FeedAnimals(foodItems);
+					*/
+					
+					if ( foodItems.size() > 0 ) {
+						if (manager.farmObject.getAnimals().size() > 0) {
+							W_FeedAnimals window = new W_FeedAnimals(foodItems);
+						}
+						else {
+							showMessageDialog(null, "No animals to feed.");
+						}
 					}
 					else {
-						showMessageDialog(null, "No animals to feed.");
+						showMessageDialog(null, "No food items avaliable.");
 					}
 				}
 				else {
-					showMessageDialog(null, "No food items avaliable.");
+					showMessageDialog(null, "No actions left!");
 				}
 			}
 		});
@@ -136,19 +175,24 @@ public class W_Actions {
 		btnTendToCrops.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ArrayList<Crop> crops = manager.farmObject.getCrops();
-				ArrayList<CropItem> cropItems = manager.farmObject.getCropItems();
-				
-				if ( cropItems.size() > 0) {
-					if (crops.size() > 0) {
-						W_TendCrops window = new W_TendCrops(crops, cropItems);
+				if ( anyActionsLeft() ) {
+					ArrayList<Crop> crops = manager.farmObject.getCrops();
+					ArrayList<CropItem> cropItems = manager.farmObject.getCropItems();
+					
+					if ( cropItems.size() > 0) {
+						if (crops.size() > 0) {
+							tendCrops(crops, cropItems);
+						}
+						else {
+							showMessageDialog(null, "No crops to tend to.");
+						}
 					}
 					else {
-						showMessageDialog(null, "No crops to tend to.");
+						showMessageDialog(null, "No crop items avaliable.");
 					}
 				}
 				else {
-					showMessageDialog(null, "No crop items avaliable penis.");
+					showMessageDialog(null, "No actions left!");
 				}
 			}
 		});
@@ -159,14 +203,19 @@ public class W_Actions {
 		btnTendFarm.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				manager.farmObject.editHappiness();
-		        manager.farmObject.addSpace();
-                manager.editTurns(-1);
-				String result = ("Animal capacity increased by 2, " + manager.farmObject.getName() + " has room for " + (manager.farmObject.maxAnimals - manager.farmObject.getAnimals().size())  + " more animals!");
-		        result += ("\nCrop capacity increased by 20, " + manager.farmObject.getName() + " has room for " + (manager.farmObject.maxCrops - manager.farmObject.numberCrops())  + " more crops!");
-		        result += "\nAnimals feel more comfortable, now their happiness drains slower.";
-				showMessageDialog(null, result);
-				updateTurns();
+				if ( anyActionsLeft() ) {
+					manager.farmObject.editHappiness();
+			        manager.farmObject.addSpace();
+	                manager.editTurns(-1);
+					String result = ("Animal capacity increased by 2, " + manager.farmObject.getName() + " has room for " + (manager.farmObject.maxAnimals - manager.farmObject.getAnimals().size())  + " more animals!");
+			        result += ("\nCrop capacity increased by 20, " + manager.farmObject.getName() + " has room for " + (manager.farmObject.maxCrops - manager.farmObject.numberCrops())  + " more crops!");
+			        result += "\nAnimals feel more comfortable, now their happiness drains slower.";
+					showMessageDialog(null, result);
+					updateTurns();
+				}
+				else {
+					showMessageDialog(null, "No actions left!");
+				}
 			}
 		});
 		btnTendFarm.setBounds(720, 269, 149, 23);

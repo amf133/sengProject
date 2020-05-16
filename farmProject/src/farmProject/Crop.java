@@ -81,6 +81,19 @@ public class Crop {
         }
     }
     
+    
+    public void increaseGrowth(Double amount) {
+    	if (growth + amount > 1.0){
+            growth = 1.0;
+;        }
+        else if (growth + amount < 0.0) {
+        	growth = 0.0;
+        }
+        else{
+            growth += amount;
+        }
+    }
+    
     /**
     * Gets the worth of the crop, how much it can be sold for once ready to harvest
     * @return crops worth

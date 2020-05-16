@@ -24,13 +24,15 @@ public class W_TendCrops {
 
 	private ArrayList<Crop> crops;
 	private ArrayList<CropItem> cropItems;
+	private W_Actions parent;
 
 	/**
 	 * Create the application.
 	 */
-	public W_TendCrops(ArrayList<Crop> cropss, ArrayList<CropItem> incomingItems) {
+	public W_TendCrops(ArrayList<Crop> cropss, ArrayList<CropItem> incomingItems, W_Actions incomingParent) {
 		crops = cropss;
 		cropItems = incomingItems;
+		parent = incomingParent;
 		initialize();
 		frame.setVisible(true);
 	}
@@ -87,9 +89,19 @@ public class W_TendCrops {
 						null, JOptionPane.YES_NO_CANCEL_OPTION);
 		
 				if (confirm == 0) {
+					if ( item.getType() == "Instant" ) {
+						crop.increaseGrowth(item.getBenefit());
+					}
+					else {
+						crop.increaseRate(item.getBenefit());
+					}
 					crop.increaseRate(item.getBenefit());
 					cropItems.remove(item);
+					parent.manager.farmObject.removeItem(item);
 					cbItem.removeItem(item);
+					parent.manager.editTurns(-1);
+					parent.updateTurns();
+					endWindow();
 				}
 
 			}
