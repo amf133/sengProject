@@ -32,6 +32,7 @@ public class W_ItemStore {
 	private JFrame frmItemStore;
 	private WindowManager manager;
 
+	
 	/**
 	 * Create the application.
 	 */
@@ -39,14 +40,27 @@ public class W_ItemStore {
 		manager = incomingManager;
 		initialize(farmObject);
 	}
+	
+	
+	/**
+     * Hides the current window
+     */
 	public void closeWindow() {
 		frmItemStore.setVisible(false);
 	}
 	
+	
+	/**
+     * Shows the current window
+     */
 	public void show() {
 		frmItemStore.setVisible(true);
 	}
 	
+	
+	/**
+     * Returns to town map
+     */
 	private void finishedWindow() {
 		closeWindow();
 		manager.toTownMap();

@@ -46,23 +46,38 @@ public class W_AnimalStore {
 	}
 	
 	private void updateWindow(Animal a) {
-		
-		
+		;
 	}
 
+	
+	/**
+     * Hides the current window
+     */
 	public void closeWindow() {
 		frmAnimalStore.setVisible(false);
 	}
 	
+	
+	/**
+     * Shows the current window
+     */
 	public void show() {
 		frmAnimalStore.setVisible(true);
 	}
 	
+	
+	/**
+     * Returns to town map
+     */
 	private void finishedWindow() {
 		closeWindow();
 		manager.toTownMap();
 	}
 	
+	
+	/**
+     * --------------------------------------------------------------------
+     */
 	public Map<String, Double> getAnimals(){
 		Map<String, Double> animals = new HashMap<>();
 		animals.put("Cow", 120.0);
@@ -71,9 +86,11 @@ public class W_AnimalStore {
 		return animals;
 	}
 	
+	
+	/**
+     * Initializes all elements in the window
+     */
 	private void initialize(Farm farmObject) {
-		
-		
 		frmAnimalStore = new JFrame();
 		frmAnimalStore.setTitle("Animal Store");
 		frmAnimalStore.setBounds(100, 100, 471, 319);

@@ -14,38 +14,51 @@ public class WindowManager {
     private TownMap map = new TownMap(this);
     private FarmView farmView = new FarmView(this);
     private W_Actions actionWindow = new W_Actions(this);
-    
-
-	public void launchSetupScreen() {
-		setupScreen.show();
-	}
 	
 	
+	/**
+     * Opens action window
+     */
 	public void openActions() {
 		actionWindow.show();
 	}
 	
 	
+	/**
+     * Edits the daily turns allowed
+     */
 	public void editTurns(int incomingNum) {
 		turns += incomingNum;
 	}
 	
 	
+	/**
+     * Returns an int of the remaining turns left
+     */
 	public int getTurns() {
     	return turns;
     }
 	
 	
+	/**
+     * Returns an int of the days remaining
+     */
 	public int getDays() {
 		return days;
 	}
 	
 	
+	/**
+     * Returns a double of the game score
+     */
 	public double getScore() {
 		return farmObject.getScore();
 	}
 	
 	
+	/**
+     * Closes map window and opens the animal store window
+     */
 	public void viewAnimalStore() {
 		W_AnimalStore aStore = new W_AnimalStore(this, farmObject);
 		map.closeWindow();
@@ -53,6 +66,9 @@ public class WindowManager {
 	}
 	
 	
+	/**
+     * Closes map window and opens the crop store window
+     */
 	public void viewCropStore() {
 		W_CropStore cStore = new W_CropStore(this, farmObject);
 		map.closeWindow();
@@ -60,6 +76,9 @@ public class WindowManager {
 	}
 	
 	
+	/**
+     * Closes map window and opens the item store window
+     */
 	public void viewItemStore() {
 		W_ItemStore iStore = new W_ItemStore(this, farmObject);
 		map.closeWindow();
@@ -67,6 +86,9 @@ public class WindowManager {
 	}
 	
 	
+	/**
+     * Harvests fully grown crops
+     */
 	public void harvestCrops() {
 		farmObject.harvest();
         turns -= 1;
@@ -75,6 +97,9 @@ public class WindowManager {
 	}
 	
 	
+	/**
+     * Method to determine what happens at the start of a new day
+     */
 	public void newDay(){
         turns = 2;
         days -= 1;
@@ -110,6 +135,9 @@ public class WindowManager {
     }
 	
 	
+	/**
+     * Returns a string of the avaliable items in the farm
+     */
 	public String stringItems() {
 		String result = "";
 		ArrayList<Item> items = farmObject.getItems();
@@ -126,6 +154,9 @@ public class WindowManager {
 	}
 	
 	
+	/**
+     * Returns a string of the animals in the farm
+     */
 	public String stringAnimals() {
 		String result = "";
 		
@@ -147,6 +178,9 @@ public class WindowManager {
 	}
 	
 	
+	/**
+     *Returns a string of the crops in the farm
+     */
 	public String stringCrops() {
 		String result = "";
 		
@@ -165,18 +199,27 @@ public class WindowManager {
 	}
 	
 	
+	/**
+     * Closes map window and opens the farm window window
+     */
 	public void toFarm() {
 		map.closeWindow();
 		farmView.show();
 	}
 	
 	
+	/**
+     * Closes farm window and opens the map window
+     */
 	public void toTownMap() {
 		farmView.closeWindow();
 		map.show();
 	}
 	
 	
+	/**
+     * Closes the setup screen and initializes the game
+     */
 	public void closeSetupScreen(Farm incomingFarm, Farmer incomingFarmer, int incomingDays) {
 		farmerObject = incomingFarmer;
 		farmObject = incomingFarm;
@@ -187,14 +230,17 @@ public class WindowManager {
 	}
 	
 	
+	/**
+     * Launches the setup screen
+     */
 	public void launch() {
 		WindowManager manager = new WindowManager();
-		manager.launchSetupScreen();
+		setupScreen.show();
 	}
 	
 
 	public static void main(String[] args) {
 		WindowManager manager = new WindowManager();
-		manager.launchSetupScreen();
+		manager.setupScreen.show();
 	}
 }

@@ -468,7 +468,9 @@ public class GameEnvironment {
         
     }
     
-    
+    /**
+     * Ends game and displays final score
+     */
     private void endGame(){ //called when game ends
         double score = farmObject.getScore();
         System.out.println("\n GAME OVER");
@@ -478,7 +480,9 @@ public class GameEnvironment {
         System.exit(0);
     }
     
-
+    /**
+     * Main option selection for game
+     */
     private void playGame(){ //option selection
         String input;
         

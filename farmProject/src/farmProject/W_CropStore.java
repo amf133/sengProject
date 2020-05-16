@@ -24,46 +24,45 @@ public class W_CropStore {
 	private WindowManager manager;
 	private JTextField txtQuant;
 	private JTextArea txtCrops;
-
-
-	/**
-	 * Launch the application.
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					W_ItemStore window = new W_ItemStore();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	*/
+	
 	
 	/**
 	 * Create the application.
 	 */
-	
 	public W_CropStore(WindowManager incomingManager, Farm farmObject)  {
 		manager = incomingManager;
 		initialize(farmObject);
 	}
+	
+	
+	/**
+     * Hides current window
+     */
 	public void closeWindow() {
 		frmCropStore.setVisible(false);
 	}
 	
+	
+	/**
+     * Shows current window
+     */
 	public void show() {
 		frmCropStore.setVisible(true);
 	}
 	
+	
+	/**
+     * Returns to town map
+     */
 	private void finishedWindow() {
 		closeWindow();
 		manager.toTownMap();
 	}
 	
+	
+	/**
+     * -----------------------------------------------------------------------------------------
+     */
 	public Map<String, Double> getCropTypes(){
 		Map<String, Double> cropTypes = new HashMap<>();
 		cropTypes.put("Carrot", 5.0);
