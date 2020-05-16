@@ -42,18 +42,28 @@ public class GameEnvironment {
      */
     private Farmer getFarmer(){ 
         //returns farmer object after collecting user input
-        String name;
+        String nameF;
+        String nameL;
         
         do{
-            System.out.print("\nEnter farmer name: ");
-            name = scanner.nextLine();
-            if (name.length() < 3 || name.length() > 15){
-                System.out.println("Name must be between 3 and 15 characters long.");
+            System.out.print("\nEnter farmer first name: ");
+            nameF = scanner.nextLine();
+            if (nameF.length() < 3 || nameF.length() > 15){
+                System.out.println("First name must be between 3 and 15 characters long.");
             }
         }
-        while (name.length() < 3 || name.length() > 15);
+        while (nameF.length() < 3 || nameF.length() > 15);
+        
+        do{
+            System.out.print("\nEnter farmer last name: ");
+            nameL = scanner.nextLine();
+            if (nameL.length() < 3 || nameL.length() > 15){
+                System.out.println("Last name must be between 3 and 15 characters long.");
+            }
+        }
+        while (nameL.length() < 3 || nameL.length() > 15);
     	
-        Farmer farmerObject = new Farmer(name);
+        Farmer farmerObject = new Farmer(nameF, nameL);
         return farmerObject;
     }
     
