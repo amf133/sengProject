@@ -145,7 +145,7 @@ public class W_ItemStore {
 		JComboBox<String> animalBox = new JComboBox<>();
 		Map<String, String[]> animalItems = getAItems();
 		for (String a : animalItems.keySet()) {
-			animalBox.addItem(a + " - " + animalItems.get(a)[1] + " $" + Double.parseDouble(animalItems.get(a)[0]) + " ea");
+			animalBox.addItem(a + " - " + animalItems.get(a)[1] + " - $" + Double.parseDouble(animalItems.get(a)[0]) + " ea");
 		}
 		animalBox.setBounds(10, 103, 322, 22);
 		frmItemStore.getContentPane().add(animalBox);
@@ -153,7 +153,7 @@ public class W_ItemStore {
 		JComboBox<String> cropBox = new JComboBox<>();
 		Map<String, String[]> cropItemss = getCItems();
 		for (String c : cropItemss.keySet()) {
-			cropBox.addItem(c + " - " + cropItemss.get(c)[1] + " $" + Double.parseDouble(cropItemss.get(c)[0]) + " ea");
+			cropBox.addItem(c + " - " + cropItemss.get(c)[1] + " - $" + Double.parseDouble(cropItemss.get(c)[0]) + " ea");
 		}
 		cropBox.setBounds(10, 263, 322, 22);
 		frmItemStore.getContentPane().add(cropBox);
