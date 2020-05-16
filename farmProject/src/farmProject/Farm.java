@@ -141,18 +141,6 @@ public class Farm {
         	r.printDetails();
         }
         
-        /**
-        for (Item i : items){ //creating a list of food items
-            if (i instanceof FoodItem){
-                FoodItem r = (FoodItem) i;
-                foodItems.add(r);
-                iter += 1;
-                System.out.println("Food item: " + iter);
-                r.printDetails();
-            }
-        }
-        */
-        
         String input = "0";
         FoodItem choice;
         do{

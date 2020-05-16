@@ -84,7 +84,7 @@ public class W_ItemStore {
 		
 		
 		
-		ArrayList<FoodItem> foodItems = new ArrayList<FoodItem>();
+		ArrayList<FoodItem> foodItems = farmObject.getFoodItems();
 		JTextArea txtAItem = new JTextArea();
 		JScrollPane sp1 = new JScrollPane(txtAItem, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		txtAItem.setText("Your Animal items:");
@@ -116,7 +116,7 @@ public class W_ItemStore {
 		JLabel lblBal = new JLabel("Balance:");
 		lblBal.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblBal.setBounds(10, 11, 158, 14);
-		lblBal.setText("Current Balance: $" + farmObject.getBal());
+		lblBal.setText("Balance: $null");
 		frmItemStore.getContentPane().add(lblBal);
 
 
@@ -136,18 +136,18 @@ public class W_ItemStore {
 			
 		JComboBox<String> animalBox = new JComboBox<>();
 		Map<String, Double> animalItems = getAItems();
-		for (String i : animalItems.keySet()) {
-			animalBox.addItem(i + " $" + animalItems.get(i) + " ea");
+		for (String a : animalItems.keySet()) {
+			animalBox.addItem(a + " $" + animalItems.get(a) + " ea");
 		}
-		animalBox.setBounds(10, 89, 89, 22);
+		animalBox.setBounds(79, 103, 165, 22);
 		frmItemStore.getContentPane().add(animalBox);
 		
 		JComboBox<String> cropBox = new JComboBox<>();
-		Map<String, Double> cropItemss = getAItems();
-		for (String i : cropItemss.keySet()) {
-			cropBox.addItem(i + " $" + cropItemss.get(i) + " ea");
+		Map<String, Double> cropItemss = getCItems();
+		for (String c : cropItemss.keySet()) {
+			cropBox.addItem(c + " $" + cropItemss.get(c) + " ea");
 		}
-		cropBox.setBounds(10, 249, 88, 22);
+		cropBox.setBounds(79, 263, 165, 22);
 		frmItemStore.getContentPane().add(cropBox);
 		
 		JButton btnConfirmA = new JButton("Confirm Food");
@@ -156,75 +156,53 @@ public class W_ItemStore {
 			public void mouseClicked(MouseEvent e) {
 				String arr[] = ((String) animalBox.getSelectedItem()).split(" ");
 				String type = arr[0];
+				Double cost = (Double) animalItems.get(type);
+				
+				if(farmObject.getBal() < cost) {
+					showMessageDialog(null, "You do not have enough money");
+				}
+				else {
+					Item i = new FoodItem(type, "Description", 0.5);
+					farmObject.addItem(i);
+					farmObject.updateBal(-cost);
+					txtAItem.append("\n" + i.getType() + " " + i.getDescription());
+				}
+			}
+		});
+		btnConfirmA.setBounds(79, 136, 112, 23);
+		frmItemStore.getContentPane().add(btnConfirmA);
+		
+		JButton btnConfirmC = new JButton("Confirm Crop");
+		btnConfirmC.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String arr[] = ((String) cropBox.getSelectedItem()).split(" ");
+				String type = arr[0];
 				Double cost = (Double) cropItemss.get(type);
 				
 				if(farmObject.getBal() < cost) {
 					showMessageDialog(null, "You do not have enough money");
 				}
 				else {
-					Item f = new FoodItem(type, cost);
-					farmObject.addItem(f);
+					Item i = new CropItem(type, "Description", 0.5);
+					farmObject.addItem(i);
+					farmObject.updateBal(-cost);
+					txtCItem.append("\n" + i.getType() + " " + i.getDescription());
 				}
-		btnConfirmA.setBounds(113, 89, 112, 23);
-		frmItemStore.getContentPane().add(btnConfirmA);
-		
-		JButton btnConfirmC = new JButton("Confirm Crop");
-		btnConfirmC.setBounds(108, 249, 112, 23);
+			}
+		});
+		btnConfirmC.setBounds(79, 296, 117, 23);
 		frmItemStore.getContentPane().add(btnConfirmC);
 		
+		JLabel lblSelectCItem = new JLabel("Select Crop Item:");
+		lblSelectCItem.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblSelectCItem.setBounds(81, 232, 163, 20);
+		frmItemStore.getContentPane().add(lblSelectCItem);
 		
-		// LABELS ---------------------------------------------------------------------------------------------------------
-		
-
-		JLabel lblAItems = new JLabel("Animal Items:");
-		lblAItems.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblAItems.setBounds(10, 53, 112, 20);
-		frmItemStore.getContentPane().add(lblAItems);
-		
-		JLabel lblCItems = new JLabel("Crops Items:\r\n\r\n");
-		lblCItems.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblCItems.setBounds(10, 213, 112, 23);
-		frmItemStore.getContentPane().add(lblCItems);
-		
-		JLabel lblHealth = new JLabel("Health Given:");
-		lblHealth.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblHealth.setBounds(260, 22, 103, 20);
-		frmItemStore.getContentPane().add(lblHealth);
-		
-		JLabel lblGrowthIncreae = new JLabel("Growth Increase %");
-		lblGrowthIncreae.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblGrowthIncreae.setBounds(240, 185, 123, 23);
-		frmItemStore.getContentPane().add(lblGrowthIncreae);
-		
-		JLabel lblGFert = new JLabel("0.25");
-		lblGFert.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblGFert.setBounds(278, 213, 46, 14);
-		frmItemStore.getContentPane().add(lblGFert);
-		
-		JLabel lblGSun = new JLabel("0.5");
-		lblGSun.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblGSun.setBounds(278, 247, 46, 14);
-		frmItemStore.getContentPane().add(lblGSun);
-		
-		JLabel lblGIns = new JLabel("1");
-		lblGIns.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblGIns.setBounds(278, 285, 46, 14);
-		frmItemStore.getContentPane().add(lblGIns);
-		
-		JLabel lblHGrub = new JLabel("0.2\r\n\r\n");
-		lblHGrub.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblHGrub.setBounds(278, 58, 25, 14);
-		frmItemStore.getContentPane().add(lblHGrub);
-		
-		JLabel lblHSeed = new JLabel("0.5");
-		lblHSeed.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblHSeed.setBounds(278, 93, 46, 14);
-		frmItemStore.getContentPane().add(lblHSeed);
-		
-		JLabel lblHMed = new JLabel("1");
-		lblHMed.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblHMed.setBounds(278, 127, 46, 14);
-		frmItemStore.getContentPane().add(lblHMed);
+		JLabel lblSelectAItem = new JLabel("Select Animal Item:");
+		lblSelectAItem.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblSelectAItem.setBounds(79, 79, 165, 14);
+		frmItemStore.getContentPane().add(lblSelectAItem);
 
 	}
 }
