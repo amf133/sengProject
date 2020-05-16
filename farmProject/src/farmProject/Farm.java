@@ -66,6 +66,7 @@ public class Farm {
     
     /**
      * Calculates and returns the games score
+     * @return double
      */
     public double getScore() {
     	double finalScore = bal;
@@ -217,8 +218,8 @@ public class Farm {
     * Adds crop to list of crops farm has
     * @param c crop to be added
     */
-    public void addCrop(Crop a){
-        crops.add(a);
+    public void addCrop(Crop c){
+        crops.add(c);
     }
     
     
@@ -232,6 +233,7 @@ public class Farm {
     
     /**
      * Returns the happiness decline farm variable of the animals
+     * @return double
      */
     public Double getHappy(){
         return HAPPYDECLINE;
@@ -499,6 +501,7 @@ public class Farm {
     
     /**
      * Removes item from item list
+     * @param i item to be removed
      */
     public void removeItem(Item i) {
     	items.remove(i);

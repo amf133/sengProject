@@ -14,6 +14,7 @@ public class CropItem extends Item{
     
     /**
      * Returns the items benefit
+     * @return double
      */
     public Double getBenefit(){
         return benefit;
