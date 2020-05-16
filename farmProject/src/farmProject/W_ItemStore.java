@@ -124,7 +124,7 @@ public class W_ItemStore {
 		JLabel lblBal = new JLabel("Balance:");
 		lblBal.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblBal.setBounds(10, 11, 158, 14);
-		lblBal.setText("Balance: $null");
+		lblBal.setText("Balance: " + farmObject.getBal());
 		frmItemStore.getContentPane().add(lblBal);
 
 
@@ -178,6 +178,7 @@ public class W_ItemStore {
 					farmObject.addItem(i);
 					farmObject.updateBal(-cost);
 					txtAItem.append("\n" + i.getType());
+					lblBal.setText("Balance: " + farmObject.getBal());
 				}
 			}
 		});
@@ -203,6 +204,7 @@ public class W_ItemStore {
 					farmObject.addItem(i);
 					farmObject.updateBal(-cost);
 					txtCItem.append("\n" + i.getType());
+					lblBal.setText("Balance: " + farmObject.getBal());
 				}
 			}
 		});
