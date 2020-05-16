@@ -28,7 +28,7 @@ public class SetupScreen {
 	private JSlider sliderLength;
 	private WindowManager manager;
 	private ButtonGroup btnGroup;
-	private JTextField txbFarmerLast;
+	private JTextField txbFarmerAge;
 
 	/**
 	 * Create the application.
@@ -49,16 +49,27 @@ public class SetupScreen {
 	}
 	
 	
-	private boolean isValid(String farmName, String farmerName) {
+	private boolean isValid(String farmName, String farmerName, String farmerAge) {
 		boolean valid = false;
-		if ( farmerName.length() < 3 || farmerName.length() > 15 ) {
-			showMessageDialog(null, "Farmer name must be between 3 and 15 characters long.");
-        }
-		else if ( farmName.length() < 3 || farmName.length() > 15 ) {
-			showMessageDialog(null, "Farm name must be between 3 and 15 characters long.");
+		
+		try {
+			if ( farmerName.length() < 3 || farmerName.length() > 15 ) {
+				showMessageDialog(null, "Farmer name must be between 3 and 15 characters long.");
+	        }
+			else if ( farmName.length() < 3 || farmName.length() > 15 ) {
+				showMessageDialog(null, "Farm name must be between 3 and 15 characters long.");
+			}
+			
+			else if ( Integer.parseInt(farmerAge) < 0 ) {
+				
+				showMessageDialog(null, "Please enter a valid age.");
+			}
+			else {
+				valid = true;
+			}
 		}
-		else {
-			valid = true;
+		catch (NumberFormatException e) {
+			showMessageDialog(null, "Please enter a valid age.");
 		}
 		return valid;
 	}
@@ -68,7 +79,7 @@ public class SetupScreen {
 	private void finishedWindow() {
 		Farmer farmerObject;
 		String farmerName = txtFarmerFirst.getText();
-		String farmerNameL = txbFarmerLast.getText();
+		String farmerAge = txbFarmerAge.getText();
 		
 		Farm farmObject;
 		String farmName = txtFarm.getText();
@@ -76,8 +87,8 @@ public class SetupScreen {
 		int days = sliderLength.getValue();
 		int farmType;
 		
-		if ( isValid(farmName, farmerName) ) {
-			farmerObject = new Farmer(farmerName, farmerNameL);
+		if ( isValid(farmName, farmerName, farmerAge) ) {
+			farmerObject = new Farmer(farmerName, Integer.parseInt(farmerAge));
 			farmType = Integer.parseInt(btnGroup.getSelection().getActionCommand()); //currently selected radio button as a number
 			farmObject = new Farm(farmName, farmType);
 			manager.closeSetupScreen(farmObject, farmerObject, days);
@@ -178,15 +189,15 @@ public class SetupScreen {
 	    group.add(rdbtnAnimal);
 	    group.add(rdbtnLarge);
 	    
-	    JLabel lblLast = new JLabel("Farmer Name (last):");
-	    lblLast.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	    lblLast.setBounds(21, 79, 121, 17);
-	    frmFarmSetup.getContentPane().add(lblLast);
+	    JLabel lblAge = new JLabel("Farmer Age:");
+	    lblAge.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	    lblAge.setBounds(21, 79, 121, 17);
+	    frmFarmSetup.getContentPane().add(lblAge);
 	    
-	    txbFarmerLast = new JTextField();
-	    txbFarmerLast.setColumns(10);
-	    txbFarmerLast.setBounds(178, 79, 138, 20);
-	    frmFarmSetup.getContentPane().add(txbFarmerLast);
+	    txbFarmerAge = new JTextField();
+	    txbFarmerAge.setColumns(10);
+	    txbFarmerAge.setBounds(178, 79, 138, 20);
+	    frmFarmSetup.getContentPane().add(txbFarmerAge);
 	    btnGroup = group;
 	}
 }

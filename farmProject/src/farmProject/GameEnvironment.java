@@ -1,4 +1,6 @@
 package farmProject;
+import static javax.swing.JOptionPane.showMessageDialog;
+
 import java.util.Scanner;
 
 
@@ -15,15 +17,24 @@ public class GameEnvironment {
     
     public GameEnvironment(){ //constructor
         String dayss = "";
+        boolean valid = false;
         
         do{ //error trapping
-            System.out.print("Enter number of days: ");
-            dayss = scanner.nextLine();
-            if (5 > Integer.parseInt(dayss) || Integer.parseInt(dayss) > 10){
-                System.out.println("Game must run between 5 to 10 days");
-            }
+        	try {
+	            System.out.print("Enter number of days: ");
+	            dayss = scanner.nextLine();
+	            if (5 > Integer.parseInt(dayss) || Integer.parseInt(dayss) > 10){
+	                System.out.println("Game must run between 5 to 10 days");
+	            }
+	            else {
+	            	valid = true;
+	            }
+        	}
+            catch (NumberFormatException e) {
+    			System.out.println("Please enter a valid number.");
+    		}
         }
-        while (5 > Integer.parseInt(dayss) || Integer.parseInt(dayss) > 10);
+        while (!(valid));
         
         days = Integer.parseInt(dayss);
         
@@ -43,7 +54,7 @@ public class GameEnvironment {
     private Farmer getFarmer(){ 
         //returns farmer object after collecting user input
         String nameF;
-        String nameL;
+        String age;
         
         do{
             System.out.print("\nEnter farmer first name: ");
@@ -54,16 +65,26 @@ public class GameEnvironment {
         }
         while (nameF.length() < 3 || nameF.length() > 15);
         
+        boolean valid = false;
         do{
-            System.out.print("\nEnter farmer last name: ");
-            nameL = scanner.nextLine();
-            if (nameL.length() < 3 || nameL.length() > 15){
-                System.out.println("Last name must be between 3 and 15 characters long.");
+            System.out.print("\nEnter farmer age: ");
+            age = scanner.nextLine();
+            
+            try {
+	            if ( Integer.parseInt(age) < 0 ){
+	                System.out.println("Please enter a valid age.");
+	            }
+	            else {
+	            	valid = true;
+	            }
             }
+            catch (NumberFormatException e) {
+    			System.out.println("Please enter a valid age.");
+    		}
         }
-        while (nameL.length() < 3 || nameL.length() > 15);
+        while (!(valid));
     	
-        Farmer farmerObject = new Farmer(nameF, nameL);
+        Farmer farmerObject = new Farmer(nameF, Integer.parseInt(age));
         return farmerObject;
     }
     
