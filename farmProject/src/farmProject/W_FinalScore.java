@@ -26,6 +26,9 @@ public class W_FinalScore {
 	}
 	
 	
+	/**
+     * Deletes the current window
+     */
 	private void endWindow() {
 		frame.dispose();
 	}

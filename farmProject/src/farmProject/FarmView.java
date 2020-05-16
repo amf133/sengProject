@@ -31,35 +31,61 @@ public class FarmView {
 		initialize();
 	}
 	
+	
+	/**
+     * Hides the current window
+     */
 	public void closeWindow() {
 		frmFarm.setVisible(false);
 	}
 	
+	
+	/**
+     * Deletes the current window
+     */
 	public void endWindow() {
 		frmFarm.dispose();
 	}
 	
+	
+	/**
+     * Shows the current window
+     */
 	public void show() {
 		frmFarm.setVisible(true);
 		updateLabels();
 	}
 	
+	
+	/**
+     * Displays a string of items
+     */
 	private void viewItems() {
 		String itemString = manager.stringItems();
 		showMessageDialog(null, itemString);
 	}
 	
+	/**
+     * Displays a string of animals
+     */
 	private void viewAnimals() {
 		String animalString = manager.stringAnimals();
 		showMessageDialog(null, animalString);
 	}
 	
 	
+	/**
+     * Displays a string of crops
+     */
 	private void viewCrops() {
 		String cropString = manager.stringCrops();
 		showMessageDialog(null, cropString);
 	}
 	
+	
+	/**
+     * Updates the labels in the window
+     */
 	public void updateLabels() {
 		lblBal.setText("Balance: $" + manager.farmObject.getBal());
 		if (manager.getDays() <= 1)
@@ -67,6 +93,9 @@ public class FarmView {
 	}
 	
 	
+	/**
+     * Returns to town map
+     */
 	private void finishedWindow() {
 		manager.toTownMap();
 	}

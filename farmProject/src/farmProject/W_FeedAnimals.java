@@ -23,14 +23,23 @@ public class W_FeedAnimals {
 		frame.setVisible(true);
 	}
 	
+	
+	/**
+     * Shows current window
+     */
 	public void show() {
 		frame.setVisible(true);
 	}
 	
+	
+	/**
+     * Deletes current window
+     */
 	public void endWindow() {
 		frame.dispose();
 	}
 
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */

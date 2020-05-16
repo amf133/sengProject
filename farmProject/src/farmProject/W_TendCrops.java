@@ -26,6 +26,7 @@ public class W_TendCrops {
 	private ArrayList<CropItem> cropItems;
 	private W_Actions parent;
 
+	
 	/**
 	 * Create the application.
 	 */
@@ -37,10 +38,17 @@ public class W_TendCrops {
 		frame.setVisible(true);
 	}
 	
+	
+	/**
+     * Shows current window
+     */
 	public void show() {
 		frame.setVisible(true);
 	}
 	
+	/**
+     * Deletes current window
+     */
 	public void endWindow() {
 		frame.dispose();
 	}
