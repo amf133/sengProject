@@ -76,7 +76,7 @@ public class TownMap {
 	private void initialize() {
 		frmTownMap = new JFrame();
 		frmTownMap.setTitle("Town Map");
-		frmTownMap.setBounds(100, 100, 906, 483);
+		frmTownMap.setBounds(100, 100, 795, 476);
 		frmTownMap.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmTownMap.getContentPane().setLayout(null);
 		
@@ -103,7 +103,7 @@ public class TownMap {
 				storeAnimal();
 			}
 		});
-		btnStoreAnimal.setBounds(689, 345, 130, 23);
+		btnStoreAnimal.setBounds(544, 347, 130, 23);
 		frmTownMap.getContentPane().add(btnStoreAnimal);
 		
 		JButton btnStoreCrop = new JButton("Crop store");
@@ -133,7 +133,7 @@ public class TownMap {
 		
 		JLabel lblBackground = new JLabel("");
 		lblBackground.setVerticalAlignment(SwingConstants.TOP);
-		lblBackground.setIcon(new ImageIcon(TownMap.class.getResource("/Images/map.jpg")));
+		lblBackground.setIcon(new ImageIcon(TownMap.class.getResource("/Images/shocker.jpg")));
 		lblBackground.setBounds(0, 0, 890, 444);
 		frmTownMap.getContentPane().add(lblBackground);
 	}
