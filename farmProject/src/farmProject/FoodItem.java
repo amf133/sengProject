@@ -29,7 +29,6 @@ public class FoodItem extends Item{
     	}
     	*/
     }
-    
     public Double getBenefit(){
         return benefit;
         

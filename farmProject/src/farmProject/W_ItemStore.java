@@ -14,6 +14,8 @@ import javax.swing.JFrame;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.List;
+
 import javax.swing.SwingConstants;
 import javax.swing.JList;
 import javax.swing.JTextArea;
@@ -55,19 +57,27 @@ public class W_ItemStore {
 		manager.toTownMap();
 	}
 	
-	public Map<String, Double> getAItems(){
-		Map<String, Double> aItems = new HashMap<>();
-		aItems.put("Grub", 20.0);
-		aItems.put("Seeds", 30.0);
-		aItems.put("Medicine", 40.0);
+	public Map<String, String[]> getAItems(){
+		Map<String, String[]> aItems = new HashMap<>();
+		
+		String[] grub = new String[] {"20.0", "Increase health 20%", "0.2"};
+		String[] seed = new String[] {"30.0", "Increase health 50%", "0.5"};
+		String[] med = new String[] {"50.0", "Max Health", "1.0"};
+		aItems.put("Grub", grub);
+		aItems.put("Seeds", seed);
+		aItems.put("Medicine", med);
 		return aItems;
 	}
 	
-	public Map<String, Double> getCItems(){
-		Map<String, Double> aCtems = new HashMap<>();
-		aCtems.put("Fertilizer", 20.0);
-		aCtems.put("Sunglight", 50.0);
-		aCtems.put("Instant Growth", 100.0);
+	public Map<String, String[]> getCItems(){
+		Map<String, String[]> aCtems = new HashMap<>();
+		
+		String[] fert = new String[] {"20.0", "Increase growth rate 20%", "0.2"};
+		String[] sun = new String[] {"50.0", "Increase growth rate 50%", "0.5"};
+		String[] inst = new String[] {"100.0", "Instantly grows crops", "1.0"};
+		aCtems.put("Fertilizer", fert);
+		aCtems.put("Sunglight", sun);
+		aCtems.put("Instant", inst);
 		return aCtems;
 	}
 
@@ -82,11 +92,9 @@ public class W_ItemStore {
 		frmItemStore.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmItemStore.getContentPane().setLayout(null);
 		
-		
-		
 		ArrayList<FoodItem> foodItems = farmObject.getFoodItems();
 		JTextArea txtAItem = new JTextArea();
-		JScrollPane sp1 = new JScrollPane(txtAItem, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		JScrollPane sp1 = new JScrollPane(txtAItem, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		txtAItem.setText("Your Animal items:");
 		for (FoodItem f : foodItems) {
 			txtAItem.append("\n" + f.getType());
@@ -101,7 +109,7 @@ public class W_ItemStore {
 		
 		ArrayList<CropItem> cropItems = farmObject.getCropItems();
 		JTextArea txtCItem = new JTextArea();
-		JScrollPane sp2 = new JScrollPane(txtCItem, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		JScrollPane sp2 = new JScrollPane(txtCItem, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		txtCItem.setText("Your Crop items:");
 		for (CropItem c : cropItems) {
 			txtCItem.append("\n" + c.getType());
@@ -135,17 +143,17 @@ public class W_ItemStore {
 		frmItemStore.getContentPane().add(btnReturn);
 			
 		JComboBox<String> animalBox = new JComboBox<>();
-		Map<String, Double> animalItems = getAItems();
+		Map<String, String[]> animalItems = getAItems();
 		for (String a : animalItems.keySet()) {
-			animalBox.addItem(a + " $" + animalItems.get(a) + " ea");
+			animalBox.addItem(a + " $" + Double.parseDouble(animalItems.get(a)[0]) + " ea");
 		}
 		animalBox.setBounds(79, 103, 165, 22);
 		frmItemStore.getContentPane().add(animalBox);
 		
 		JComboBox<String> cropBox = new JComboBox<>();
-		Map<String, Double> cropItemss = getCItems();
+		Map<String, String[]> cropItemss = getCItems();
 		for (String c : cropItemss.keySet()) {
-			cropBox.addItem(c + " $" + cropItemss.get(c) + " ea");
+			cropBox.addItem(c + " $" + Double.parseDouble(cropItemss.get(c)[0]) + " ea");
 		}
 		cropBox.setBounds(79, 263, 165, 22);
 		frmItemStore.getContentPane().add(cropBox);
@@ -156,13 +164,17 @@ public class W_ItemStore {
 			public void mouseClicked(MouseEvent e) {
 				String arr[] = ((String) animalBox.getSelectedItem()).split(" ");
 				String type = arr[0];
-				Double cost = (Double) animalItems.get(type);
+				
+				
+				Double cost = (Double) Double.parseDouble(animalItems.get(type)[0]);
+				String description = (String) animalItems.get(type)[1];
+				Double benefit = (Double) Double.parseDouble(animalItems.get(type)[2]);
 				
 				if(farmObject.getBal() < cost) {
 					showMessageDialog(null, "You do not have enough money");
 				}
 				else {
-					Item i = new FoodItem(type, "Description", 0.5);
+					Item i = new FoodItem(type, description, benefit);
 					farmObject.addItem(i);
 					farmObject.updateBal(-cost);
 					txtAItem.append("\n" + i.getType() + " " + i.getDescription());
@@ -178,13 +190,16 @@ public class W_ItemStore {
 			public void mouseClicked(MouseEvent e) {
 				String arr[] = ((String) cropBox.getSelectedItem()).split(" ");
 				String type = arr[0];
-				Double cost = (Double) cropItemss.get(type);
+
+				Double cost = (Double) Double.parseDouble(cropItemss.get(type)[0]);
+				String description = (String) cropItemss.get(type)[1];
+				Double benefit = (Double) Double.parseDouble(cropItemss.get(type)[2]);
 				
 				if(farmObject.getBal() < cost) {
 					showMessageDialog(null, "You do not have enough money");
 				}
 				else {
-					Item i = new CropItem(type, "Description", 0.5);
+					Item i = new CropItem(type, description, benefit);
 					farmObject.addItem(i);
 					farmObject.updateBal(-cost);
 					txtCItem.append("\n" + i.getType() + " " + i.getDescription());
