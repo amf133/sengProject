@@ -14,7 +14,6 @@ public class GameEnvironment {
     private Scanner scanner = new Scanner (System.in); // Scanner type allows user to enter scanner into console
 
     
-    
     public GameEnvironment(){ //constructor
         String dayss = "";
         boolean valid = false;
@@ -45,6 +44,7 @@ public class GameEnvironment {
     public void editTurns(int i){
         turns += i;
     }
+    
     
     
     /**
@@ -89,6 +89,7 @@ public class GameEnvironment {
     }
     
     
+    
     /**
      * Gets farm object after collecting user input
      * @return farmObject users farm
@@ -122,6 +123,7 @@ public class GameEnvironment {
         Farm farmObject = new Farm(farmName, Integer.parseInt(farmInt));
         return farmObject;
     }
+    
     
     
     /**
@@ -164,6 +166,7 @@ public class GameEnvironment {
         }
         while (!(input.equals("5")));
     }
+    
     
     
     /**
@@ -221,6 +224,7 @@ public class GameEnvironment {
         }
         while (!(input.equals(Integer.toString(cropTypes.length + 1)))); //if user enter a number one higher than the length of animalTypes  
     }
+    
     
     
     /**
@@ -285,6 +289,7 @@ public class GameEnvironment {
     }
     
     
+    
     /**
      * Implements buying animals. User selects type of animal. Balance is reduced and animals are added to farm object
      */
@@ -325,6 +330,7 @@ public class GameEnvironment {
         }
         while (!(input.equals(Integer.toString(animalTypes.length + 1)))); //if user enter a number one higher than the length of animalTypes
     }
+    
     
     
     /**
@@ -433,7 +439,7 @@ public class GameEnvironment {
         days -= 1;
         
         if (days <= 0){
-            //if game ends must display some sort of score eg profit made + num animals display game duration, num crops/animals, money earner
+            endGame();
         }
         else{
             System.out.println("New day, days left: " + (days - 1));
@@ -463,13 +469,16 @@ public class GameEnvironment {
     }
     
     
-    
-    //private void endGame(){ //called when game ends
-        //implement here
-    // }
+    private void endGame(){ //called when game ends
+        double score = farmObject.getScore();
+        System.out.println("\n GAME OVER");
+        System.out.println("\n FARMER: " + farmerObject.getName());
+        System.out.println("\n FARM: " + farmObject.getName());
+        System.out.println("\n FINAL SCORE: " + score);
+        System.exit(0);
+    }
     
 
-    
     private void playGame(){ //option selection
         String input;
         

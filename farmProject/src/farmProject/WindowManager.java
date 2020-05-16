@@ -16,30 +16,35 @@ public class WindowManager {
     private W_Actions actionWindow = new W_Actions(this);
     
 
-
 	public void launchSetupScreen() {
 		setupScreen.show();
 	}
+	
 	
 	public void openActions() {
 		actionWindow.show();
 	}
 	
+	
 	public void editTurns(int incomingNum) {
 		turns += incomingNum;
 	}
+	
 	
 	public int getTurns() {
     	return turns;
     }
 	
+	
 	public int getDays() {
 		return days;
 	}
 	
+	
 	public double getScore() {
 		return farmObject.getScore();
 	}
+	
 	
 	public void viewAnimalStore() {
 		W_AnimalStore aStore = new W_AnimalStore(this, farmObject);
@@ -47,17 +52,20 @@ public class WindowManager {
 		aStore.show();
 	}
 	
+	
 	public void viewCropStore() {
 		W_CropStore cStore = new W_CropStore(this, farmObject);
 		map.closeWindow();
 		cStore.show();
 	}
 	
+	
 	public void viewItemStore() {
 		W_ItemStore iStore = new W_ItemStore(this, farmObject);
 		map.closeWindow();
 		iStore.show();
 	}
+	
 	
 	public void harvestCrops() {
 		farmObject.harvest();
@@ -99,8 +107,8 @@ public class WindowManager {
                 }
             }
         }
-        
     }
+	
 	
 	public String stringItems() {
 		String result = "";
@@ -116,6 +124,7 @@ public class WindowManager {
 		}
 		return result;
 	}
+	
 	
 	public String stringAnimals() {
 		String result = "";
@@ -138,7 +147,6 @@ public class WindowManager {
 	}
 	
 	
-	
 	public String stringCrops() {
 		String result = "";
 		
@@ -155,7 +163,6 @@ public class WindowManager {
         }
 		return result;
 	}
-	
 	
 	
 	public void toFarm() {
@@ -190,7 +197,4 @@ public class WindowManager {
 		WindowManager manager = new WindowManager();
 		manager.launchSetupScreen();
 	}
-
-
-
 }
