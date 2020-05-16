@@ -1,4 +1,6 @@
 package farmProject;
+import static javax.swing.JOptionPane.showMessageDialog;
+
 import java.util.Scanner;
 
 
@@ -15,15 +17,24 @@ public class GameEnvironment {
     
     public GameEnvironment(){ //constructor
         String dayss = "";
+        boolean valid = false;
         
         do{ //error trapping
-            System.out.print("Enter number of days: ");
-            dayss = scanner.nextLine();
-            if (5 > Integer.parseInt(dayss) || Integer.parseInt(dayss) > 10){
-                System.out.println("Game must run between 5 to 10 days");
-            }
+        	try {
+	            System.out.print("Enter number of days: ");
+	            dayss = scanner.nextLine();
+	            if (5 > Integer.parseInt(dayss) || Integer.parseInt(dayss) > 10){
+	                System.out.println("Game must run between 5 to 10 days");
+	            }
+	            else {
+	            	valid = true;
+	            }
+        	}
+            catch (NumberFormatException e) {
+    			System.out.println("Please enter a valid number.");
+    		}
         }
-        while (5 > Integer.parseInt(dayss) || Integer.parseInt(dayss) > 10);
+        while (!(valid));
         
         days = Integer.parseInt(dayss);
         
@@ -42,18 +53,38 @@ public class GameEnvironment {
      */
     private Farmer getFarmer(){ 
         //returns farmer object after collecting user input
-        String name;
+        String nameF;
+        String age;
         
         do{
-            System.out.print("\nEnter farmer name: ");
-            name = scanner.nextLine();
-            if (name.length() < 3 || name.length() > 15){
-                System.out.println("Name must be between 3 and 15 characters long.");
+            System.out.print("\nEnter farmer first name: ");
+            nameF = scanner.nextLine();
+            if (nameF.length() < 3 || nameF.length() > 15){
+                System.out.println("First name must be between 3 and 15 characters long.");
             }
         }
-        while (name.length() < 3 || name.length() > 15);
+        while (nameF.length() < 3 || nameF.length() > 15);
+        
+        boolean valid = false;
+        do{
+            System.out.print("\nEnter farmer age: ");
+            age = scanner.nextLine();
+            
+            try {
+	            if ( Integer.parseInt(age) < 0 ){
+	                System.out.println("Please enter a valid age.");
+	            }
+	            else {
+	            	valid = true;
+	            }
+            }
+            catch (NumberFormatException e) {
+    			System.out.println("Please enter a valid age.");
+    		}
+        }
+        while (!(valid));
     	
-        Farmer farmerObject = new Farmer(name);
+        Farmer farmerObject = new Farmer(nameF, Integer.parseInt(age));
         return farmerObject;
     }
     
@@ -353,7 +384,8 @@ public class GameEnvironment {
             
             else if (input.equals("3")){
                 if (farmObject.getAnimals().size() >= 1){
-                    playAnimals();
+                	farmObject.playTime();
+                    System.out.println("\nAll animals at max happiness!"); 
                     turns -= 1;
                 } 
                 else{
@@ -469,20 +501,15 @@ public class GameEnvironment {
         }
         while (!(input.equals("6")));
     }
-    
-    /**
-     * Implements play with animal actions. Animals happiness is increased
-     */
-    private void playAnimals(){
-        farmObject.playTime();
-    }
             
     
     /**
      * Implements tend to farm actions. Adds extra space to farm and slows down animal happiness decline rate
      */
-    private void tendFarm(){ //adds extra space to farm and slows down animal heppiness decline rate
+    private void tendFarm(){ //adds extra space to farm and slows down animal happiness decline rate
         System.out.println("\nAnimals feel more comfortable, now their happiness drains slower.");
+        System.out.println("Animal capacity increased by 2, " + farmObject.getName() + " has room for " + (farmObject.maxAnimals - farmObject.getAnimals().size())  + " more animals!");
+        System.out.println("Crop capacity increased by 20, " + farmObject.getName() + " has room for " + (farmObject.maxCrops - farmObject.numberCrops())  + " more crops!");
         farmObject.editHappiness();
         farmObject.addSpace();
     }
@@ -490,7 +517,7 @@ public class GameEnvironment {
     
     
     public static void main(String[] args) {
-        GameEnvironment game = new GameEnvironment(); //initializes game enviroment
+        GameEnvironment game = new GameEnvironment(); //initializes game environment
         
         System.out.println("\nStarting game with " + game.farmerObject.getName() +  "'s " + game.farmObject.getType() + " farm: " + game.farmObject.getName());
         

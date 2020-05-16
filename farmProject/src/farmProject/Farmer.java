@@ -3,14 +3,16 @@ package farmProject;
 public class Farmer {
     
     // variables are required to be static to allow for without an instanc of the class
-    private String name;
+    private String firstName;
+    private int age;
     
-    public Farmer(String namee) //init method, throws error if incorrect values
+    public Farmer(String incomingName, int incomingAge) //init method, throws error if incorrect values
     {   
-        name = namee;
+    	firstName = incomingName;
+    	age = incomingAge;
     }
     
     public String getName(){
-        return name;
+        return firstName;
     } 
 }

@@ -186,6 +186,7 @@ public class Farm {
         return items;
     }
     
+    
     /** 
     * Adds animal to list of animals farm has
     * @param a animal to be added
@@ -319,17 +320,6 @@ public class Farm {
         	System.out.println("Crop item: " + iter);
         	c.printDetails();
         }
-        /**
-        for (Item i : items){ // PRINTS CROP ITEMS AND DESCRIPTIONS
-            if (i instanceof CropItem){
-                CropItem c = (CropItem) i;
-                cropItems.add(c);
-                j += 1;
-                System.out.println("Crop Item: " + j);
-                c.printDetails();
-            }
-        }
-        */
         
         String input = "0";
         CropItem choice;
@@ -411,8 +401,7 @@ public class Farm {
     */
     public void playTime(){
         for (Animal a : animals){        
-            a.editHappiness(1.0);
-            //System.out.println("PLayed with " + a.getType() + ". New happiness = " + a.getHappy());  
+            a.editHappiness(1.0); 
         }
     }
     
@@ -424,8 +413,6 @@ public class Farm {
         maxCrops += 20;
         crops.ensureCapacity(maxCrops);
         animals.ensureCapacity(maxAnimals);
-        //System.out.println("Animal capacity increased by 2, " + name + " has room for " + (maxAnimals - animals.size())  + " more animals!");
-        //System.out.println("Crop capacity increased by 20, " + name + " has room for " + (maxCrops - numberCrops())  + " more crops!");
     }
     
     
@@ -445,7 +432,7 @@ public class Farm {
     }
     
     /** 
-    * Intializes new day, get daily income from all animals and add it to balance
+    * Initializing new day, get daily income from all animals and add it to balance
     * reduce the happiness of animals and apply growthrate of crops to current growthrate
     */
     public void newDay(){
