@@ -11,25 +11,11 @@ import static javax.swing.JOptionPane.showMessageDialog;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import java.awt.Font;
-import java.awt.List;
-
-import javax.swing.SwingConstants;
-import javax.swing.JList;
 import javax.swing.JTextArea;
-import javax.swing.UIManager;
-import java.awt.SystemColor;
 import java.awt.Color;
-import javax.swing.JTextPane;
-import javax.swing.ScrollPaneConstants;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.border.BevelBorder;
 import javax.swing.JComboBox;
 
 public class W_ItemStore {
@@ -108,7 +94,7 @@ public class W_ItemStore {
 		
 		ArrayList<FoodItem> foodItems = farmObject.getFoodItems();
 		JTextArea txtAItem = new JTextArea();
-		JScrollPane sp1 = new JScrollPane(txtAItem, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		JScrollPane sp1 = new JScrollPane(txtAItem, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		txtAItem.setText("Your Animal items:");
 		for (FoodItem f : foodItems) {
 			txtAItem.append("\n" + f.getType());
@@ -123,7 +109,7 @@ public class W_ItemStore {
 		
 		ArrayList<CropItem> cropItems = farmObject.getCropItems();
 		JTextArea txtCItem = new JTextArea();
-		JScrollPane sp2 = new JScrollPane(txtCItem, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		JScrollPane sp2 = new JScrollPane(txtCItem, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		txtCItem.setText("Your Crop items:");
 		for (CropItem c : cropItems) {
 			txtCItem.append("\n" + c.getType());
@@ -159,17 +145,17 @@ public class W_ItemStore {
 		JComboBox<String> animalBox = new JComboBox<>();
 		Map<String, String[]> animalItems = getAItems();
 		for (String a : animalItems.keySet()) {
-			animalBox.addItem(a + " $" + Double.parseDouble(animalItems.get(a)[0]) + " ea");
+			animalBox.addItem(a + " - " + animalItems.get(a)[1] + " $" + Double.parseDouble(animalItems.get(a)[0]) + " ea");
 		}
-		animalBox.setBounds(79, 103, 165, 22);
+		animalBox.setBounds(10, 103, 322, 22);
 		frmItemStore.getContentPane().add(animalBox);
 		
 		JComboBox<String> cropBox = new JComboBox<>();
 		Map<String, String[]> cropItemss = getCItems();
 		for (String c : cropItemss.keySet()) {
-			cropBox.addItem(c + " $" + Double.parseDouble(cropItemss.get(c)[0]) + " ea");
+			cropBox.addItem(c + " - " + cropItemss.get(c)[1] + " $" + Double.parseDouble(cropItemss.get(c)[0]) + " ea");
 		}
-		cropBox.setBounds(79, 263, 165, 22);
+		cropBox.setBounds(10, 263, 322, 22);
 		frmItemStore.getContentPane().add(cropBox);
 		
 		JButton btnConfirmA = new JButton("Confirm Food");
@@ -191,7 +177,7 @@ public class W_ItemStore {
 					Item i = new FoodItem(type, description, benefit);
 					farmObject.addItem(i);
 					farmObject.updateBal(-cost);
-					txtAItem.append("\n" + i.getType() + " " + i.getDescription());
+					txtAItem.append("\n" + i.getType());
 				}
 			}
 		});
@@ -216,7 +202,7 @@ public class W_ItemStore {
 					Item i = new CropItem(type, description, benefit);
 					farmObject.addItem(i);
 					farmObject.updateBal(-cost);
-					txtCItem.append("\n" + i.getType() + " " + i.getDescription());
+					txtCItem.append("\n" + i.getType());
 				}
 			}
 		});
