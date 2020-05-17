@@ -96,4 +96,11 @@ public class Animal {
     public Double getDailyBonus(){
         return (getWorth() * 0.2); //daily bonus is 1/5 of the animals worth
     }
+    
+    
+    @Override
+    public String toString() {
+    	String string = type + " health:" + health;
+    	return string;
+    }
 }

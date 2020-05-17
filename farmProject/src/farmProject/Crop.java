@@ -80,6 +80,10 @@ public class Crop {
     }
     
     
+    /** 
+     * Increases the crops current growth.
+     * @param amount the items effect on the crop
+     */
     public void increaseGrowth(Double amount) {
     	if (growth + amount > 1.0){
             growth = 1.0;
@@ -91,6 +95,7 @@ public class Crop {
             growth += amount;
         }
     }
+    
     
     /**
     * Gets the worth of the crop, how much it can be sold for once ready to harvest

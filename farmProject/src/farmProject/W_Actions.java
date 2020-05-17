@@ -177,13 +177,6 @@ public class W_Actions {
 					ArrayList<FoodItem> foodItems = manager.farmObject.getFoodItems();
 					ArrayList<Animal> animals = manager.farmObject.getAnimals();
 					
-					for (Item i : manager.farmObject.getItems()) {
-						if (i instanceof FoodItem) {
-							FoodItem j = (FoodItem) i;
-							foodItems.add(j);
-						}
-					}
-					
 					
 					if ( foodItems.size() > 0 ) {
 						if (animals.size() > 0) {

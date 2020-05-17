@@ -45,6 +45,7 @@ public class W_TendCrops {
 		frame.setVisible(true);
 	}
 	
+	
 	/**
      * Deletes current window
      */

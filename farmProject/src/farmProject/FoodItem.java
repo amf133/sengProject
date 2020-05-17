@@ -34,6 +34,11 @@ public class FoodItem extends Item{
         
     }
     
+    @Override
+    public String toString() {
+      return super.getType();
+    }
+    
     /*
     public String getType() {
     	return type;
