@@ -62,8 +62,8 @@ public class W_ItemStore {
 		Map<String, String[]> aItems = new HashMap<>();
 		
 		String[] grub = new String[] {"5.00", "Increase health 20%", "0.2"};
-		String[] seed = new String[] {"15.00", "Increase health 50%", "0.5"};
-		String[] med = new String[] {"30.00", "Max Health", "1.0"};
+		String[] seed = new String[] {"10.00", "Increase health 50%", "0.5"};
+		String[] med = new String[] {"20.00", "Max Health", "1.0"};
 		aItems.put("Grub", grub);
 		aItems.put("Seeds", seed);
 		aItems.put("Medicine", med);

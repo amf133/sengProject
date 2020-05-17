@@ -69,7 +69,7 @@ public class Farm {
      * @return double
      */
     public double getScore() {
-    	double finalScore = bal;
+    	double finalScore = bal*0.5;
     	
     	for (Animal a : animals) {
     		finalScore += a.getWorth();
