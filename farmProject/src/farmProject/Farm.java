@@ -16,7 +16,8 @@ public class Farm {
     private ArrayList<Item> items = new ArrayList<>();
     private Double bal = 500.0; //need to decide a starting value
     private Double GROWRATE = 1.0; //changed if grower farm selected
-    private Double HAPPYDECLINE = 0.3;
+    private Double HAPPYDECLINE = 0.2;
+    private Double HEALTHDECLINE = 0.1;
     private String type;
     private Scanner scanner = new Scanner (System.in);
 
@@ -31,6 +32,7 @@ public class Farm {
             }
             else if (typee == 2){ //animal
                 HAPPYDECLINE = 0.1;
+                HEALTHDECLINE = 0.05;
                 type = "Animal";
             }
             else if (typee == 3){ //starter
@@ -464,6 +466,7 @@ public class Farm {
         for (Animal a : animals){
             income += a.getDailyBonus();
             a.editHappiness(-HAPPYDECLINE);
+            a.editHealth(-HEALTHDECLINE);
         }
         bal += income;
         
