@@ -16,7 +16,7 @@ public class Farm {
     private ArrayList<Item> items = new ArrayList<>();
     private Double bal = 500.0; //need to decide a starting value
     private Double GROWRATE = 1.0; //changed if grower farm selected
-    private Double HAPPYDECLINE = 0.2;
+    private Double HAPPYDECLINE = 0.3;
     private String type;
     private Scanner scanner = new Scanner (System.in);
 

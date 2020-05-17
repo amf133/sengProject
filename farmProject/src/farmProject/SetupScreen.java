@@ -105,7 +105,7 @@ public class SetupScreen {
 	private void initialize() {
 		frmFarmSetup = new JFrame();
 		frmFarmSetup.setTitle("Farm Setup");
-		frmFarmSetup.setBounds(100, 100, 351, 371);
+		frmFarmSetup.setBounds(100, 100, 351, 494);
 		frmFarmSetup.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmFarmSetup.getContentPane().setLayout(null);
 		
@@ -159,27 +159,27 @@ public class SetupScreen {
 				finishedWindow();
 			}
 		});
-		btnBEGIN.setBounds(193, 287, 123, 34);
+		btnBEGIN.setBounds(113, 410, 123, 34);
 		frmFarmSetup.getContentPane().add(btnBEGIN);
 		
 		JRadioButton rdbtnGrower = new JRadioButton("Grower");
-		rdbtnGrower.setBounds(21, 257, 76, 23);
+		rdbtnGrower.setBounds(48, 257, 76, 23);
 		frmFarmSetup.getContentPane().add(rdbtnGrower);
 		rdbtnGrower.setSelected(true);
 		rdbtnGrower.setActionCommand("1");
 		
 		JRadioButton rdbtnStarter = new JRadioButton("Starter");
-		rdbtnStarter.setBounds(109, 257, 66, 23);
+		rdbtnStarter.setBounds(48, 290, 66, 23);
 		frmFarmSetup.getContentPane().add(rdbtnStarter);
 		rdbtnStarter.setActionCommand("3");
 		
 		JRadioButton rdbtnAnimal = new JRadioButton("Animal");
-		rdbtnAnimal.setBounds(182, 257, 66, 23);
+		rdbtnAnimal.setBounds(48, 327, 66, 23);
 		frmFarmSetup.getContentPane().add(rdbtnAnimal);
 		rdbtnAnimal.setActionCommand("2");
 		
 		JRadioButton rdbtnLarge = new JRadioButton("Large");
-		rdbtnLarge.setBounds(250, 257, 66, 23);
+		rdbtnLarge.setBounds(48, 364, 66, 23);
 		frmFarmSetup.getContentPane().add(rdbtnLarge);
 		rdbtnLarge.setActionCommand("4");
 		
@@ -198,6 +198,22 @@ public class SetupScreen {
 	    txbFarmerAge.setColumns(10);
 	    txbFarmerAge.setBounds(178, 79, 138, 20);
 	    frmFarmSetup.getContentPane().add(txbFarmerAge);
+	    
+	    JLabel lblBonus_1 = new JLabel("Faster crop growth");
+	    lblBonus_1.setBounds(140, 261, 121, 14);
+	    frmFarmSetup.getContentPane().add(lblBonus_1);
+	    
+	    JLabel lblBonus_2 = new JLabel("More starting cash");
+	    lblBonus_2.setBounds(140, 294, 121, 14);
+	    frmFarmSetup.getContentPane().add(lblBonus_2);
+	    
+	    JLabel lblBonus_3 = new JLabel("Happier animals");
+	    lblBonus_3.setBounds(140, 331, 121, 14);
+	    frmFarmSetup.getContentPane().add(lblBonus_3);
+	    
+	    JLabel lblBonus_4 = new JLabel("Larger farm capacity");
+	    lblBonus_4.setBounds(140, 368, 121, 14);
+	    frmFarmSetup.getContentPane().add(lblBonus_4);
 	    btnGroup = group;
 	}
 }
