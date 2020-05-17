@@ -61,9 +61,9 @@ public class W_ItemStore {
 	public Map<String, String[]> getAItems(){
 		Map<String, String[]> aItems = new HashMap<>();
 		
-		String[] grub = new String[] {"20.00", "Increase health 20%", "0.2"};
-		String[] seed = new String[] {"30.00", "Increase health 50%", "0.5"};
-		String[] med = new String[] {"50.00", "Max Health", "1.0"};
+		String[] grub = new String[] {"5.00", "Increase health 20%", "0.2"};
+		String[] seed = new String[] {"15.00", "Increase health 50%", "0.5"};
+		String[] med = new String[] {"30.00", "Max Health", "1.0"};
 		aItems.put("Grub", grub);
 		aItems.put("Seeds", seed);
 		aItems.put("Medicine", med);
@@ -74,8 +74,8 @@ public class W_ItemStore {
 		Map<String, String[]> aCtems = new HashMap<>();
 		
 		String[] fert = new String[] {"20.00", "Increase growth rate 20%", "0.2"};
-		String[] sun = new String[] {"50.00", "Increase growth rate 50%", "0.5"};
-		String[] inst = new String[] {"100.00", "Increase growth rate 100%", "1.0"};
+		String[] sun = new String[] {"40.00", "Increase growth rate 50%", "0.5"};
+		String[] inst = new String[] {"80.00", "Increase growth rate 100%", "1.0"};
 		aCtems.put("Fertilizer", fert);
 		aCtems.put("Sunglight", sun);
 		aCtems.put("Instant", inst);

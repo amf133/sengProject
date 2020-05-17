@@ -231,7 +231,7 @@ public class W_Actions {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if ( anyActionsLeft() ) {
-					manager.farmObject.editHappiness();
+					manager.farmObject.editHealth();
 			        manager.farmObject.addSpace();
 	                manager.editTurns(-1);
 					String result = ("Animal capacity increased by 2, " + manager.farmObject.getName() + " has room for " + (manager.farmObject.maxAnimals - manager.farmObject.getAnimals().size())  + " more animals!");

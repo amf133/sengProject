@@ -523,7 +523,7 @@ public class GameEnvironment {
         System.out.println("\nAnimals feel more comfortable, now their happiness drains slower.");
         System.out.println("Animal capacity increased by 2, " + farmObject.getName() + " has room for " + (farmObject.maxAnimals - farmObject.getAnimals().size())  + " more animals!");
         System.out.println("Crop capacity increased by 20, " + farmObject.getName() + " has room for " + (farmObject.maxCrops - farmObject.numberCrops())  + " more crops!");
-        farmObject.editHappiness();
+        farmObject.editHealth();
         farmObject.addSpace();
     }
     

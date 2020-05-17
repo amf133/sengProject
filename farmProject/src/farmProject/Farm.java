@@ -16,7 +16,6 @@ public class Farm {
     private ArrayList<Item> items = new ArrayList<>();
     private Double bal = 500.0; //need to decide a starting value
     private Double GROWRATE = 1.0; //changed if grower farm selected
-    private Double HAPPYDECLINE = 0.2;
     private Double HEALTHDECLINE = 0.1;
     private String type;
     private Scanner scanner = new Scanner (System.in);
@@ -31,7 +30,6 @@ public class Farm {
                 type = "Grower";
             }
             else if (typee == 2){ //animal
-                HAPPYDECLINE = 0.1;
                 HEALTHDECLINE = 0.05;
                 type = "Animal";
             }
@@ -82,7 +80,7 @@ public class Farm {
     	}
     	
     	finalScore *= GROWRATE;
-    	finalScore *= 1-HAPPYDECLINE;
+    	finalScore *= 1-HEALTHDECLINE;
     	
     	return finalScore;
     }
@@ -237,8 +235,8 @@ public class Farm {
      * Returns the happiness decline farm variable of the animals
      * @return double
      */
-    public Double getHappy(){
-        return HAPPYDECLINE;
+    public Double getHealth(){
+        return HEALTHDECLINE;
     }
     
     
@@ -413,8 +411,8 @@ public class Farm {
     /**
     * Changes the base happiness decline of all animals
     */
-    public void editHappiness(){
-        HAPPYDECLINE *= 0.5;
+    public void editHealth(){
+        HEALTHDECLINE *= 0.5;
     }
     
     
@@ -465,7 +463,6 @@ public class Farm {
         
         for (Animal a : animals){
             income += a.getDailyBonus();
-            a.editHappiness(-HAPPYDECLINE);
             a.editHealth(-HEALTHDECLINE);
         }
         bal += income;
@@ -498,6 +495,9 @@ public class Farm {
             if (animals.size() > 0){
             	animals.remove(0);
             }
+        }
+        for (Animal a : animals) {
+        	a.editHappiness(-1.0);
         }
     }
     
