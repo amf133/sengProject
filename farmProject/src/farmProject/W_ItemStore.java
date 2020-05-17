@@ -75,7 +75,7 @@ public class W_ItemStore {
 		
 		String[] fert = new String[] {"20.00", "Increase growth rate 20%", "0.2"};
 		String[] sun = new String[] {"50.00", "Increase growth rate 50%", "0.5"};
-		String[] inst = new String[] {"100.00", "Instantly grows crops", "1.0"};
+		String[] inst = new String[] {"100.00", "Increase growth rate 100%", "1.0"};
 		aCtems.put("Fertilizer", fert);
 		aCtems.put("Sunglight", sun);
 		aCtems.put("Instant", inst);

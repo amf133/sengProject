@@ -68,14 +68,14 @@ public class Crop {
     * @param amount the items effect on the crop
     */
     public void increaseRate(Double amount){
-        if (growthRate + amount > 1.0){
+        if (growthRate * (1+amount) > 1.0){
             growthRate = 1.0;
 ;        }
-        else if (growthRate + amount < 0.0) {
+        else if (growthRate * (1+amount) < 0.0) {
         	growthRate = 0.0;
         }
         else{
-            growthRate += amount;
+            growthRate *= (1+amount);
         }
     }
     
