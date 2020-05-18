@@ -1,5 +1,7 @@
 package farmProject;
 
+import java.text.DecimalFormat;
+
 /** 
 * This class implements crops that are stored in the users farm
 * @author Alec, Christian
@@ -172,7 +174,8 @@ public class Crop {
     
     @Override
     public String toString() {
-    	String string = quantity + " " + type + " " + growthRate;
+    	DecimalFormat df = new DecimalFormat("0.00");
+    	String string = quantity + " " + type + " " + df.format(growthRate);
     	return string;
     }
 }

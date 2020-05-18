@@ -12,10 +12,8 @@ import javax.swing.JOptionPane;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
+import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.JComboBox;
-import javax.swing.ComboBoxModel;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 
 public class W_TendCrops {
@@ -81,8 +79,14 @@ public class W_TendCrops {
 		frame.getContentPane().add(cbCrop);
 		
 		JComboBox<CropItem> cbItem = new JComboBox<CropItem>();
-		for (CropItem i : cropItems) {
-			cbItem.addItem(i);
+		if (cropItems.size() == 0) {
+			cbItem.setToolTipText("No items available!");
+		}
+		else {
+			for (CropItem i : cropItems) {
+				cbItem.addItem(i);
+		}
+
 		}
 		cbItem.setBounds(238, 65, 112, 22);
 		frame.getContentPane().add(cbItem);
@@ -91,26 +95,30 @@ public class W_TendCrops {
 		btnApply.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Crop crop = (Crop) cbCrop.getSelectedItem();
-				CropItem item = (CropItem) cbItem.getSelectedItem();
-				int confirm = JOptionPane.showConfirmDialog(null, "Apply " + item.getType() + " to " + crop.getQuantity() + " " + crop.getType(),
-						null, JOptionPane.YES_NO_CANCEL_OPTION);
-		
-				if (confirm == 0) {
-					if ( item.getType() == "Instant" ) {
-						crop.increaseGrowth(item.getBenefit());
+				if (cropItems.size() >= 1) {
+					Crop crop = (Crop) cbCrop.getSelectedItem();
+					CropItem item = (CropItem) cbItem.getSelectedItem();
+					int confirm = JOptionPane.showConfirmDialog(null, "Apply " + item.getType() + " to " + crop.getQuantity() + " " + crop.getType(),
+							null, JOptionPane.YES_NO_CANCEL_OPTION);
+			
+					if (confirm == 0) {
+						if ( item.getType() == "Instant" ) {
+							crop.increaseGrowth(item.getBenefit());
+						}
+						else {
+							crop.increaseRate(item.getBenefit());
+						}
+						cropItems.remove(item);
+						parent.manager.farmObject.removeItem(item);
+						cbItem.removeItem(item);
+						parent.manager.editTurns(-1);
+						parent.updateTurns();
+						endWindow();
 					}
-					else {
-						crop.increaseRate(item.getBenefit());
-					}
-					cropItems.remove(item);
-					parent.manager.farmObject.removeItem(item);
-					cbItem.removeItem(item);
-					parent.manager.editTurns(-1);
-					parent.updateTurns();
-					endWindow();
 				}
-
+				else {
+					showMessageDialog(null, "You have no items to apply!");
+				}
 			}
 		});
 		
@@ -123,7 +131,7 @@ public class W_TendCrops {
 						null, JOptionPane.YES_NO_CANCEL_OPTION);
 		
 				if (confirm == 0) {
-					crop.increaseRate(0.1);
+					crop.increaseRate(0.2);
 					parent.manager.editTurns(-1);
 					parent.updateTurns();
 					endWindow();

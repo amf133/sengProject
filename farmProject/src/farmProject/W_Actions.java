@@ -205,21 +205,15 @@ public class W_Actions {
 				if ( anyActionsLeft() ) {
 					ArrayList<Crop> crops = manager.farmObject.getCrops();
 					ArrayList<CropItem> cropItems = manager.farmObject.getCropItems();
-					
-					if ( cropItems.size() > 0) {
-						if (crops.size() > 0) {
-							tendCrops(crops, cropItems);
-						}
-						else {
-							showMessageDialog(null, "No crops to tend to.");
-						}
+					if (crops.size() > 0) {
+						tendCrops(crops, cropItems);
 					}
 					else {
-						showMessageDialog(null, "No crop items avaliable.");
+						showMessageDialog(null, "No crops to tend to.");
 					}
 				}
 				else {
-					showMessageDialog(null, "No actions left!");
+					showMessageDialog(null, "No actions left!");	
 				}
 			}
 		});
