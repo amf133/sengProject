@@ -115,7 +115,7 @@ public class W_TendCrops {
 		});
 		
 		JButton btnWater = new JButton("Water (Free)");
-		btnApply.addMouseListener(new MouseAdapter() {
+		btnWater.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Crop crop = (Crop) cbCrop.getSelectedItem();
