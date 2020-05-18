@@ -114,8 +114,30 @@ public class W_TendCrops {
 			}
 		});
 		
+		JButton btnWater = new JButton("Water (Free)");
+		btnApply.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Crop crop = (Crop) cbCrop.getSelectedItem();
+				int confirm = JOptionPane.showConfirmDialog(null, "Apply water to " + crop.getQuantity() + " " + crop.getType(),
+						null, JOptionPane.YES_NO_CANCEL_OPTION);
+		
+				if (confirm == 0) {
+					crop.increaseRate(0.1);
+					parent.manager.editTurns(-1);
+					parent.updateTurns();
+					endWindow();
+				}
+
+			}
+		});
+		
+		btnWater.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnWater.setBounds(238, 164, 112, 42);
+		frame.getContentPane().add(btnWater);
+		
 		btnApply.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnApply.setBounds(148, 134, 111, 42);
+		btnApply.setBounds(238, 111, 111, 42);
 		frame.getContentPane().add(btnApply);
 		
 		JButton btnReturn = new JButton("Return");
@@ -133,5 +155,7 @@ public class W_TendCrops {
 		JLabel lblDesc = new JLabel("QUANTITY - TYPE - GROWTH RATE");
 		lblDesc.setBounds(10, 98, 197, 14);
 		frame.getContentPane().add(lblDesc);
+		
+
 	}
 }
