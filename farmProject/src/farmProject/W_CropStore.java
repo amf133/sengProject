@@ -139,12 +139,23 @@ public class W_CropStore {
 				int quantity = Integer.parseInt(txtQuant.getText());
 				double totalPrice = cost * quantity;
 				
-				if (quantity <= 0 || quantity > 100) {
-					showMessageDialog(null, "Please select quantity between 1 - 100");
+				int space = (int) (farmObject.maxCrops - farmObject.numberCrops());
+				
+				
+				if (quantity > space){
+					if (space == 0) {
+						showMessageDialog(null, "You have no more space in farm");
+					}
+					else {
+						showMessageDialog(null, "You only have room for " + space + " more crops");
+					}
+				}
+				else if (quantity <= 0 || quantity > 100) {
+					showMessageDialog(null, "Please select quantity between 1 - 50 ");
 				}
 				else {
 
-					if (totalPrice < farmObject.getBal()) {
+					if (totalPrice <= farmObject.getBal()) {
 						Crop c = new Crop(crop, cost, quantity);
 						farmObject.addCrop(c);
 						farmObject.updateBal(-totalPrice);

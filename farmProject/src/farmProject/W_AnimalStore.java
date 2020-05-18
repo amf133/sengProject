@@ -143,7 +143,7 @@ public class W_AnimalStore {
 				String type = arr[0];
 				Double cost = (Double) animal.get(type);
 				
-				if (farmObject.getAnimals().size() == farmObject.maxAnimals) {
+				if (farmObject.getAnimals().size() <= farmObject.maxAnimals) {
 					showMessageDialog(null, "No space available");
 				}
 				else if (farmObject.getBal() < cost) {
