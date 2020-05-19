@@ -28,7 +28,7 @@ class CropsTest {
 		assertEquals(0, testCrop.getWorth());
 		
 		// Rate increased but no new day
-		testCrop.increaseRate(1.0);
+		testCrop.increaseRate(10.0);
 		assertEquals(0, testCrop.getWorth());
 		
 		// New day so crops have grown
@@ -36,16 +36,33 @@ class CropsTest {
 		assertEquals(400.0, testCrop.getWorth());
 	}	
 	
+	@Test
+	public void growthTest() {
+		//ensuring default value is 0
+		assertEquals(0.0, testCrop.getGrowth());
+		
+		//ensuring crop growth can be altered
+		testCrop.increaseGrowth(0.5);
+		assertEquals(0.5, testCrop.getGrowth());
+		
+		//ensuring crop growth can't be negative
+		testCrop.increaseGrowth(-0.51);
+		assertEquals(0.0, testCrop.getGrowth());
+		
+		//ensuring crop growth can't go above 1.0
+		testCrop.increaseGrowth(1.01);
+		assertEquals(1.0, testCrop.getGrowth());
+	}
 	
 	@Test
-	public void growthRateTest() {
+	public void growthrateTest() {
 		assertEquals(0.2, testCrop.getRate());
 		
 		testCrop.increaseRate(0.3);
-		assertEquals(0.5, testCrop.getRate());
+		assertEquals(0.26, testCrop.getRate());
 		
 		// Ensuring growth rate does not go above 1.0
-		testCrop.increaseRate(1.1);
+		testCrop.increaseRate(10.0);
 		assertEquals(1.0, testCrop.getRate());
 		
 		// Ensuring growth rate does not go below 0.0
