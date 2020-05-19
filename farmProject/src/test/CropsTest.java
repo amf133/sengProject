@@ -81,6 +81,11 @@ class CropsTest {
 		assertNotEquals(2.5, testCrop.getQuantity());
 		assertEquals(2, testCrop.getQuantity());
 	}
+	
+	@Test
+	public void toStringTest() {
+		assertEquals("10 Carrot 0.20", testCrop.toString());
+	}
 
 
 }

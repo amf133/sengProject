@@ -59,6 +59,27 @@ class AnimalsTest {
 		assertEquals(bonus, testAnimal.getDailyBonus());
 	}
 	
+	@Test
+	public void editHealthTest() {
+		assertEquals(1.0, testAnimal.getHealth());
+		
+		//ensuring method works as intended
+		testAnimal.editHealth(-0.5);
+		assertEquals(0.5, testAnimal.getHealth());
+		
+		//ensuring health can't go above 1.0
+		testAnimal.editHealth(0.6);
+		assertEquals(1.0, testAnimal.getHealth());
+		
+		//ensuring health can't go below 0.0
+		testAnimal.editHealth(-1.1);
+		assertEquals(0.0, testAnimal.getHealth());
+	}
+	
+	@Test 
+	public void toStringTest() {
+		assertEquals("Cow health: 1.0", testAnimal.toString());
+	}
 	
 
 }

@@ -51,10 +51,10 @@ public class Animal {
      * @param hap the amount the health of animal is changed by
      */
      public void editHealth(Double incomingHealth){
-         if (health + incomingHealth > 1){
+         if (health + incomingHealth > 1.0){
              health = 1.0;
          }
-         else if (health + incomingHealth < 0){
+         else if (health + incomingHealth < 0.0){
              health = 0.0;
          }
          else{
@@ -100,7 +100,7 @@ public class Animal {
     
     @Override
     public String toString() {
-    	String string = type + " health:" + health;
+    	String string = type + " health: " + health;
     	return string;
     }
 }
