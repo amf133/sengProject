@@ -232,9 +232,9 @@ public class Farm {
     }
     
     /**
-     * Returns the happiness decline farm variable of the animals
-     * @return double
-     */
+    * Returns the happiness decline farm variable of the animals
+    * @return double
+    */
     public Double getHealth(){
         return HEALTHDECLINE;
     }
@@ -503,8 +503,8 @@ public class Farm {
     
     
     /**
-     * Removes item from item list
-     * @param i item to be removed
+    * Removes item from item list
+    * @param i item to be removed
      */
     public void removeItem(Item i) {
     	items.remove(i);
@@ -535,5 +535,4 @@ public class Farm {
         bonus += ((getAnimals().size() * 40.0) + (numberCrops() * 4.0));
         updateBal(bonus);
     }
-    
 }

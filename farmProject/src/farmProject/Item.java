@@ -14,6 +14,7 @@ public abstract class Item {
         description = descriptionn;
     }
     
+    
     /** 
     * Gets the type of item
     * @return type 
@@ -21,6 +22,7 @@ public abstract class Item {
     public String getType(){
         return type;
     }
+    
     
     /** 
     * Describes the item
@@ -30,12 +32,20 @@ public abstract class Item {
         return description;
     }
     
+    
     /**
     * Print the item and its description
     */ 
     public void printDetails(){
         System.out.println("Item: " + type + ", description: " + description);
     }
+    
+    
+    /**
+    * Returns the items benefit
+    * @return double
+    */ 
+    public abstract double getBenefit();
 }
 
 

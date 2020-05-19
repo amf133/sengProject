@@ -12,7 +12,21 @@ public class Farmer {
     	age = incomingAge;
     }
     
+    
+    /**
+     * Returns farmers name
+     * @return string
+     */
     public String getName(){
         return firstName;
-    } 
+    }
+    
+    
+    /**
+     * Returns farmers age
+     * @return int
+     */
+    public int getAge(){
+        return age;
+    }
 }

@@ -132,6 +132,7 @@ public class Crop {
         }
     }
     
+    
     /** 
     * Gets how much the crop has grown, fully grown = 1
     * @return crop growth
@@ -139,6 +140,8 @@ public class Crop {
     public Double getGrowth(){
         return growth;
     }
+    
+    
     /**
      * Gets the daily rate of growth of crops
      * @return growthRate percent per day it grows
@@ -147,6 +150,7 @@ public class Crop {
     	return growthRate;
     }
     
+    
     /** 
     * Gets how much that type of crop is owned
     * @return num of crops
@@ -154,6 +158,7 @@ public class Crop {
     public int getQuantity(){
         return quantity;
     }
+    
     
     /** 
     * Changes the growth of new crop based on how much the crop grows in a days
@@ -165,12 +170,15 @@ public class Crop {
             growth = 1.0;
         }
     }
+    
+    
     /**
     * When a drought occurs, destroy half of the crops
     */
     public void halfQuantity(){
         quantity *= 0.5;
     } 
+    
     
     @Override
     public String toString() {

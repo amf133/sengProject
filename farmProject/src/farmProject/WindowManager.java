@@ -16,7 +16,6 @@ public class WindowManager {
     private FarmView farmView = new FarmView(this);
     private W_Actions actionWindow = new W_Actions(this);
 	
-	
 	/**
      * Opens action window
      */
