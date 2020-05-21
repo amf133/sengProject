@@ -33,7 +33,4 @@ class CropItemTest {
 	public void benefitTest() {
 		assertEquals(0.25, testCropItem.getBenefit());
 	}
-	
-
-
 }

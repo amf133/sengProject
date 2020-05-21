@@ -16,13 +16,27 @@ class FoodTest {
 		item = new FoodItem ("Grub", "Increase all animals health by 20% of its max", 0.2);
 	}
 
+	
 	@Test
 	public void testBenefit() {
 		assertEquals(0.2, item.getBenefit());
 	}
 	
+	
 	@Test 
 	public void toStringTest() {
 		assertEquals("Grub", item.toString());
+	}
+	
+	
+	@Test
+	public void typeTest() {
+		assertEquals("Grub", item.getType());
+	}
+	
+	
+	@Test
+	public void descriptionTest() {
+		assertEquals("Increase all animals health by 20% of its max", item.getDescription());
 	}
 }
