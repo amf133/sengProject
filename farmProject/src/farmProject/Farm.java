@@ -66,7 +66,7 @@ public class Farm {
     
     /**
      * Calculates and returns the games score
-     * @return double
+     * @return finalScore players score
      */
     public double getScore() {
     	double finalScore = bal*0.5;
@@ -88,7 +88,7 @@ public class Farm {
     
     /** 
     * Gets the type of farm, the starting bonus the user selected
-    * @return type 
+    * @return type type of farm
     */
     public String getType(){
         return type;
@@ -377,10 +377,9 @@ public class Farm {
     * @param game remove 1 from action counter
     */
     public void chooseCrop(GameEnvironment game){
-        // ALLOWS THE USER TO SELECT TO CROP THEY WANT TO APPLY ITEM TO
         int n = 0;
 
-        for (Crop c : crops){ // PRINT AVAILABLE CROPS TO TEND TO
+        for (Crop c : crops){ 
             n = n + 1;
             System.out.println("(" + n + ")" + " : " + c.getQuantity() + " " + c.getType());
         }
@@ -409,7 +408,7 @@ public class Farm {
 
     
     /**
-    * Changes the base happiness decline of all animals
+    * Changes the base health decline of all animals
     */
     public void editHealth(){
         HEALTHDECLINE *= 0.5;
@@ -418,7 +417,6 @@ public class Farm {
     
     /**
     * Plays with animals and increases each animals happiness
-    * Prints the happiness increase of each animals
     */
     public void playTime(){
         for (Animal a : animals){        
