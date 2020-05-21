@@ -232,9 +232,9 @@ public class GameEnvironment {
      */
     private void storeItems(){
         String[] itemTypes = new String[]{"Medicine", "Grub", "Seeds", "Fertilizer", "Sunlight", "Instant grow"};
-        String[] itemDescriptions = new String[]{"Max health on all animals", "Increase all animals health by 50% of its max", "Increase all animals health by 20% of its max",
-                                                 "Decrease time till grown by (25%)", "Decreases time till grown by (50%)", "Crops grow instantly overnight!"};
-        Double[] itemCosts = new Double[]{50.0, 20.0, 30.0, 10.0, 50.0, 150.0}; // value of crops?
+        String[] itemDescriptions = new String[]{"Max health on all animals", "Increase all animals health by 20% of its max", "Increase all animals health by 50% of its max",
+                                                 "Increase growth rate 20%", "Increase growth rate 50%", "Increase growth rate 100%"};
+        Double[] itemCosts = new Double[]{20.0, 50.0, 10.0, 20.0, 40.0, 80.0}; // value of crops?
         String input = "0";
         
         do{
@@ -253,13 +253,13 @@ public class GameEnvironment {
                         i = new FoodItem(itemTypes[Integer.parseInt(input)-1], itemDescriptions[Integer.parseInt(input)-1], 1.0);
                     }
                     else if (input.equals("2")){
-                        i = new FoodItem(itemTypes[Integer.parseInt(input)-1], itemDescriptions[Integer.parseInt(input)-1], 0.5);
-                    }
-                    else if (input.equals("3")){
                         i = new FoodItem(itemTypes[Integer.parseInt(input)-1], itemDescriptions[Integer.parseInt(input)-1], 0.2);
                     }
+                    else if (input.equals("3")){
+                        i = new FoodItem(itemTypes[Integer.parseInt(input)-1], itemDescriptions[Integer.parseInt(input)-1], 0.5);
+                    }
                     else if (input.equals("4")){
-                        i = new CropItem(itemTypes[Integer.parseInt(input)-1], itemDescriptions[Integer.parseInt(input)-1], 0.25);
+                        i = new CropItem(itemTypes[Integer.parseInt(input)-1], itemDescriptions[Integer.parseInt(input)-1], 0.3);
                     }
                     else if (input.equals("5")){
                         i = new CropItem(itemTypes[Integer.parseInt(input)-1], itemDescriptions[Integer.parseInt(input)-1], 0.5);
