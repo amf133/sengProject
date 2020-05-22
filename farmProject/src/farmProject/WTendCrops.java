@@ -26,6 +26,9 @@ public class WTendCrops {
 	
 	/**
 	 * Create the application.
+	 * @param cropss list of crops in farm
+	 * @param incomingItems list of crop items in farm
+	 * @param incomingParent parent window
 	 */
 	public WTendCrops(ArrayList<Crop> cropss, ArrayList<CropItem> incomingItems, WActions incomingParent) {
 		crops = cropss;

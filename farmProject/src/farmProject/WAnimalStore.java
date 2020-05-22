@@ -38,6 +38,8 @@ public class WAnimalStore {
 
 	/**
 	 * Create the application
+	 * @param incomingManager window manager instance
+	 * @param farmObject farm instance
 	 */
 	public WAnimalStore(WindowManager incomingManager, Farm farmObject) {
 		manager = incomingManager;
@@ -85,6 +87,7 @@ public class WAnimalStore {
 	
 	/**
      * Initializes all elements in the window
+     * @param farmObject farm instance
      */
 	private void initialize(Farm farmObject) {
 		frmAnimalStore = new JFrame();

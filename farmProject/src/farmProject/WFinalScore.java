@@ -16,6 +16,9 @@ public class WFinalScore {
 
 	/**
 	 * Create the application.
+	 * @param farmerName name of farmer
+	 * @param farmName name of farm
+	 * @param finalScore users final score on game ending
 	 */
 	public WFinalScore(String farmerName, String farmName, String finalScore) {
 		initialize();

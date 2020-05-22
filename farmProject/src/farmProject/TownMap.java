@@ -27,6 +27,7 @@ public class TownMap {
 
 	/**
 	 * Create the application.
+	 * @param incomingManager window manager instance
 	 */
 	public TownMap(WindowManager incomingManager) {
 		manager = incomingManager;

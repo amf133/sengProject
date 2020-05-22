@@ -24,6 +24,7 @@ public class WActions {
 	
 	/**
 	 * Create the application.
+	 * @param incomingManager window manager instance
 	 */
 	public WActions(WindowManager incomingManager) {
 		manager = incomingManager;
@@ -66,6 +67,8 @@ public class WActions {
 	
 	/**
 	 * Opens a window to tend to crops
+	 * @param crops list of crops in farm
+	 * @param cropItems list of crop items in farm
 	 */
 	private void tendCrops(ArrayList<Crop> crops, ArrayList<CropItem> cropItems) {
 		WTendCrops window = new WTendCrops(crops, cropItems, this);
@@ -74,6 +77,8 @@ public class WActions {
 	
 	/**
 	 * Opens a window to feed animals
+	 * @param animals list of animals in farm
+	 * @param foodItems list of food items in farm
 	 */
 	private void feedAnimals(ArrayList<Animal> animals, ArrayList<FoodItem> foodItems) {
 		WFeedAnimals window = new WFeedAnimals(animals, foodItems, this);

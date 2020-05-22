@@ -26,6 +26,7 @@ public class WindowManager {
 	
 	/**
      * Edits the daily turns allowed
+     * @param incomingNum int to change daily turns by
      */
 	public void editTurns(int incomingNum) {
 		turns += incomingNum;
@@ -34,6 +35,7 @@ public class WindowManager {
 	
 	/**
      * Returns an int of the remaining turns left
+     * @return turns number of turns remaining in day
      */
 	public int getTurns() {
     	return turns;
@@ -42,6 +44,7 @@ public class WindowManager {
 	
 	/**
      * Returns an int of the days remaining
+     * @return day number of days remaining in game
      */
 	public int getDays() {
 		return days;
@@ -50,6 +53,7 @@ public class WindowManager {
 	
 	/**
      * Returns a double of the game score
+     * @return score users score of game end
      */
 	public double getScore() {
 		return farmObject.getScore();
@@ -136,7 +140,8 @@ public class WindowManager {
 	
 	
 	/**
-     * Returns a string of the avaliable items in the farm
+     * Returns a string of the available items in the farm
+     * @return result available items
      */
 	public String stringItems() {
 		String result = "";
@@ -156,6 +161,7 @@ public class WindowManager {
 	
 	/**
      * Returns a string of the animals in the farm
+     * @return result animals in farm
      */
 	public String stringAnimals() {
 		String result = "";
@@ -179,7 +185,8 @@ public class WindowManager {
 	
 	
 	/**
-     *Returns a string of the crops in the farm
+     * Returns a string of the crops in the farm
+     * @return result crops in farm 
      */
 	public String stringCrops() {
 		String result = "";
@@ -219,6 +226,9 @@ public class WindowManager {
 	
 	/**
      * Closes the setup screen and initializes the game
+     * @param incomingFarm farm object
+     * @param incomingFarmer farmer object
+     * @param incomingDays number of days user selected
      */
 	public void closeSetupScreen(Farm incomingFarm, Farmer incomingFarmer, int incomingDays) {
 		farmerObject = incomingFarmer;
