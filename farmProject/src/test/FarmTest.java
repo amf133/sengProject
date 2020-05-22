@@ -130,5 +130,36 @@ class FarmTest {
 		
 		assertTrue(initialBal < farm.getBal());
 	}
-
+	
+	
+	@Test
+	public void testPlayTime() {
+		Animal sheep = new Animal("Sheep", 100.0);
+		Animal cow = new Animal("Cow", 120.0);
+		cow.editHappiness(-0.5);
+		sheep.editHappiness(-0.5);
+		farm.addAnimal(cow);
+		farm.addAnimal(sheep);
+		
+		farm.playTime();
+		
+		for (Animal a : farm.getAnimals()){        
+            assertEquals(1.0, a.getHealth()); 
+        }
+	}
+	
+	
+	@Test
+	public void testGetCrops() {
+		Crop c = new Crop("Carrot", 5.0, 20);
+		farm.addCrop(c);
+		
+		boolean test = false;
+		
+		for (Crop crop : farm.getCrops()) {
+			test = true;
+		}
+		
+		assertTrue(test);
+	}
 }
