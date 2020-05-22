@@ -9,8 +9,8 @@ import java.util.Scanner;
 
 public class Farm {
     private String name;
-    int maxAnimals = 5;
-    int maxCrops = 50;
+    public int maxAnimals = 5;
+    public int maxCrops = 50;
     private ArrayList<Crop> crops = new ArrayList<>(maxCrops); //setting max size?
     private ArrayList<Animal> animals = new ArrayList<>(maxAnimals);
     private ArrayList<Item> items = new ArrayList<>();
@@ -310,8 +310,8 @@ public class Farm {
     * Get the number of crops currently growing
     * @return numCrops number of crops
     */
-    public double numberCrops(){
-        Double numCrops = 0.0;
+    public int numberCrops(){
+        int numCrops = 0;
         for (int i = 1; i < crops.size() + 1; i++ ){
             numCrops += crops.get(i-1).getQuantity();
         }
@@ -528,7 +528,7 @@ public class Farm {
     
     
     /**
-    * Random event, generate bonus based of number of animals and crops in farm. Upate balance with bonus
+    * Random event, generate bonus based of number of animals and crops in farm. Update balance with bonus
     */
     public void countyFair(){
         Double bonus = 0.0;
