@@ -114,15 +114,15 @@ public class SetupScreen {
 		lblFirst.setBounds(21, 33, 123, 17);
 		frmFarmSetup.getContentPane().add(lblFirst);
 		
-		JLabel LengthLabel = new JLabel("Game Length (days):");
-		LengthLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		LengthLabel.setBounds(21, 135, 138, 35);
-		frmFarmSetup.getContentPane().add(LengthLabel);
+		JLabel lengthLabel = new JLabel("Game Length (days):");
+		lengthLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lengthLabel.setBounds(21, 135, 138, 35);
+		frmFarmSetup.getContentPane().add(lengthLabel);
 		
-		JLabel FarmLabel = new JLabel("Farm Name:");
-		FarmLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		FarmLabel.setBounds(21, 183, 93, 42);
-		frmFarmSetup.getContentPane().add(FarmLabel);
+		JLabel farmLabel = new JLabel("Farm Name:");
+		farmLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		farmLabel.setBounds(21, 183, 93, 42);
+		frmFarmSetup.getContentPane().add(farmLabel);
 		
 		txtFarmerFirst = new JTextField();
 		txtFarmerFirst.setBounds(178, 33, 138, 20);
@@ -147,10 +147,10 @@ public class SetupScreen {
 		frmFarmSetup.getContentPane().add(sdrLength);
 		sliderLength = sdrLength;
 		
-		JLabel BonusLabel = new JLabel("SELECT FARM BONUS");
-		BonusLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		BonusLabel.setBounds(85, 236, 149, 14);
-		frmFarmSetup.getContentPane().add(BonusLabel);
+		JLabel bonusLabel = new JLabel("SELECT FARM BONUS");
+		bonusLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		bonusLabel.setBounds(85, 236, 149, 14);
+		frmFarmSetup.getContentPane().add(bonusLabel);
 		
 		JButton btnBEGIN = new JButton("BEGIN");
 		btnBEGIN.addMouseListener(new MouseAdapter() {
