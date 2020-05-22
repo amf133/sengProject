@@ -106,7 +106,6 @@ class FarmTest {
 	
 	@Test
 	public void testAddSpace() {
-		//edit health is called when the farm is tended to
 		int initialAnimals = farm.maxAnimals;
 		int initialCrops = farm.maxCrops;
 		
@@ -114,6 +113,21 @@ class FarmTest {
 		
 		assertEquals(initialAnimals, farm.maxAnimals);
 		assertEquals(initialCrops, farm.maxCrops);
+	}
+	
+	
+	@Test
+	public void testCountyFair() {
+		//calculation to update balance = getAnimals().size() * 40.0) + (numberCrops() * 4.0)
+		Crop c = new Crop("Carrot", 5.0, 20);
+		farm.addCrop(c);
+		Animal a = new Animal("Sheep", 100.0);
+		farm.addAnimal(a);
+		
+		double initialBal = farm.getBal();
+		farm.countyFair();
+		
+		assertTrue(initialBal < farm.getBal());
 	}
 
 }
