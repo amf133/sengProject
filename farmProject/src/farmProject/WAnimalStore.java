@@ -31,17 +31,15 @@ import java.awt.Color;
 import java.awt.SystemColor;
 import javax.swing.JComboBox;
 
-public class W_AnimalStore {
+public class WAnimalStore {
 
 	private JFrame frmAnimalStore;
 	private WindowManager manager;
-	private JTextArea txtView;
-	private JLabel lblMoney;
 
 	/**
 	 * Create the application
 	 */
-	public W_AnimalStore(WindowManager incomingManager, Farm farmObject) {
+	public WAnimalStore(WindowManager incomingManager, Farm farmObject) {
 		manager = incomingManager;
 		initialize(farmObject);
 	}
@@ -73,7 +71,8 @@ public class W_AnimalStore {
 	
 	
 	/**
-     * --------------------------------------------------------------------
+     * Creates hashmap with animal type as key and cost as value, to be sold at store
+     * @return animals map with animal tuples
      */
 	public Map<String, Double> getAnimals(){
 		Map<String, Double> animals = new HashMap<>();

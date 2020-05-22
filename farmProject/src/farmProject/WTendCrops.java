@@ -16,18 +16,18 @@ import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 
-public class W_TendCrops {
+public class WTendCrops {
 
 	private JFrame frame;
 	private ArrayList<Crop> crops;
 	private ArrayList<CropItem> cropItems;
-	private W_Actions parent;
+	private WActions parent;
 
 	
 	/**
 	 * Create the application.
 	 */
-	public W_TendCrops(ArrayList<Crop> cropss, ArrayList<CropItem> incomingItems, W_Actions incomingParent) {
+	public WTendCrops(ArrayList<Crop> cropss, ArrayList<CropItem> incomingItems, WActions incomingParent) {
 		crops = cropss;
 		cropItems = incomingItems;
 		parent = incomingParent;
@@ -66,38 +66,38 @@ public class W_TendCrops {
 		lblCrop.setBounds(56, 21, 90, 26);
 		frame.getContentPane().add(lblCrop);
 		
-		JLabel lblNewLabel = new JLabel("Select Item:");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel.setBounds(258, 27, 81, 14);
-		frame.getContentPane().add(lblNewLabel);
+		JLabel lblSelect = new JLabel("Select Item:");
+		lblSelect.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblSelect.setBounds(258, 27, 81, 14);
+		frame.getContentPane().add(lblSelect);
 		
-		JComboBox<Crop> cbCrop = new JComboBox<Crop>();
+		JComboBox<Crop> cbxCrop = new JComboBox<Crop>();
 		for (Crop c : crops) {
-			cbCrop.addItem(c);
+			cbxCrop.addItem(c);
 		}
-		cbCrop.setBounds(10, 65, 187, 22);
-		frame.getContentPane().add(cbCrop);
+		cbxCrop.setBounds(10, 65, 187, 22);
+		frame.getContentPane().add(cbxCrop);
 		
-		JComboBox<CropItem> cbItem = new JComboBox<CropItem>();
+		JComboBox<CropItem> cbxItem = new JComboBox<CropItem>();
 		if (cropItems.size() == 0) {
-			cbItem.setToolTipText("No items available!");
+			cbxItem.setToolTipText("No items available!");
 		}
 		else {
 			for (CropItem i : cropItems) {
-				cbItem.addItem(i);
+				cbxItem.addItem(i);
 		}
 
 		}
-		cbItem.setBounds(238, 65, 112, 22);
-		frame.getContentPane().add(cbItem);
+		cbxItem.setBounds(238, 65, 112, 22);
+		frame.getContentPane().add(cbxItem);
 		
 		JButton btnApply = new JButton("Apply Item");
 		btnApply.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (cropItems.size() >= 1) {
-					Crop crop = (Crop) cbCrop.getSelectedItem();
-					CropItem item = (CropItem) cbItem.getSelectedItem();
+					Crop crop = (Crop) cbxCrop.getSelectedItem();
+					CropItem item = (CropItem) cbxItem.getSelectedItem();
 					int confirm = JOptionPane.showConfirmDialog(null, "Apply " + item.getType() + " to " + crop.getQuantity() + " " + crop.getType(),
 							null, JOptionPane.YES_NO_CANCEL_OPTION);
 			
@@ -110,7 +110,7 @@ public class W_TendCrops {
 						}
 						cropItems.remove(item);
 						parent.manager.farmObject.removeItem(item);
-						cbItem.removeItem(item);
+						cbxItem.removeItem(item);
 						parent.manager.editTurns(-1);
 						parent.updateTurns();
 						endWindow();
@@ -121,12 +121,16 @@ public class W_TendCrops {
 				}
 			}
 		});
+		btnApply.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnApply.setBounds(238, 111, 111, 42);
+		frame.getContentPane().add(btnApply);
+		
 		
 		JButton btnWater = new JButton("Water (Free)");
 		btnWater.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Crop crop = (Crop) cbCrop.getSelectedItem();
+				Crop crop = (Crop) cbxCrop.getSelectedItem();
 				int confirm = JOptionPane.showConfirmDialog(null, "Apply water to " + crop.getQuantity() + " " + crop.getType(),
 						null, JOptionPane.YES_NO_CANCEL_OPTION);
 		
@@ -143,11 +147,7 @@ public class W_TendCrops {
 		btnWater.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnWater.setBounds(238, 164, 112, 42);
 		frame.getContentPane().add(btnWater);
-		
-		btnApply.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnApply.setBounds(238, 111, 111, 42);
-		frame.getContentPane().add(btnApply);
-		
+
 		JButton btnReturn = new JButton("Return");
 		btnReturn.setBackground(Color.RED);
 		btnReturn.addMouseListener(new MouseAdapter(){

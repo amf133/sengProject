@@ -9,7 +9,7 @@ import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class W_FinalScore {
+public class WFinalScore {
 
 	private JFrame frame;
 	private JLabel lblFarmNameShow, lblFarmerNameShow, lblFinalScoreShow;
@@ -17,7 +17,7 @@ public class W_FinalScore {
 	/**
 	 * Create the application.
 	 */
-	public W_FinalScore(String farmerName, String farmName, String finalScore) {
+	public WFinalScore(String farmerName, String farmName, String finalScore) {
 		initialize();
 		lblFarmerNameShow.setText(farmerName);
 		lblFarmNameShow.setText(farmName);
