@@ -2,6 +2,7 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import farmProject.Animal;
@@ -13,7 +14,7 @@ import farmProject.FoodItem;
 class FarmTest {
 	private Farm farm;
 	
-	
+	@BeforeEach
 	public void init() {
 		farm = new Farm("Test", 3); //starter farm
 	}
@@ -100,7 +101,7 @@ class FarmTest {
 		double initial = farm.getHealth();
 		farm.editHealth();
 		
-		assertEquals(initial, farm.getHealth());
+		assertTrue(initial < farm.getHealth());
 	}
 	
 	
@@ -111,8 +112,8 @@ class FarmTest {
 		
 		farm.addSpace();
 		
-		assertEquals(initialAnimals, farm.maxAnimals);
-		assertEquals(initialCrops, farm.maxCrops);
+		assertTrue(initialAnimals < farm.maxAnimals);
+		assertTrue(initialCrops < farm.maxCrops);
 	}
 	
 	
