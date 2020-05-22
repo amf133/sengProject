@@ -118,11 +118,11 @@ public class WItemStore {
 		frmItemStore.getContentPane().add(sp1);
 		
 		
-		ArrayList<CropItem> cropItems = farmObject.getCropItems();
+		ArrayList<CropItem> txtCropItems = farmObject.getCropItems();
 		JTextArea txtCItem = new JTextArea();
 		JScrollPane sp2 = new JScrollPane(txtCItem, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		txtCItem.setText("Your Crop items:");
-		for (CropItem c : cropItems) {
+		for (CropItem c : txtCropItems) {
 			txtCItem.append("\n" + c.getType());
 		}
 		txtCItem.setBounds(373, 212, 153, 107);
@@ -162,9 +162,9 @@ public class WItemStore {
 		frmItemStore.getContentPane().add(animalBox);
 		
 		JComboBox<String> cropBox = new JComboBox<>();
-		Map<String, String[]> cropItemss = getCItems();
-		for (String c : cropItemss.keySet()) {
-			cropBox.addItem(c + " - " + cropItemss.get(c)[1] + " - $" + Double.parseDouble(cropItemss.get(c)[0]) + " ea");
+		Map<String, String[]> mapCropItems = getCItems();
+		for (String c : mapCropItems.keySet()) {
+			cropBox.addItem(c + " - " + mapCropItems.get(c)[1] + " - $" + Double.parseDouble(mapCropItems.get(c)[0]) + " ea");
 		}
 		cropBox.setBounds(10, 263, 322, 22);
 		frmItemStore.getContentPane().add(cropBox);
@@ -203,9 +203,9 @@ public class WItemStore {
 				String arr[] = ((String) cropBox.getSelectedItem()).split(" ");
 				String type = arr[0];
 
-				Double cost = (Double) Double.parseDouble(cropItemss.get(type)[0]);
-				String description = (String) cropItemss.get(type)[1];
-				Double benefit = (Double) Double.parseDouble(cropItemss.get(type)[2]);
+				Double cost = (Double) Double.parseDouble(mapCropItems.get(type)[0]);
+				String description = (String) mapCropItems.get(type)[1];
+				Double benefit = (Double) Double.parseDouble(mapCropItems.get(type)[2]);
 				
 				if(farmObject.getBal() < cost) {
 					showMessageDialog(null, "You do not have enough money");

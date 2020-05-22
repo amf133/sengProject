@@ -242,9 +242,9 @@ public class WActions {
 		btnTendFarm.setBounds(720, 269, 149, 23);
 		frame.getContentPane().add(btnTendFarm);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(WActions.class.getResource("/Images/tractor.jpg")));
-		lblNewLabel.setBounds(0, 0, 879, 474);
-		frame.getContentPane().add(lblNewLabel);
+		JLabel lblTractorImage = new JLabel("");
+		lblTractorImage.setIcon(new ImageIcon(WActions.class.getResource("/Images/tractor.jpg")));
+		lblTractorImage.setBounds(0, 0, 879, 474);
+		frame.getContentPane().add(lblTractorImage);
 	}
 }
