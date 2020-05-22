@@ -11,7 +11,7 @@ public class Animal {
     private Double worth;
     private String type;
     
-    public Animal(String typee, Double cost) //init method, throws error if incorrect values
+    public Animal(String typee, Double cost)
     {    
         worth = cost;
         type = typee;
@@ -48,7 +48,7 @@ public class Animal {
     
     /** 
      * Edits the happiness of the animal
-     * @param hap the amount the health of animal is changed by
+     * @param incomingHealth the amount the health of animal is changed by
      */
      public void editHealth(Double incomingHealth){
          if (health + incomingHealth > 1.0){

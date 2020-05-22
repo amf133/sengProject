@@ -29,6 +29,8 @@ public class WCropStore {
 	
 	/**
 	 * Create the application.
+	 * @param incomingManager window manager instance
+	 * @param farmObject farm instance
 	 */
 	public WCropStore(WindowManager incomingManager, Farm farmObject)  {
 		manager = incomingManager;
@@ -78,6 +80,7 @@ public class WCropStore {
 
 	/**
 	 * Initialize the contents of the frame.
+	 * @param farmObject farmInstance
 	 */
 	private void initialize(Farm farmObject) {
 		frmCropStore = new JFrame();

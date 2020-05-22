@@ -27,6 +27,8 @@ public class WItemStore {
 	
 	/**
 	 * Create the application.
+	 * @param incomingManager window manager instance
+	 * @param farmObject farm object
 	 */
 	public WItemStore(WindowManager incomingManager, Farm farmObject)  {
 		manager = incomingManager;
@@ -94,6 +96,7 @@ public class WItemStore {
 
 	/**
 	 * Initialize the contents of the frame.
+	 * @param farmObject farmObject
 	 */
 	private void initialize(Farm farmObject) {
 		

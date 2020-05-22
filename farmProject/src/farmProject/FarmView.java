@@ -27,6 +27,7 @@ public class FarmView {
 	
 	/**
 	 * Create the application.
+	 * @param incomingManager window manager instance
 	 */
 	public FarmView(WindowManager incomingManager) {
 		manager = incomingManager;

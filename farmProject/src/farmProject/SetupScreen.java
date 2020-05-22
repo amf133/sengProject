@@ -32,6 +32,7 @@ public class SetupScreen {
 
 	/**
 	 * Create the application.
+	 * @param incomingManager window manager instance
 	 */
 	public SetupScreen(WindowManager incomingManager) {
 		manager = incomingManager;

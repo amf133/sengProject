@@ -23,6 +23,9 @@ public class WFeedAnimals {
 
 	/**
 	 * Create the application.
+	 * @param incomingAnimals animals in farm
+	 * @param incomingItems items in farm
+	 * @param incomingParent parent window
 	 */
 	public WFeedAnimals(ArrayList<Animal> incomingAnimals, ArrayList<FoodItem> incomingItems, WActions incomingParent) {
 		foodItems = incomingItems;
