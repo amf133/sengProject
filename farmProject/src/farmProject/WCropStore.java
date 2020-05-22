@@ -19,7 +19,7 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 
-public class W_CropStore {
+public class WCropStore {
 
 	private JFrame frmCropStore;
 	private WindowManager manager;
@@ -30,7 +30,7 @@ public class W_CropStore {
 	/**
 	 * Create the application.
 	 */
-	public W_CropStore(WindowManager incomingManager, Farm farmObject)  {
+	public WCropStore(WindowManager incomingManager, Farm farmObject)  {
 		manager = incomingManager;
 		initialize(farmObject);
 	}
@@ -62,7 +62,8 @@ public class W_CropStore {
 	
 	
 	/**
-     * -----------------------------------------------------------------------------------------
+     * Creates hash map with crop type as key and its cost as value, to be sold at store
+     * @return cropTypes maps with crop tuples
      */
 	public Map<String, Double> getCropTypes(){
 		Map<String, Double> cropTypes = new HashMap<>();

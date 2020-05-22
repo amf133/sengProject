@@ -199,21 +199,21 @@ public class SetupScreen {
 	    txbFarmerAge.setBounds(178, 79, 138, 20);
 	    frmFarmSetup.getContentPane().add(txbFarmerAge);
 	    
-	    JLabel lblBonus_1 = new JLabel("Faster crop growth");
-	    lblBonus_1.setBounds(140, 261, 121, 14);
-	    frmFarmSetup.getContentPane().add(lblBonus_1);
+	    JLabel lblBonus1 = new JLabel("Faster crop growth");
+	    lblBonus1.setBounds(140, 261, 121, 14);
+	    frmFarmSetup.getContentPane().add(lblBonus1);
 	    
-	    JLabel lblBonus_2 = new JLabel("More starting cash");
-	    lblBonus_2.setBounds(140, 294, 121, 14);
-	    frmFarmSetup.getContentPane().add(lblBonus_2);
+	    JLabel lblBonus2 = new JLabel("More starting cash");
+	    lblBonus2.setBounds(140, 294, 121, 14);
+	    frmFarmSetup.getContentPane().add(lblBonus2);
 	    
-	    JLabel lblBonus_3 = new JLabel("Happier animals");
-	    lblBonus_3.setBounds(140, 331, 121, 14);
-	    frmFarmSetup.getContentPane().add(lblBonus_3);
+	    JLabel lblBonus3 = new JLabel("Happier animals");
+	    lblBonus3.setBounds(140, 331, 121, 14);
+	    frmFarmSetup.getContentPane().add(lblBonus3);
 	    
-	    JLabel lblBonus_4 = new JLabel("Larger farm capacity");
-	    lblBonus_4.setBounds(140, 368, 121, 14);
-	    frmFarmSetup.getContentPane().add(lblBonus_4);
+	    JLabel lblBonus4 = new JLabel("Larger farm capacity");
+	    lblBonus4.setBounds(140, 368, 121, 14);
+	    frmFarmSetup.getContentPane().add(lblBonus4);
 	    btnGroup = group;
 	}
 }

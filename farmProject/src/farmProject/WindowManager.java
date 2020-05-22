@@ -14,7 +14,7 @@ public class WindowManager {
     private SetupScreen setupScreen = new SetupScreen(this);
     private TownMap map = new TownMap(this);
     private FarmView farmView = new FarmView(this);
-    private W_Actions actionWindow = new W_Actions(this);
+    private WActions actionWindow = new WActions(this);
 	
 	/**
      * Opens action window
@@ -60,7 +60,7 @@ public class WindowManager {
      * Closes map window and opens the animal store window
      */
 	public void viewAnimalStore() {
-		W_AnimalStore aStore = new W_AnimalStore(this, farmObject);
+		WAnimalStore aStore = new WAnimalStore(this, farmObject);
 		map.closeWindow();
 		aStore.show();
 	}
@@ -70,7 +70,7 @@ public class WindowManager {
      * Closes map window and opens the crop store window
      */
 	public void viewCropStore() {
-		W_CropStore cStore = new W_CropStore(this, farmObject);
+		WCropStore cStore = new WCropStore(this, farmObject);
 		map.closeWindow();
 		cStore.show();
 	}
@@ -80,7 +80,7 @@ public class WindowManager {
      * Closes map window and opens the item store window
      */
 	public void viewItemStore() {
-		W_ItemStore iStore = new W_ItemStore(this, farmObject);
+		WItemStore iStore = new WItemStore(this, farmObject);
 		map.closeWindow();
 		iStore.show();
 	}
@@ -108,7 +108,7 @@ public class WindowManager {
             map.endWindow();
             farmView.endWindow();
             actionWindow.endWindow();
-            W_FinalScore finalFrame = new W_FinalScore(farmObject.getName() ,farmerObject.getName(), String.valueOf(getScore()));
+            WFinalScore finalFrame = new WFinalScore(farmObject.getName() ,farmerObject.getName(), String.valueOf(getScore()));
             
         }
         else{

@@ -15,7 +15,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.awt.Font;
 
-public class W_Actions {
+public class WActions {
 
 	private JFrame frame;
 	WindowManager manager;
@@ -25,7 +25,7 @@ public class W_Actions {
 	/**
 	 * Create the application.
 	 */
-	public W_Actions(WindowManager incomingManager) {
+	public WActions(WindowManager incomingManager) {
 		manager = incomingManager;
 		initialize();
 	}
@@ -68,7 +68,7 @@ public class W_Actions {
 	 * Opens a window to tend to crops
 	 */
 	private void tendCrops(ArrayList<Crop> crops, ArrayList<CropItem> cropItems) {
-		W_TendCrops window = new W_TendCrops(crops, cropItems, this);
+		WTendCrops window = new WTendCrops(crops, cropItems, this);
 	}
 	
 	
@@ -76,7 +76,7 @@ public class W_Actions {
 	 * Opens a window to feed animals
 	 */
 	private void feedAnimals(ArrayList<Animal> animals, ArrayList<FoodItem> foodItems) {
-		W_FeedAnimals window = new W_FeedAnimals(animals, foodItems, this);
+		WFeedAnimals window = new WFeedAnimals(animals, foodItems, this);
 	}
 
 	
@@ -243,7 +243,7 @@ public class W_Actions {
 		frame.getContentPane().add(btnTendFarm);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(W_Actions.class.getResource("/Images/tractor.jpg")));
+		lblNewLabel.setIcon(new ImageIcon(WActions.class.getResource("/Images/tractor.jpg")));
 		lblNewLabel.setBounds(0, 0, 879, 474);
 		frame.getContentPane().add(lblNewLabel);
 	}

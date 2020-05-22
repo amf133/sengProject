@@ -13,18 +13,18 @@ import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class W_FeedAnimals {
+public class WFeedAnimals {
 
 	private JFrame frame;
 	private ArrayList<FoodItem> foodItems;
 	private ArrayList<Animal> animals;
-	private W_Actions parent;
+	private WActions parent;
 
 
 	/**
 	 * Create the application.
 	 */
-	public W_FeedAnimals(ArrayList<Animal> incomingAnimals, ArrayList<FoodItem> incomingItems, W_Actions incomingParent) {
+	public WFeedAnimals(ArrayList<Animal> incomingAnimals, ArrayList<FoodItem> incomingItems, WActions incomingParent) {
 		foodItems = incomingItems;
 		animals = incomingAnimals;
 		parent = incomingParent;

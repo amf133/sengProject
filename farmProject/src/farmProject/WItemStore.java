@@ -19,7 +19,7 @@ import java.awt.Color;
 import javax.swing.JScrollPane;
 import javax.swing.JComboBox;
 
-public class W_ItemStore {
+public class WItemStore {
 
 	private JFrame frmItemStore;
 	private WindowManager manager;
@@ -28,7 +28,7 @@ public class W_ItemStore {
 	/**
 	 * Create the application.
 	 */
-	public W_ItemStore(WindowManager incomingManager, Farm farmObject)  {
+	public WItemStore(WindowManager incomingManager, Farm farmObject)  {
 		manager = incomingManager;
 		initialize(farmObject);
 	}
@@ -58,6 +58,11 @@ public class W_ItemStore {
 		manager.toTownMap();
 	}
 	
+	/**
+	 * Creates map of animal items with type as key and, cost - description - benefit as value
+	 * stored as a list
+	 * @return aItems purchasable animal items
+	 */
 	public Map<String, String[]> getAItems(){
 		Map<String, String[]> aItems = new HashMap<>();
 		
@@ -70,16 +75,21 @@ public class W_ItemStore {
 		return aItems;
 	}
 	
+	/**
+	 * Creates map of crop items with type as key and, cost - description - benefit as value
+	 * stored as a list
+	 * @return cItems purchable crop items
+	 */
 	public Map<String, String[]> getCItems(){
-		Map<String, String[]> aCtems = new HashMap<>();
+		Map<String, String[]> cItems = new HashMap<>();
 		
 		String[] fert = new String[] {"20.00", "Increase growth rate 20%", "0.3"};
 		String[] sun = new String[] {"40.00", "Increase growth rate 50%", "0.5"};
 		String[] inst = new String[] {"80.00", "Increase growth rate 100%", "1.0"};
-		aCtems.put("Fertilizer", fert);
-		aCtems.put("Sunglight", sun);
-		aCtems.put("Instant", inst);
-		return aCtems;
+		cItems.put("Fertilizer", fert);
+		cItems.put("Sunglight", sun);
+		cItems.put("Instant", inst);
+		return cItems;
 	}
 
 	/**
