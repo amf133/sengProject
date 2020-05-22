@@ -101,7 +101,7 @@ class FarmTest {
 		double initial = farm.getHealth();
 		farm.editHealth();
 		
-		assertTrue(initial < farm.getHealth());
+		assertEquals(initial * 0.5, farm.getHealth());
 	}
 	
 	
@@ -112,8 +112,8 @@ class FarmTest {
 		
 		farm.addSpace();
 		
-		assertTrue(initialAnimals < farm.maxAnimals);
-		assertTrue(initialCrops < farm.maxCrops);
+		assertEquals(initialAnimals + 2, farm.maxAnimals);
+		assertEquals(initialCrops + 20, farm.maxCrops);
 	}
 	
 	
