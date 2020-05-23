@@ -63,6 +63,10 @@ public class SetupScreen {
 	
 	/**
 	 * Determines whether the input strings are valid
+	 * @param farmName a string of the farm name
+	 * @param farmerName a string of the farmers name
+	 * @param farmerAge a string of the farmers age
+	 * @return boolean which determines whether the input strings are valid
 	 */
 	private boolean isValid(String farmName, String farmerName, String farmerAge) {
 		boolean valid = false;
