@@ -50,7 +50,6 @@ public class GameEnvironment {
     }
     
     
-    
     /**
      * Gets farmer object after collecting user input
      * @return  farmerObject users farmer
@@ -93,7 +92,6 @@ public class GameEnvironment {
     }
     
     
-    
     /**
      * Gets farm object after collecting user input
      * @return farmObject users farm
@@ -127,7 +125,6 @@ public class GameEnvironment {
         Farm farmObject = new Farm(farmName, Integer.parseInt(farmInt));
         return farmObject;
     }
-    
     
     
     /**
@@ -170,7 +167,6 @@ public class GameEnvironment {
         }
         while (!(input.equals("5")));
     }
-    
     
     
     /**
@@ -228,7 +224,6 @@ public class GameEnvironment {
         }
         while (!(input.equals(Integer.toString(cropTypes.length + 1)))); //if user enter a number one higher than the length of animalTypes  
     }
-    
     
     
     /**
@@ -293,7 +288,6 @@ public class GameEnvironment {
     }
     
     
-    
     /**
      * Implements buying animals. User selects type of animal. Balance is reduced and animals are added to farm object
      */
@@ -334,7 +328,6 @@ public class GameEnvironment {
         }
         while (!(input.equals(Integer.toString(animalTypes.length + 1)))); //if user enter a number one higher than the length of animalTypes
     }
-    
     
     
     /**
@@ -472,6 +465,7 @@ public class GameEnvironment {
         
     }
     
+    
     /**
      * Ends game and displays final score
      */
@@ -483,6 +477,7 @@ public class GameEnvironment {
         System.out.println("\n FINAL SCORE: " + score);
         System.exit(0);
     }
+    
     
     /**
      * Main option selection for game
@@ -530,7 +525,6 @@ public class GameEnvironment {
         farmObject.editHealth();
         farmObject.addSpace();
     }
-    
     
     
     public static void main(String[] args) {
