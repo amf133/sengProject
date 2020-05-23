@@ -20,6 +20,11 @@ import java.awt.event.MouseEvent;
 import javax.swing.JRadioButton;
 import java.awt.Color;
 
+/** 
+* This class is the window the user will first see when starting the game
+* @author Alec, Christian
+*/
+
 public class SetupScreen {
 
 	private JFrame frmFarmSetup;
