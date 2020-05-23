@@ -15,7 +15,7 @@ import java.awt.event.MouseEvent;
 public class WFinalScore {
 
 	private JFrame frmFinalScore;
-	private JLabel lblFarmNameShow, lblFarmerNameShow, lblFinalScoreShow;
+	private JLabel lblFarmNameShow, lblFarmerNameShow, lblFinalScoreShow, lblDays;
 
 	/**
 	 * Create the application.
@@ -23,12 +23,12 @@ public class WFinalScore {
 	 * @param farmName name of farm
 	 * @param finalScore users final score on game ending
 	 */
-	public WFinalScore(String farmerName, String farmName, String finalScore) {
+	public WFinalScore(String farmerName, String farmName, String finalScore, int days) {
 		initialize();
 		lblFarmerNameShow.setText(farmerName);
 		lblFarmNameShow.setText(farmName);
 		lblFinalScoreShow.setText(finalScore);
-		frmFinalScore.setVisible(true);
+		lblDays.setText(Integer.toString(days));
 	}
 	
 	
@@ -97,12 +97,23 @@ public class WFinalScore {
 		
 		JLabel lblFinalScore = new JLabel("Score:");
 		lblFinalScore.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblFinalScore.setBounds(115, 154, 40, 17);
+		lblFinalScore.setBounds(115, 184, 40, 17);
 		frmFinalScore.getContentPane().add(lblFinalScore);
 		
 		lblFinalScoreShow = new JLabel("null");
 		lblFinalScoreShow.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
-		lblFinalScoreShow.setBounds(245, 157, 122, 14);
+		lblFinalScoreShow.setBounds(245, 187, 122, 14);
 		frmFinalScore.getContentPane().add(lblFinalScoreShow);
+		
+		JLabel lblDaysName = new JLabel("Days played:");
+		lblDaysName.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblDaysName.setBounds(115, 141, 80, 19);
+		frmFinalScore.getContentPane().add(lblDaysName);
+		
+		lblDays = new JLabel("<dynamic>");
+		lblDays.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
+		lblDays.setBounds(245, 143, 122, 14);
+		frmFinalScore.getContentPane().add(lblDays);
+		frmFinalScore.setVisible(true);
 	}
 }

@@ -15,6 +15,7 @@ public class WindowManager {
 	public Farm farmObject; //need to be public
 	Farmer farmerObject;
     private int days;
+    private int initialDays;
     private int turns = 2;
     private Double EVENTCHANCE = 5.0;
     private SetupScreen setupScreen = new SetupScreen(this);
@@ -118,7 +119,7 @@ public class WindowManager {
             map.endWindow();
             farmView.endWindow();
             actionWindow.endWindow();
-            WFinalScore finalFrame = new WFinalScore(farmObject.getName() ,farmerObject.getName(), String.valueOf(getScore()));
+            WFinalScore finalFrame = new WFinalScore(farmObject.getName() ,farmerObject.getName(), String.valueOf(getScore()), initialDays);
             
         }
         else{
@@ -240,6 +241,7 @@ public class WindowManager {
 		farmerObject = incomingFarmer;
 		farmObject = incomingFarm;
 		days = incomingDays;
+		initialDays = incomingDays;
 		setupScreen.endWindow();
 		map.show();
 		showMessageDialog(null, "\nStarting game with " + this.farmerObject.getName() +  "'s " + this.farmObject.getType() + " farm: " + this.farmObject.getName());
