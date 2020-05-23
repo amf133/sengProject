@@ -250,7 +250,6 @@ public class WindowManager {
      * Launches the setup screen
      */
 	public void launch() {
-		WindowManager manager = new WindowManager();
 		setupScreen.show();
 	}
 	
