@@ -65,6 +65,7 @@ public class WItemStore {
 		manager.toTownMap();
 	}
 	
+	
 	/**
 	 * Creates map of animal items with type as key and, cost - description - benefit as value
 	 * stored as a list
@@ -81,6 +82,7 @@ public class WItemStore {
 		aItems.put("Medicine", med);
 		return aItems;
 	}
+	
 	
 	/**
 	 * Creates map of crop items with type as key and, cost - description - benefit as value
@@ -99,6 +101,7 @@ public class WItemStore {
 		return cItems;
 	}
 
+	
 	/**
 	 * Initialize the contents of the frame.
 	 * @param farmObject farmObject
