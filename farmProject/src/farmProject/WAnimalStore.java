@@ -1,34 +1,21 @@
 package farmProject;
 
 
-import java.math.BigDecimal;
-import java.math.MathContext;
+
 import java.text.DecimalFormat;
-import java.awt.EventQueue;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-
 import static javax.swing.JOptionPane.showMessageDialog;
-
 import java.awt.Font;
-
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JTextPane;
-import javax.swing.SwingConstants;
-import javax.swing.text.BadLocationException;
 import javax.swing.JTextArea;
 import java.awt.Color;
-import java.awt.SystemColor;
 import javax.swing.JComboBox;
 
 /** 

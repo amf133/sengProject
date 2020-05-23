@@ -1,8 +1,6 @@
 package farmProject;
 
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.EventQueue;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;

@@ -1,13 +1,10 @@
 package farmProject;
 
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import static javax.swing.JOptionPane.showMessageDialog;
-
-import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
