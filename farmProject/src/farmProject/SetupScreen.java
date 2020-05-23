@@ -45,16 +45,25 @@ public class SetupScreen {
 	}
 	
 	
-	
+	/**
+	 * Deletes the current window
+	 */
 	public void endWindow() {
 		frmFarmSetup.dispose();
 	}
 	
+	
+	/**
+	 * Shows the current window
+	 */
 	public void show(){
 		frmFarmSetup.setVisible(true);
 	}
 	
 	
+	/**
+	 * Determines whether the input strings are valid
+	 */
 	private boolean isValid(String farmName, String farmerName, String farmerAge) {
 		boolean valid = false;
 		
@@ -81,7 +90,9 @@ public class SetupScreen {
 	}
 	
 	
-	
+	/**
+	 * Closes the current window and passes the farm, farmer to the window manager
+	 */
 	private void finishedWindow() {
 		Farmer farmerObject;
 		String farmerName = txtFarmerFirst.getText();

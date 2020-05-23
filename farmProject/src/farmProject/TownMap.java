@@ -39,44 +39,72 @@ public class TownMap {
 		initialize();
 	}
 	
-//<<<<<<< HEAD
+	
+	/**
+	 * Goes to the animal store
+	 */
 	public void storeAnimal() {
 		manager.viewAnimalStore();
 	}
 	
+	
+	/**
+	 * Goes to the crop store
+	 */
 	public void storeCrop() {
 		manager.viewCropStore();
 	}
 	
 	
+	/**
+	 * Deletes the window
+	 */
 	public void endWindow() {
 		frmTownMap.dispose();
 	}
 	
+	
+	/**
+	 * Goes to the item store
+	 */
 	public void storeItem() {
 		manager.viewItemStore();
 	}
 	
+	
+	/**
+	 * Shows the current window
+	 */
 	public void show() {
 		frmTownMap.setVisible(true);
 		updateBal();
 	}
 	
+	
+	/**
+	 * Updates the balance label
+	 */
 	private void updateBal() {
 		lblBal.setText("Balance: $" + new DecimalFormat("0.00").format(manager.farmObject.getBal()));
 	}
 		
-//=======
 	
+	/**
+	 * Hides the current window
+	 */
 	public void closeWindow() {
 		frmTownMap.setVisible(false);
 	}
 	
+	
+	/**
+	 * Goes to the farm
+	 */
 	private void finishedWindow() {
 		manager.toFarm();
-//>>>>>>> branch 'master' of https://github.com/amf133/sengProject.git
 	}
 
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */

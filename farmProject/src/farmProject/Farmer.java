@@ -8,7 +8,7 @@ package farmProject;
 */
 public class Farmer {
     
-    // variables are required to be static to allow for without an instanc of the class
+    // variables are required to be static to allow for without an instance of the class
     private String firstName;
     private int age;
     
