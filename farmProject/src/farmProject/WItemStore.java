@@ -19,6 +19,11 @@ import java.awt.Color;
 import javax.swing.JScrollPane;
 import javax.swing.JComboBox;
 
+
+/** 
+* This class is a window where the user can buy items
+* @author Alec, Christian
+*/
 public class WItemStore {
 
 	private JFrame frmItemStore;

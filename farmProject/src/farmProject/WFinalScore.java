@@ -9,6 +9,11 @@ import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+
+/** 
+* This class is a window which is displayed when the game ends 
+* @author Alec, Christian
+*/
 public class WFinalScore {
 
 	private JFrame frmFinalScore;

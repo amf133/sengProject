@@ -19,6 +19,11 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 
+
+/** 
+* This class is a window where the user buys crops
+* @author Alec, Christian
+*/
 public class WCropStore {
 
 	private JFrame frmCropStore;

@@ -5,6 +5,12 @@ import static javax.swing.JOptionPane.showMessageDialog;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+
+
+/** 
+* This class is the main GUI manager window, this class brings all other classes together
+* @author Alec, Christian
+*/
 public class WindowManager {
 	public Farm farmObject; //need to be public
 	Farmer farmerObject;

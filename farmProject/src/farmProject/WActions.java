@@ -15,6 +15,11 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.awt.Font;
 
+
+/** 
+* This class is the actions window, clicking the actions button from the farm opens this window
+* @author Alec, Christian
+*/
 public class WActions {
 
 	private JFrame frame;

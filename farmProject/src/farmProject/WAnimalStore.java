@@ -31,6 +31,10 @@ import java.awt.Color;
 import java.awt.SystemColor;
 import javax.swing.JComboBox;
 
+/** 
+* This class is a window for buying animals
+* @author Alec, Christian
+*/
 public class WAnimalStore {
 
 	private JFrame frmAnimalStore;

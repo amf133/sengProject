@@ -16,6 +16,11 @@ import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 
+
+/** 
+* This class is the window where the user can tend to their crops
+* @author Alec, Christian
+*/
 public class WTendCrops {
 
 	private JFrame frame;
