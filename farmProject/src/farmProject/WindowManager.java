@@ -251,7 +251,7 @@ public class WindowManager {
      */
 	public void launch() {
 		WindowManager manager = new WindowManager();
-		setupScreen.show();
+		manager.setupScreen.show();
 	}
 	
 
