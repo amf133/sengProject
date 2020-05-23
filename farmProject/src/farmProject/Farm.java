@@ -20,8 +20,12 @@ public class Farm {
     private String type;
     private Scanner scanner = new Scanner (System.in);
 
-    
-    public Farm(String namee, int typee) //init method, throws error if incorrect values
+    /**
+     * Creates the users farm object 
+     * @param namee users name of farm
+     * @param typee farm bonus selected
+     */
+    public Farm(String namee, int typee)
     {    
         if (3 <= namee.length() & namee.length() <= 30){
             

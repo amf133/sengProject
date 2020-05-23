@@ -11,6 +11,11 @@ public class Animal {
     private Double worth;
     private String type;
     
+    /**
+     * Creates the animal object to be placed into farm array
+     * @param typee type of animal
+     * @param cost the cost of animal
+     */
     public Animal(String typee, Double cost)
     {    
         worth = cost;

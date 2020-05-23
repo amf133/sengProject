@@ -6,6 +6,11 @@ public class Farmer {
     private String firstName;
     private int age;
     
+    /**
+     * Creates the users farmer object
+     * @param incomingName name of the farmer
+     * @param incomingAge age of the farmer
+     */
     public Farmer(String incomingName, int incomingAge) //init method, throws error if incorrect values
     {   
     	firstName = incomingName;

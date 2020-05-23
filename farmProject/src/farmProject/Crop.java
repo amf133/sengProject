@@ -58,7 +58,7 @@ public class Crop {
     
     /**
     * Returns the type of crop eg. Carrot, Melon etc
-    * @return type type of crop.
+    * @return type the type of crop.
     */
     public String getType(){
         return type;
