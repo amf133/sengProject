@@ -1,8 +1,5 @@
 package farmProject;
 
-import java.awt.EventQueue;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.DecimalFormat;
@@ -24,6 +21,8 @@ import javax.swing.JPanel;
 * This class is a window of the town map, seen when playing the game
 * @author Alec, Christian
 */
+
+@SuppressWarnings("unused")
 public class TownMap {
 
 	private JFrame frmTownMap;
