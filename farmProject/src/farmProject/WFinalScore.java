@@ -37,7 +37,6 @@ public class WFinalScore {
      */
 	private void endWindow() {
 		frmFinalScore.dispose();
-		System.exit(0);
 	}
 
 	/**
