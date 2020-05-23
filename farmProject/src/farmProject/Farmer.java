@@ -1,5 +1,11 @@
 package farmProject;
 
+
+
+/** 
+* This class is the games farmer, or the user
+* @author Alec, Christian
+*/
 public class Farmer {
     
     // variables are required to be static to allow for without an instanc of the class

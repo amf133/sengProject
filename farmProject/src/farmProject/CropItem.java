@@ -1,5 +1,11 @@
 package farmProject;
 
+
+/** 
+* This class extends the Item class and is used when tending to crops
+* @author Alec, Christian
+*/
+
 public class CropItem extends Item{
     private Double benefit = 0.0;
     

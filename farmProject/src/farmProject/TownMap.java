@@ -19,6 +19,11 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JPanel;
 
+
+/** 
+* This class is a window of the town map, seen when playing the game
+* @author Alec, Christian
+*/
 public class TownMap {
 
 	private JFrame frmTownMap;

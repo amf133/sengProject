@@ -13,6 +13,11 @@ import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+
+/** 
+* This class is a window where the user can feed their animals
+* @author Alec, Christian
+*/
 public class WFeedAnimals {
 
 	private JFrame frame;

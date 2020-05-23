@@ -1,5 +1,11 @@
 package farmProject;
 
+
+/** 
+* This class extends the Item class and is used when feeding animals
+* @author Alec, Christian
+*/
+
 public class FoodItem extends Item{
     private Double benefit = 0.0;
     

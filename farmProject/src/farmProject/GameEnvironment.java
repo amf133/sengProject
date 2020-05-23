@@ -3,6 +3,10 @@ import static javax.swing.JOptionPane.showMessageDialog;
 
 import java.util.Scanner;
 
+/** 
+* This class is the manager class for the CLA and is what links all other classes together
+* @author Alec, Christian
+*/
 
 public class GameEnvironment {
     

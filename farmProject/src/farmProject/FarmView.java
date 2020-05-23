@@ -16,6 +16,11 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Font;
 
+/** 
+* This class is what the user will see of the farm when playing the game
+* @author Alec, Christian
+*/
+
 public class FarmView {
 
 	private JFrame frmFarm;
