@@ -9,6 +9,11 @@ public abstract class Item {
     private String type;
     private String description;
     
+    /**
+     * Creates item object
+     * @param typee name of item
+     * @param descriptionn items description
+     */
     public Item(String typee, String descriptionn){
         type = typee;
         description = descriptionn;
