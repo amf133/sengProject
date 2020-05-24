@@ -76,6 +76,9 @@ public class SetupScreen {
 				showMessageDialog(null, "Farm name must be between 3 and 15 characters long.");
 			}
 			
+			else if (!farmerName.matches("[a-zA-Z]+")){
+				showMessageDialog(null, "Farmer name contains illicit characters");
+			}
 			else if ( Integer.parseInt(farmerAge) < 0 ) {
 				
 				showMessageDialog(null, "Please enter a valid age.");

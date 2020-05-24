@@ -22,6 +22,7 @@ public class WFinalScore {
 	 * @param farmerName name of farmer
 	 * @param farmName name of farm
 	 * @param finalScore users final score on game ending
+	 * @param days number of days user played for
 	 */
 	public WFinalScore(String farmerName, String farmName, String finalScore, int days) {
 		initialize();

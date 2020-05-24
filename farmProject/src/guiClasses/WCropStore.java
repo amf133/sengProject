@@ -173,7 +173,6 @@ public class WCropStore {
 						txtCrops.append("\n" + c.getQuantity() + " " + c.getType());
 						lblBal.setText("Balance: " + new DecimalFormat("0.00").format(farmObject.getBal()));
 						txtQuant.setText("0");
-						
 					}
 					else {
 						showMessageDialog(null, "You do not have enough money");	
