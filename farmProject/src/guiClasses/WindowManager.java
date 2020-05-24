@@ -1,9 +1,15 @@
-package farmProject;
+package guiClasses;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+
+import farmProject.Animal;
+import farmProject.Crop;
+import farmProject.Farm;
+import farmProject.Farmer;
+import farmProject.Item;
 
 
 

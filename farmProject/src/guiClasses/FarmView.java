@@ -1,4 +1,4 @@
-package farmProject;
+package guiClasses;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
@@ -13,6 +13,7 @@ import java.text.DecimalFormat;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+
 import java.awt.Color;
 import java.awt.Font;
 

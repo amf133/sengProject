@@ -1,4 +1,4 @@
-package farmProject;
+package guiClasses;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;

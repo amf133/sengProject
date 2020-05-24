@@ -1,4 +1,4 @@
-package farmProject;
+package guiClasses;
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
@@ -15,6 +15,10 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
+
+import farmProject.Crop;
+import farmProject.Farm;
+
 import javax.swing.JTextArea;
 
 

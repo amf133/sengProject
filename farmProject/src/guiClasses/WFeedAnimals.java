@@ -1,4 +1,4 @@
-package farmProject;
+package guiClasses;
 
 import java.util.ArrayList;
 
@@ -6,6 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+
+import farmProject.Animal;
+import farmProject.FoodItem;
 
 import java.awt.Font;
 import javax.swing.JButton;

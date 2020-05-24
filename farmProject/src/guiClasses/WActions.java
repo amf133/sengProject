@@ -1,8 +1,13 @@
-package farmProject;
+package guiClasses;
 
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
+import farmProject.Animal;
+import farmProject.Crop;
+import farmProject.CropItem;
+import farmProject.FoodItem;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.ImageIcon;

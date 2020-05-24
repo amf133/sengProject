@@ -1,4 +1,4 @@
-package farmProject;
+package guiClasses;
 
 
 
@@ -15,6 +15,10 @@ import static javax.swing.JOptionPane.showMessageDialog;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
+
+import farmProject.Animal;
+import farmProject.Farm;
+
 import java.awt.Color;
 import javax.swing.JComboBox;
 

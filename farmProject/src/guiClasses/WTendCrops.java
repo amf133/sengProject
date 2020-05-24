@@ -1,4 +1,4 @@
-package farmProject;
+package guiClasses;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+
+import farmProject.Crop;
+import farmProject.CropItem;
 
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
