@@ -92,17 +92,17 @@ public class WItemStore {
 	/**
 	 * Creates map of crop items with type as key and, cost - description - benefit as value
 	 * stored as a list
-	 * @return cItems purchable crop items
+	 * @return cItems purchasable crop items
 	 */
 	public Map<String, String[]> getCItems(){
 		Map<String, String[]> cItems = new HashMap<>();
 		
-		String[] fert = new String[] {"20.00", "Increase growth rate 20%", "0.3"};
+		String[] fert = new String[] {"20.00", "Increase growth rate 30%", "0.3"};
 		String[] sun = new String[] {"40.00", "Increase growth rate 50%", "0.5"};
 		String[] inst = new String[] {"80.00", "Increase growth rate 100%", "1.0"};
 		cItems.put("Fertilizer", fert);
 		cItems.put("Sunglight", sun);
-		cItems.put("Instant", inst);
+		cItems.put("Roids", inst);
 		return cItems;
 	}
 

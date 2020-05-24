@@ -230,9 +230,9 @@ public class GameEnvironment {
      * Implements buying items. User selects type of item. Balance is reduced and items are added to farm object
      */
     private void storeItems(){
-        String[] itemTypes = new String[]{"Medicine", "Grub", "Seeds", "Fertilizer", "Sunlight", "Instant grow"};
+        String[] itemTypes = new String[]{"Medicine", "Grub", "Seeds", "Fertilizer", "Sunlight", "Roids"};
         String[] itemDescriptions = new String[]{"Max health on all animals", "Increase all animals health by 20% of its max", "Increase all animals health by 50% of its max",
-                                                 "Increase growth rate 20%", "Increase growth rate 50%", "Increase growth rate 100%"};
+                                                 "Increase growth rate 30%", "Increase growth rate 50%", "Increase growth rate 100%"};
         Double[] itemCosts = new Double[]{20.0, 50.0, 10.0, 20.0, 40.0, 80.0}; // value of crops?
         String input = "0";
         
